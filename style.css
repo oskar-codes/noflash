@@ -79,6 +79,11 @@ img {
   margin-top: 65px;
 }
 
+#search-results {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
 #projects, #search-results {
   text-align: left;
   font-size: 30px;
