@@ -89,3 +89,7 @@ div[data-project] p {
   margin-left: 0px;
   width: fit-content;
 }
+
+table {
+  width: 100vw;
+}
