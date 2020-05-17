@@ -79,7 +79,7 @@ function closeImages() {
     imagesContainer.style.top = "100vh";
   } else if (layer === 3) {
     layer = 2;
-    document.getElementById("projects").style.display = "block";
+    document.getElementById("projects").style.display = "table";
     
     projects.forEach((e) => {
       e.style.display = "none";
