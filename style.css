@@ -128,5 +128,5 @@ div[data-project] p {
 }
 
 #search:focus::placeholder {
-  color: #bbb;
+  color: #666;
 }
