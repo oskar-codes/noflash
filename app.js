@@ -122,6 +122,7 @@ input.addEventListener('keyup',(e) => {
   if (input.value !== "") {
     for (var i=0; i<projects.length; i++) {
       let p = projects[i];
+      console.log(p);
       p.match = false;
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
