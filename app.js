@@ -33,9 +33,17 @@ function openTag(t) {
   tag.style.display = "block";
 
   projectsContainer.innerHTML = "";
+  const get = (e,t) => e.getAttribute(t);
   projects.forEach((e, i) => {
     e.style.display = "none";
-    projectsContainer.innerHTML += `<p onclick='openProject(${i})' class='project'>${e.getAttribute("data-project")}</p>${(i + 1 === projects.length ? "" : "")}`;
+    projectsContainer.innerHTML += `
+      <tr onclick='openProject(${i})' class='project'>
+        <td>${i+1}</td>
+        <td>${get(e,"author"}</td>
+        <td>${get(e,"project"}</td>
+        <td>${get(e,"location"}</td>
+        <td>${get(e,"date"}</td>
+      </tr>`
   });
 
   imagesContainer.style.top = "0vh"
