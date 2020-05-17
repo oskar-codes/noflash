@@ -59,8 +59,10 @@ function openProject(i) {
 
 function closeImages() {
   if (layer === 2) {
+    layer = 1;
     imagesContainer.style.top = "100vh";
   } else if (layer === 3) {
+    layer = 2;
     var projectButtons = document.querySelectorAll('.project');
     for (var i = 0; i<projectButtons.length; i++) {
       projectButtons[i].style.display = "block";
