@@ -1,6 +1,7 @@
 var divs = document.querySelectorAll("#images div[data-tag]");
 var tags = new Set();
 var layer = 1;
+var projectsTable = document.getElementById("projects");
 
 for (var i=0; i<divs.length; i++) {
   var div = divs[i];
@@ -75,7 +76,8 @@ function openProject(i) {
     e.style.opacity = 1;
   },10,projects[i]);
   
-  document.getElementById("projects").style.display = "none";
+  projectsTable.style.display = "none";
+  projectsTable.style.opacity = 0;
   layer = 3;
 }
 
@@ -88,7 +90,10 @@ function closeImages() {
     },300);
   } else if (layer === 3) {
     layer = 2;
-    document.getElementById("projects").style.display = "table";
+    projectsTable.style.display = "table";
+    window.setTimeout(() => {
+      projectsTable.style.opacity = 1;
+    },10);
     
     projects.forEach((e) => {
       e.style.display = "none";
