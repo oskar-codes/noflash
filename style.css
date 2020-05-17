@@ -50,11 +50,11 @@ img {
   margin-left: 30px;
 }
 
-.tag, #back, .project {
+.tag, #back, .project, .search-result {
   cursor: pointer;
 }
 
-.tag:hover, #back:hover, .project:hover {
+.tag:hover, #back:hover, .project:hover, .search-result:hover {
   font-style: italic;
   color: red;
 }
@@ -69,7 +69,7 @@ img {
   position: fixed;
 }
 
-#projects {
+#projects, #search-results {
   text-align: left;
   font-size: 30px;
   margin-left: 30px;
@@ -90,4 +90,19 @@ div[data-project] p {
   margin: 8px;
   margin-left: 0px;
   width: fit-content;
+}
+
+#search {
+  background-color: #222;
+  border: none;
+  color: white;
+  font-size: 30px;
+}
+
+#search::placeholder {
+  color: white;
+}
+
+#search:focus {
+  outline-color: white;
 }
