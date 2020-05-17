@@ -1,5 +1,6 @@
 var divs = document.querySelectorAll("#images div[data-tag]");
 var tags = new Set();
+var layer = 1;
 
 for (var i=0; i<divs.length; i++) {
   var div = divs[i];
@@ -17,6 +18,7 @@ tags.forEach((e, i) => {
 var imagesContainer = document.querySelector("#images");
 var projectsContainer = document.querySelector("#projects");
 function openTag(t) {
+  layer = 2;
   divs.forEach((e) => {
     if (e.getAttribute("data-tag") === t) {
       e.style.display = "block";
@@ -25,32 +27,47 @@ function openTag(t) {
     }
   });
 
-
   tag = document.querySelector(`div[data-tag='${t}']`);
-  window.classes = Array.from(tag.children);
+  window.projects = Array.from(tag.children);
 
   tag.style.display = "block";
 
   projectsContainer.innerHTML = "";
-  classes.forEach((e, i) => {
+  projects.forEach((e, i) => {
     e.style.display = "none";
-    projectsContainer.innerHTML += `<p onclick='openProject(${i})' class='project'>${e.getAttribute("data-project")}</p>${(i + 1 === classes.length ? "" : "")}`;
+    projectsContainer.innerHTML += `<p onclick='openProject(${i})' class='project'>${e.getAttribute("data-project")}</p>${(i + 1 === projects.length ? "" : "")}`;
   });
 
   imagesContainer.style.top = "0vh"
 }
 
 function openProject(i) {
-  classes.forEach((e) => {
+  projects.forEach((e) => {
     e.style.display = "none";
-    e.style.opacity = 0
   });
-  classes[i].style.display = "block";
+  projects[i].style.display = "block";
   window.setTimeout((e) => {
-    classes[i].style.opacity = 1;
-  })
+    projects[i].style.opacity = 1;
+  });
+  
+  var projectButtons = document.querySelectorAll('.project');
+  for (var i = 0; i<projectButtons.length; i++) {
+    projectButtons[i].style.display = "none";
+  }
+  layer = 3;
 }
 
 function closeImages() {
-  imagesContainer.style.top = "100vh"
+  if (layer === 2) {
+    imagesContainer.style.top = "100vh";
+  } else if (layer === 3) {
+    var projectButtons = document.querySelectorAll('.project');
+    for (var i = 0; i<projectButtons.length; i++) {
+      projectButtons[i].style.display = "block";
+    }
+    
+    projects.forEach((e) => {
+      e.style.display = "none";
+    });
+  }
 }
