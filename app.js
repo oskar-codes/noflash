@@ -84,6 +84,7 @@ function closeImages() {
     
     projects.forEach((e) => {
       e.style.display = "none";
+      e.style.opacity = 0;
     });
   }
 }
