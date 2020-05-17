@@ -86,5 +86,6 @@ div[data-project] p {
 
 .project {
   margin: 8px;
+  margin-left: 0px;
   width: fit-content;
 }
