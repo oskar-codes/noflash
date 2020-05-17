@@ -116,6 +116,7 @@ div[data-project] p {
 
 #search::placeholder {
   color: white;
+  transition: color 0.1s;
 }
 
 #search:focus {
@@ -124,4 +125,8 @@ div[data-project] p {
 
 ::selection {
   background-color: red;
+}
+
+#search:focus::placeholder {
+  color: #bbb;
 }
