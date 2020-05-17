@@ -61,7 +61,9 @@ function openTag(t) {
       </tr>`
   });
 
-  imagesContainer.style.top = "0vh"
+  window.setTimeout(() => {
+    imagesContainer.style.top = "0vh";
+  },10);
 }
 
 function openProject(i) {
