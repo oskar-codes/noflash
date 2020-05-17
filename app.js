@@ -33,7 +33,18 @@ function openTag(t) {
   tag.style.display = "block";
 
   projectsContainer.innerHTML = "";
-  const get = (e,t) => e.getAttribute(t);
+  const get = (e,t) => e.getAttribute("data-" + t);
+  
+  projectsContainer.innerHTML += `
+    <tr>
+      <th>ID</th>
+      <th>AUTHOR</th>
+      <th>TITLE</th>
+      <th>LOCATION</th>
+      <th>DATE</th>
+    </tr>
+  `
+  
   projects.forEach((e, i) => {
     e.style.display = "none";
     projectsContainer.innerHTML += `
