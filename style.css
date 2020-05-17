@@ -122,6 +122,6 @@ div[data-project] p {
   outline: none;
 }
 
-:selection {
+::selection {
   background-color: red;
 }
