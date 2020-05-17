@@ -2,11 +2,13 @@
   user-select: none;
 }
 
-body {
+body,html {
   font-family: sans-serif;
   background-color: #222222;
   color: white;
   overflow: hidden;
+  position: relative;
+  height: 100%;
 }
 
 header {
