@@ -33,7 +33,7 @@ function openTag(t) {
   tag.style.display = "block";
 
   projectsContainer.innerHTML = "";
-  const get = (e,t) => e.getAttribute("data-" + t);
+  const get = (e,t) => e.getAttribute("data-" + t) || "unknown";
   
   projectsContainer.innerHTML += `
     <tr>
