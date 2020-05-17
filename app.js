@@ -13,7 +13,7 @@ for (var i=0; i<divs.length; i++) {
 tags = Array.from(tags);
 var tagContainer = document.getElementById("tags");
 tags.forEach((e, i) => {
-  tagContainer.innerHTML += `<span onclick="openTag('${e}')" class="tag">${e}</span>${i + 1 === tags.length ? ", <input id='search' placeholder='search'>" : ", "}`
+  tagContainer.innerHTML += `<span onclick="openTag('${e}')" class="tag">${e}</span>${i + 1 === tags.length ? ", <input autocomplete='off' id='search' placeholder='search'>" : ", "}`
 });
 
 var imagesContainer = document.querySelector("#images");
