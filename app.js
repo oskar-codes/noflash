@@ -39,10 +39,10 @@ function openTag(t) {
     projectsContainer.innerHTML += `
       <tr onclick='openProject(${i})' class='project'>
         <td>${i+1}</td>
-        <td>${get(e,"author"}</td>
-        <td>${get(e,"project"}</td>
-        <td>${get(e,"location"}</td>
-        <td>${get(e,"date"}</td>
+        <td>${get(e,"author")}</td>
+        <td>${get(e,"project")}</td>
+        <td>${get(e,"location")}</td>
+        <td>${get(e,"date")}</td>
       </tr>`
   });
 
