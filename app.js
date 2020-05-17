@@ -127,6 +127,7 @@ input.addEventListener('keyup',(e) => {
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
           if (p.data[d].nodeValue.includes(input.value) && !p.match) {
+            console.log('Match!');
             p.match = true;
             if (searchResults.innerHTML === "") {
               searchResults.innerHTML += `
