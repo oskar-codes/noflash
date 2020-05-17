@@ -47,6 +47,7 @@ function openTag(t) {
   
   projects.forEach((e, i) => {
     e.style.display = "none";
+    e.style.opacity = 0;
     projectsContainer.innerHTML += `
       <tr onclick='openProject(${i})' class='project'>
         <td>${i+1}</td>
