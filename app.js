@@ -69,10 +69,7 @@ function openProject(i) {
     e.style.opacity = 1;
   },10,projects[i]);
   
-  var projectButtons = document.querySelectorAll('.project');
-  for (var i = 0; i<projectButtons.length; i++) {
-    projectButtons[i].style.display = "none";
-  }
+  document.getElementById("projects").style.display = "none";
   layer = 3;
 }
 
@@ -82,10 +79,7 @@ function closeImages() {
     imagesContainer.style.top = "100vh";
   } else if (layer === 3) {
     layer = 2;
-    var projectButtons = document.querySelectorAll('.project');
-    for (var i = 0; i<projectButtons.length; i++) {
-      projectButtons[i].style.display = "block";
-    }
+    document.getElementById("projects").style.display = "block";
     
     projects.forEach((e) => {
       e.style.display = "none";
