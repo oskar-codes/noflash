@@ -111,6 +111,7 @@ div[data-project] p {
   border: none;
   color: white;
   font-size: 30px;
+  caret-color: red;
 }
 
 #search::placeholder {
@@ -119,4 +120,8 @@ div[data-project] p {
 
 #search:focus {
   outline: none;
+}
+
+:selection {
+  background-color: red;
 }
