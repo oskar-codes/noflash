@@ -112,22 +112,20 @@ for (var i=0; i<projectNodes.length; i++) {
   projects.push({
     tag: p.parentNode.getAttribute('data-tag'),
     id: Array.from(p.parentNode.children).indexOf(p),
-    data: data(p),
-    match: false
+    data: data(p)
   });
 }
 
 var searchResults = document.querySelector("#search-results");
 input.addEventListener('keyup',(e) => {
-  console.log(input.value);
   searchResults.innerHTML = "";
   if (input.value !== "") {
     for (var i=0; i<projects.length; i++) {
       let p = projects[i];
+      p.match = false;
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
           if (p.data[d].nodeValue.includes(input.value) && !p.match) {
-            console.log('Match!');
             p.match = true;
             if (searchResults.innerHTML === "") {
               searchResults.innerHTML += `
@@ -151,9 +149,6 @@ input.addEventListener('keyup',(e) => {
         }
       }
     }
-  }
-  for (var i=0; i<projects.length; i++) {
-    projects[i].match = false;
   }
 });
 
