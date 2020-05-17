@@ -13,7 +13,7 @@ for (var i=0; i<divs.length; i++) {
 tags = Array.from(tags);
 var tagContainer = document.getElementById("tags");
 tags.forEach((e, i) => {
-  tagContainer.innerHTML += `<span onclick="openTag('${e}')" class="tag">${e}</span>${i + 1 === tags.length ? "" : ", "}`
+  tagContainer.innerHTML += `<span onclick="openTag('${e}')" class="tag">${e}</span>${i + 1 === tags.length ? ", <input id='search' placeholder='search'>" : ", "}`
 });
 
 var imagesContainer = document.querySelector("#images");
@@ -100,4 +100,61 @@ function closeImages() {
       e.style.opacity = 0;
     });
   }
+}
+
+const data = (el) => Array.from(el.attributes).filter((e) => /^data-/.test(e.name));
+
+var input = document.getElementById('search');
+var projects = [];
+var projectNodes = document.querySelectorAll('div[data-project]');
+for (var i=0; i<projectNodes.length; i++) {
+  let p = projectNodes[i];
+  projects.push({
+    tag: p.parentNode.getAttribute('data-tag'),
+    id: Array.from(p.parentNode.children).indexOf(p),
+    data: data(p),
+    match: false
+  });
+}
+
+var searchResults = document.querySelector("#search-results");
+input.addEventListener('keyup',(e) => {
+  searchResults.innerHTML = "";
+  if (input.value !== "") {
+    for (var i=0; i<projects.length; i++) {
+      let p = projects[i];
+      console.log(p.data);
+      for (var d=0; d<4; d++) {
+        if (p.data[d]) {
+          console.log(input.value + " / " + p.data[d].nodeValue)
+          if (p.data[d].nodeValue.includes(input.value) && !p.match) {
+            p.match = true;
+            if (searchResults.innerHTML === "") {
+              searchResults.innerHTML += `
+              <tr>
+                <th>AUTHOR</td>
+                <th>TITLE</td>
+                <th>LOCATION</td>
+                <th>DATE</td>
+              </tr>
+              `
+            }
+            searchResults.innerHTML += `
+              <tr onclick='openSearchResult("${p.tag}",${p.id})' class='search-result'>
+                <td>${p.data[0].nodeValue}</td>
+                <td>${p.data[1].nodeValue}</td>
+                <td>${p.data[2].nodeValue}</td>
+                <td>${p.data[3].nodeValue}</td>
+              </tr>
+            `
+          }
+        }
+      }
+    }
+  }
+});
+
+function openSearchResult(t,i) {
+  openTag(t);
+  openProject(i);
 }
