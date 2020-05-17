@@ -16,11 +16,12 @@ tags.forEach((e, i) => {
 });
 
 var imagesContainer = document.querySelector("#images");
-imagesContainer.style.display = "block";
 
 var projectsContainer = document.querySelector("#projects");
 function openTag(t) {
   layer = 2;
+  imagesContainer.style.display = "block";
+  
   divs.forEach((e) => {
     if (e.getAttribute("data-tag") === t) {
       e.style.display = "block";
@@ -80,7 +81,9 @@ function closeImages() {
   if (layer === 2) {
     layer = 1;
     imagesContainer.style.top = "100vh";
-    document.querySelector("#images").style.display = "none";
+    window.setTimeout(() => {
+      imagesContainer.style.display = "none";
+    },300);
   } else if (layer === 3) {
     layer = 2;
     document.getElementById("projects").style.display = "table";
