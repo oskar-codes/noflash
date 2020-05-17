@@ -152,6 +152,9 @@ input.addEventListener('keyup',(e) => {
       }
     }
   }
+  for (var i=0; i<projects.length; i++) {
+    projects[i].match = false;
+  }
 });
 
 function openSearchResult(t,i) {
