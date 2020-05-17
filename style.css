@@ -70,10 +70,10 @@ img {
 
 #projects {
   text-align: left;
-  position: fixed;
   font-size: 30px;
   margin-left: 30px;
   margin-top: 65px;
+  width: 100vw;
 }
 
 div[data-project] {
@@ -88,8 +88,4 @@ div[data-project] p {
   margin: 8px;
   margin-left: 0px;
   width: fit-content;
-}
-
-table {
-  width: 100vw;
 }
