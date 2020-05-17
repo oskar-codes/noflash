@@ -16,6 +16,8 @@ tags.forEach((e, i) => {
 });
 
 var imagesContainer = document.querySelector("#images");
+imagesContainer.style.display = "block";
+
 var projectsContainer = document.querySelector("#projects");
 function openTag(t) {
   layer = 2;
@@ -78,6 +80,7 @@ function closeImages() {
   if (layer === 2) {
     layer = 1;
     imagesContainer.style.top = "100vh";
+    document.querySelector("#images").style.display = "none";
   } else if (layer === 3) {
     layer = 2;
     document.getElementById("projects").style.display = "table";
