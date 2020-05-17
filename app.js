@@ -102,7 +102,7 @@ function closeImages() {
   }
 }
 
-const data = (el) => Array.from(el.attributes).filter((e) => /^data-/.test(e.name));
+const attr = (el) => Array.from(el.attributes).filter((e) => /^data-/.test(e.name));
 
 var input = document.getElementById('search');
 var projects = [];
@@ -112,7 +112,7 @@ for (var i=0; i<projectNodes.length; i++) {
   projects.push({
     tag: p.parentNode.getAttribute('data-tag'),
     id: Array.from(p.parentNode.children).indexOf(p),
-    data: data(p)
+    data: attr(p)
   });
 }
 
