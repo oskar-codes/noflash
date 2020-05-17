@@ -117,7 +117,7 @@ for (var i=0; i<projectNodes.length; i++) {
 }
 
 var searchResults = document.querySelector("#search-results");
-input.addEventListener('keyup',(e) => {
+input.addEventListener('keydown',(e) => {
   searchResults.innerHTML = "";
   if (input.value !== "") {
     for (var i=0; i<existingProjects.length; i++) {
