@@ -46,8 +46,8 @@ function openProject(i) {
     e.style.display = "none";
   });
   projects[i].style.display = "block";
-  window.setTimeout((e,el) => {
-    el.style.opacity = 1;
+  window.setTimeout((e) => {
+    e.style.opacity = 1;
   },10,projects[i]);
   
   var projectButtons = document.querySelectorAll('.project');
