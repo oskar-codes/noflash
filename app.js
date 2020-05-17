@@ -105,11 +105,11 @@ function closeImages() {
 const attr = (el) => Array.from(el.attributes).filter((e) => /^data-/.test(e.name));
 
 var input = document.getElementById('search');
-var projects = [];
+var existingProjects = [];
 var projectNodes = document.querySelectorAll('div[data-project]');
 for (var i=0; i<projectNodes.length; i++) {
   let p = projectNodes[i];
-  projects.push({
+  existingProjects.push({
     tag: p.parentNode.getAttribute('data-tag'),
     id: Array.from(p.parentNode.children).indexOf(p),
     data: attr(p)
@@ -120,8 +120,8 @@ var searchResults = document.querySelector("#search-results");
 input.addEventListener('keyup',(e) => {
   searchResults.innerHTML = "";
   if (input.value !== "") {
-    for (var i=0; i<projects.length; i++) {
-      let p = projects[i];
+    for (var i=0; i<existingProjects.length; i++) {
+      let p = existingProjects[i];
       console.log(p);
       p.match = false;
       for (var d=0; d<4; d++) {
