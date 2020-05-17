@@ -1,0 +1,90 @@
+* {
+  user-select: none;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #222222;
+  color: white;
+  overflow: hidden;
+}
+
+header {
+  color: red;
+  font-size: 50px;
+}
+
+h1 {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  margin-left: 30px;
+}
+
+#description {
+  margin-top: 45px;
+  margin-left: 30px;
+  font-size: 30px;
+}
+
+#images {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  position: absolute;
+  top: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: #222222;
+  transition: top 0.3s ease-in-out;
+}
+
+img {
+  width: 50%;
+  margin: 20px auto;
+}
+
+#tags {
+  color: white;
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+.tag, #back, .project {
+  cursor: pointer;
+}
+
+.tag:hover, #back:hover, .project:hover {
+  font-style: italic;
+  color: red;
+}
+
+#back {
+  margin-left: 30px;
+  color: white;
+  text-align: left;
+  font-size: 30px;
+  margin-top: 20px;
+  width: 50px;
+  position: fixed;
+}
+
+#projects {
+  text-align: left;
+  position: fixed;
+  font-size: 30px;
+  margin-left: 30px;
+  margin-top: 65px;
+}
+
+div[data-project] {
+  transition: all 0.3s;
+}
+
+div[data-project] p {
+  font-size: 30px;
+}
+
+.project {
+  margin: 8px;
+  width: fit-content;
+}
