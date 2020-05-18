@@ -24,6 +24,9 @@ function openTag(t) {
   layer = 2;
   imagesContainer.style.display = "block";
   
+  projectsTable.style.display = "table";
+  projectsTable.style.opacity = 1;
+  
   divs.forEach((e) => {
     if (e.getAttribute("data-tag") === t) {
       e.style.display = "block";
