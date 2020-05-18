@@ -13,7 +13,7 @@ for (var i=0; i<divs.length; i++) {
 tags = Array.from(tags);
 var tagContainer = document.getElementById("tags");
 tags.forEach((e, i) => {
-  tagContainer.innerHTML += `<span onclick="openTag('${e}')" class="tag">${e}</span>${i + 1 === tags.length ? ", <input spellcheck='false' autocomplete='off' id='search' placeholder='search'>" : ", "}`
+  tagContainer.innerHTML += `${e !== "random" ? '<span onclick="openTag(`'+ e +'`)" class="tag">'+ e +'</span>' : ""}${i + 1 === tags.length ? "<span onclick='openRandom()' class='tag'>random</span>, <input spellcheck='false' autocomplete='off' id='search' placeholder='search'>" : ", "}`
 });
 
 var imagesContainer = document.querySelector("#images");
@@ -62,6 +62,25 @@ function openTag(t) {
         <td>${get(e,"location")}</td>
         <td>${get(e,"date")}</td>
       </tr>`
+  });
+
+  window.setTimeout(() => {
+    imagesContainer.style.top = "0vh";
+  },10);
+}
+
+function openRandom() {
+  layer = 2;
+  imagesContainer.style.display = "block";
+  
+  projectsContainer.innerHTML = ""
+
+  divs.forEach((e) => {
+    if (e.getAttribute("data-tag") === "random") {
+      e.style.display = "block";
+    } else {
+      e.style.display = "none";
+    }
   });
 
   window.setTimeout(() => {
@@ -212,4 +231,9 @@ function sort(e) {
   for (var i=0; i<arr.length; i++) {
     if (i !== collumn) arr[i].setAttribute("data-order", "-1");
   }
+}
+
+var randomPictures = document.querySelectorAll("div[data-tag='random'] img");
+for (var i=0; i<randomPictures.length; i++) {
+  randomPictures[i].outerHTML = `<div style='position: relative; vertical-align: middle; width: 100%; height: 100%; background-color: black;'>${randomPictures[i].outerHTML}</div>`
 }
