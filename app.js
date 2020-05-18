@@ -127,28 +127,31 @@ input.addEventListener('keyup',(e) => {
       p.match = false;
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
-          if (p.data[d].nodeValue.toLowerCase().includes(input.value.trim().toLowerCase()) && !p.match && input.value.trim() !== "") {
-            p.match = true;
-            if (searchResults.innerHTML === "") {
+          var words = input.value.split(" ");
+          for (var j=0; j<words.length; j++) {
+            if (p.data[d].nodeValue.toLowerCase().includes(words[j]) && !p.match && input.value.trim() !== "" && words[j].trim() !== "") {
+              p.match = true;
+              if (searchResults.innerHTML === "") {
+                searchResults.innerHTML += `
+                <thead>
+                  <tr>
+                    <th onclick='sort(this)' data-order="-1">AUTHOR</td>
+                    <th onclick='sort(this)' data-order="-1">TITLE</td>
+                    <th onclick='sort(this)' data-order="-1">LOCATION</td>
+                    <th onclick='sort(this)' data-order="-1">DATE</td>
+                  </tr>
+                </thead>
+                `
+              }
               searchResults.innerHTML += `
-              <thead>
-                <tr>
-                  <th onclick='sort(this)' data-order="-1">AUTHOR</td>
-                  <th onclick='sort(this)' data-order="-1">TITLE</td>
-                  <th onclick='sort(this)' data-order="-1">LOCATION</td>
-                  <th onclick='sort(this)' data-order="-1">DATE</td>
+                <tr onclick='openSearchResult("${p.tag}",${p.id})' class='search-result'>
+                  <td class='item'>${p.data[0].nodeValue}</td>
+                  <td class='item'>${p.data[1].nodeValue}</td>
+                  <td class='item'>${p.data[2].nodeValue}</td>
+                  <td class='item'>${p.data[3].nodeValue}</td>
                 </tr>
-              </thead>
               `
             }
-            searchResults.innerHTML += `
-              <tr onclick='openSearchResult("${p.tag}",${p.id})' class='search-result'>
-                <td class='item'>${p.data[0].nodeValue}</td>
-                <td class='item'>${p.data[1].nodeValue}</td>
-                <td class='item'>${p.data[2].nodeValue}</td>
-                <td class='item'>${p.data[3].nodeValue}</td>
-              </tr>
-            `
           }
         }
       }
