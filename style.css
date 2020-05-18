@@ -135,3 +135,27 @@ div[data-project] p {
 #search:focus::placeholder {
   color: #666;
 }
+
+#random-container {
+  margin: 10px 50px;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-auto-rows: 400px;
+}
+
+#random-container img {
+  width: 100%;
+  margin: auto 0;
+  vertical-align: middle;
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; 
+}
