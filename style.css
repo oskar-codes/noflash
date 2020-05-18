@@ -73,6 +73,7 @@ img {
   margin-top: 20px;
   width: 50px;
   position: fixed;
+  z-index: 1;
 }
 
 #projects {
