@@ -40,13 +40,15 @@ function openTag(t) {
   const get = (e,t) => e.getAttribute("data-" + t) || "unknown";
   
   projectsContainer.innerHTML += `
-    <tr>
-      <th>ID</th>
-      <th>AUTHOR</th>
-      <th>TITLE</th>
-      <th>LOCATION</th>
-      <th>DATE</th>
-    </tr>
+    <thead>
+      <tr>
+        <th onclick='sort(this)'>ID</th>
+        <th onclick='sort(this)'>AUTHOR</th>
+        <th onclick='sort(this)'>TITLE</th>
+        <th onclick='sort(this)'>LOCATION</th>
+        <th onclick='sort(this)'>DATE</th>
+      </tr>
+    </thead>
   `
   
   projects.forEach((e, i) => {
@@ -129,20 +131,22 @@ input.addEventListener('keyup',(e) => {
             p.match = true;
             if (searchResults.innerHTML === "") {
               searchResults.innerHTML += `
-              <tr>
-                <th>AUTHOR</td>
-                <th>TITLE</td>
-                <th>LOCATION</td>
-                <th>DATE</td>
-              </tr>
+              <thead>
+                <tr>
+                  <th onclick='sort(this)' data-order="-1">AUTHOR</td>
+                  <th onclick='sort(this)' data-order="-1">TITLE</td>
+                  <th onclick='sort(this)' data-order="-1">LOCATION</td>
+                  <th onclick='sort(this)' data-order="-1">DATE</td>
+                </tr>
+              </thead>
               `
             }
             searchResults.innerHTML += `
               <tr onclick='openSearchResult("${p.tag}",${p.id})' class='search-result'>
-                <td>${p.data[0].nodeValue}</td>
-                <td>${p.data[1].nodeValue}</td>
-                <td>${p.data[2].nodeValue}</td>
-                <td>${p.data[3].nodeValue}</td>
+                <td class='item'>${p.data[0].nodeValue}</td>
+                <td class='item'>${p.data[1].nodeValue}</td>
+                <td class='item'>${p.data[2].nodeValue}</td>
+                <td class='item'>${p.data[3].nodeValue}</td>
               </tr>
             `
           }
@@ -156,4 +160,53 @@ input.addEventListener('keyup',(e) => {
 function openSearchResult(t,i) {
   openTag(t);
   openProject(i);
+}
+
+function sort(e) {
+  let collumn = Array.from(e.parentNode.children).indexOf(e);
+  let table = e.parentNode.parentNode.parentNode;
+  let head = e.parentNode.parentNode;
+  let values = Array.from(table.children);
+  let order = parseInt(e.getAttribute("data-order"));
+  values.splice(0,1);
+  if (order === -1 || order === 1) {
+    e.setAttribute("data-order","0");
+    var func = (a,b) => {
+      var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
+      var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
+      if (nameA < nameB) {
+        return -1;
+      }
+      if (nameA > nameB) {
+        return 1;
+      }
+      return 0;
+    }
+  } else {
+    e.setAttribute("data-order","1");
+    var func = (a,b) => {
+      var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
+      var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
+      if (nameA < nameB) {
+        return 1;
+      }
+      if (nameA > nameB) {
+        return -1;
+      }
+      return 0;
+    }
+  }
+  values.sort(func);
+
+  table.innerHTML = `
+    ${head.outerHTML}
+  `
+  values.forEach((e) => {
+    table.innerHTML += e.outerHTML;
+  });
+
+  var arr = table.children[0].children[0].children;
+  for (var i=0; i<arr.length; i++) {
+    if (i !== collumn) arr[i].setAttribute("data-order", "-1");
+  }
 }
