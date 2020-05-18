@@ -113,11 +113,11 @@ function closeImages() {
     imagesContainer.style.top = "100vh";
     window.setTimeout(() => {
       imagesContainer.style.display = "none";
+      projects.forEach((e) => {
+        e.style.display = "none";
+        e.style.opacity = 0;
+      });
     },300);
-    projects.forEach((e) => {
-      e.style.display = "none";
-      e.style.opacity = 0;
-    });
   } else {
     if (layer === 2) {
       layer = 1;
