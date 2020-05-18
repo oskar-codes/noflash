@@ -146,8 +146,6 @@ div[data-project] p {
 
 #random-container img {
   width: 100%;
-  margin: auto 0;
-  vertical-align: middle;
   max-height: 100%;
   max-width: 100%;
   width: auto;
