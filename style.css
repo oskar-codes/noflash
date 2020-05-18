@@ -56,11 +56,11 @@ img {
   margin-left: 30px;
 }
 
-.tag, #back, .project, .search-result {
+.tag, #back, .project, .search-result, th {
   cursor: pointer;
 }
 
-.tag:hover, #back:hover, .project:hover, .search-result:hover {
+.tag:hover, #back:hover, .project:hover, .search-result:hover, th:hover {
   font-style: italic;
   color: red;
 }
