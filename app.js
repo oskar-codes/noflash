@@ -150,6 +150,7 @@ input.addEventListener('keyup',(e) => {
       }
     }
   }
+  if (searchResults.innerHTML === "" && input.value !== "") searchResults.innerHTML += 'No results found.'
 });
 
 function openSearchResult(t,i) {
