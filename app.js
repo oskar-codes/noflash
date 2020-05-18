@@ -42,11 +42,11 @@ function openTag(t) {
   projectsContainer.innerHTML += `
     <thead>
       <tr>
-        <th onclick='sort(this)'>ID</th>
-        <th onclick='sort(this)'>AUTHOR</th>
-        <th onclick='sort(this)'>TITLE</th>
-        <th onclick='sort(this)'>LOCATION</th>
-        <th onclick='sort(this)'>DATE</th>
+        <th onclick='sort(this)' data-order="-1">ID</th>
+        <th onclick='sort(this)' data-order="-1">AUTHOR</th>
+        <th onclick='sort(this)' data-order="-1">TITLE</th>
+        <th onclick='sort(this)' data-order="-1">LOCATION</th>
+        <th onclick='sort(this)' data-order="-1">DATE</th>
       </tr>
     </thead>
   `
