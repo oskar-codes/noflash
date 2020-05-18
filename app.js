@@ -2,6 +2,7 @@ var divs = document.querySelectorAll("#images div[data-tag]");
 var tags = new Set();
 var layer = 1;
 var projectsTable = document.getElementById("projects");
+var fromSearch = false;
 
 for (var i=0; i<divs.length; i++) {
   var div = divs[i];
@@ -103,23 +104,36 @@ function openProject(i) {
 }
 
 function closeImages() {
-  if (layer === 2) {
+  if (fromSearch) {
+    fromSearch = false;
     layer = 1;
     imagesContainer.style.top = "100vh";
     window.setTimeout(() => {
       imagesContainer.style.display = "none";
     },300);
-  } else if (layer === 3) {
-    layer = 2;
-    projectsTable.style.display = "table";
-    window.setTimeout(() => {
-      projectsTable.style.opacity = 1;
-    },10);
-    
     projects.forEach((e) => {
       e.style.display = "none";
       e.style.opacity = 0;
     });
+  } else {
+    if (layer === 2) {
+      layer = 1;
+      imagesContainer.style.top = "100vh";
+      window.setTimeout(() => {
+        imagesContainer.style.display = "none";
+      },300);
+    } else if (layer === 3) {
+      layer = 2;
+      projectsTable.style.display = "table";
+      window.setTimeout(() => {
+        projectsTable.style.opacity = 1;
+      },10);
+
+      projects.forEach((e) => {
+        e.style.display = "none";
+        e.style.opacity = 0;
+      });
+    }
   }
 }
 
@@ -163,7 +177,7 @@ input.addEventListener('keyup',(e) => {
                 `
               }
               searchResults.innerHTML += `
-                <tr onclick='openSearchResult("${p.tag}",${p.id})' class='search-result'>
+                <tr onclick='openSearchResult("${p.tag}",${p.id},true)' class='search-result'>
                   <td class='item'>${p.data[0].nodeValue}</td>
                   <td class='item'>${p.data[1].nodeValue}</td>
                   <td class='item'>${p.data[2].nodeValue}</td>
@@ -179,9 +193,10 @@ input.addEventListener('keyup',(e) => {
   if (searchResults.innerHTML === "" && input.value !== "") searchResults.innerHTML += 'No results found.'
 });
 
-function openSearchResult(t,i) {
+function openSearchResult(t,i,f) {
   openTag(t);
   openProject(i);
+  if (f) fromSearch = true;
 }
 
 function sort(e) {
