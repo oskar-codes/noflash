@@ -127,7 +127,7 @@ input.addEventListener('keyup',(e) => {
       p.match = false;
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
-          if (p.data[d].nodeValue.includes(input.value.trim()) && !p.match && input.value.trim() !== "") {
+          if (p.data[d].nodeValue.toLowerCase().includes(input.value.trim().toLowerCase()) && !p.match && input.value.trim() !== "") {
             p.match = true;
             if (searchResults.innerHTML === "") {
               searchResults.innerHTML += `
