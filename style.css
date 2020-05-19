@@ -64,7 +64,7 @@ img {
     width: 100% !important;
   }
   #tags br {
-    display: block;
+    display: inline;
   }
 }
 
