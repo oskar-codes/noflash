@@ -67,9 +67,6 @@ function openTag(t) {
         <td>${get(e,"date")}</td>
       </tr>`
   });
-  
-  projectsContainer.outerHTML = `<div class="table-scroll">${projectsContainer.outerHTML}</div>`
-  projectsTable = projectsContainer;
 
   window.setTimeout(() => {
     imagesContainer.style.top = "0vh";
