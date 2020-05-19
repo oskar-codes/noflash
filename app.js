@@ -69,6 +69,7 @@ function openTag(t) {
   });
   
   projectsContainer.outerHTML = `<div class="table-scroll">${projectsContainer.outerHTML}</div>`
+  projectsTable = projectsContainer;
 
   window.setTimeout(() => {
     imagesContainer.style.top = "0vh";
