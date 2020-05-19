@@ -50,6 +50,12 @@ img {
   margin: 20px auto;
 }
 
+.table-scroll {
+  width: 100vw;
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
 @media only screen and (max-width: 612px) {
   img {
     width: 100%;
