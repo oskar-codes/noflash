@@ -211,7 +211,7 @@ function sort(e) {
   values.splice(0,1);
   if (order === -1 || order === 1) {
     e.setAttribute("data-order","0");
-    for (var i=0; i<e.parentNode.children; i++) {
+    for (var i=0; i<e.parentNode.children.length; i++) {
       e.parentNode.children[i].classList.remove("arrow-up");
       e.parentNode.children[i].classList.remove("arrow-down");
     }
@@ -235,7 +235,7 @@ function sort(e) {
     }
   } else {
     e.setAttribute("data-order","1");
-    for (var i=0; i<e.parentNode.children; i++) {
+    for (var i=0; i<e.parentNode.children.length; i++) {
       e.parentNode.children[i].classList.remove("arrow-up");
       e.parentNode.children[i].classList.remove("arrow-down");
     }
