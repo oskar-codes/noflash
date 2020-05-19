@@ -63,6 +63,13 @@ img {
   div[data-project] p {
     width: 100% !important;
   }
+  #tags br {
+    display: block;
+  }
+}
+
+#tags br {
+  display: none;
 }
 
 #tags {
