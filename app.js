@@ -211,29 +211,41 @@ function sort(e) {
   values.splice(0,1);
   if (order === -1 || order === 1) {
     e.setAttribute("data-order","0");
-    var func = (a,b) => {
-      var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
-      var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
-      if (nameA < nameB) {
-        return -1;
+    if (e.innerHTML === "ID") {
+      var func = (a,b) => {
+        return a - b;
       }
-      if (nameA > nameB) {
-        return 1;
+    } else {
+      var func = (a,b) => {
+        var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
+        var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 0;
       }
-      return 0;
     }
   } else {
     e.setAttribute("data-order","1");
-    var func = (a,b) => {
-      var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
-      var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
-      if (nameA < nameB) {
-        return 1;
+    if (e.innerHTML === "ID") {
+      var func = (a,b) => {
+        return b - a;
       }
-      if (nameA > nameB) {
-        return -1;
+    } else {
+      var func = (a,b) => {
+        var nameA = a.children[0].children[collumn].innerHTML.toUpperCase();
+        var nameB = b.children[0].children[collumn].innerHTML.toUpperCase();
+        if (nameA < nameB) {
+          return 1;
+        }
+        if (nameA > nameB) {
+          return -1;
+        }
+        return 0;
       }
-      return 0;
     }
   }
   values.sort(func);
