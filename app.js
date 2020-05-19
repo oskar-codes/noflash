@@ -14,7 +14,7 @@ for (var i=0; i<divs.length; i++) {
 tags = Array.from(tags);
 var tagContainer = document.getElementById("tags");
 tags.forEach((e, i) => {
-  tagContainer.innerHTML += `${e !== "random" ? '<span onclick="openTag(`'+ e +'`)" class="tag">'+ e +'</span>' : ""}${i + 1 === tags.length ? "<span onclick='openRandom()' class='tag'>random</span>, <input spellcheck='false' autocomplete='off' id='search' placeholder='search'>" : ", "}`
+  tagContainer.innerHTML += `${e !== "random" ? '<span onclick="openTag(`'+ e +'`)" class="tag">'+ e +'</span>' : ""}${i + 1 === tags.length ? "<span onclick='openRandom()' class='tag'>random</span>, <input spellcheck='false' autocomplete='off' id='search' placeholder='search'>" : ", <br>"}`
 });
 
 var imagesContainer = document.querySelector("#images");
