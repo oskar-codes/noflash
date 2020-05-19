@@ -54,6 +54,9 @@ img {
   img {
     width: 97%;
   }
+  div[data-project] p {
+    width: 97%;
+  }
 }
 
 #tags {
