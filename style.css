@@ -57,6 +57,9 @@ img {
   div[data-project] p {
     width: 97%;
   }
+  table {
+    overflow-x: scroll;
+    overflow-y: hidden;
 }
 
 #tags {
