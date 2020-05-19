@@ -211,6 +211,11 @@ function sort(e) {
   values.splice(0,1);
   if (order === -1 || order === 1) {
     e.setAttribute("data-order","0");
+    for (var i=0; i<e.parentNode.children; i++) {
+      e.parentNode.children[i].classList.remove("arrow-up");
+      e.parentNode.children[i].classList.remove("arrow-down");
+    }
+    e.classList.add("arrow-down");
     if (e.innerHTML === "ID") {
       var func = (a,b) => {
         return parseInt(a.children[0].children[collumn].innerHTML) - parseInt(b.children[0].children[collumn].innerHTML);
@@ -230,6 +235,11 @@ function sort(e) {
     }
   } else {
     e.setAttribute("data-order","1");
+    for (var i=0; i<e.parentNode.children; i++) {
+      e.parentNode.children[i].classList.remove("arrow-up");
+      e.parentNode.children[i].classList.remove("arrow-down");
+    }
+    e.classList.add("arrow-up");
     if (e.innerHTML === "ID") {
       var func = (a,b) => {
         return parseInt(b.children[0].children[collumn].innerHTML) - parseInt(a.children[0].children[collumn].innerHTML);
