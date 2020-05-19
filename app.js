@@ -213,7 +213,7 @@ function sort(e) {
     e.setAttribute("data-order","0");
     if (e.innerHTML === "ID") {
       var func = (a,b) => {
-        return parseInt(a) - parseInt(b);
+        return parseInt(a.children[0].children[collumn].innerHTML) - parseInt(b.children[0].children[collumn].innerHTML);
       }
     } else {
       var func = (a,b) => {
@@ -232,7 +232,7 @@ function sort(e) {
     e.setAttribute("data-order","1");
     if (e.innerHTML === "ID") {
       var func = (a,b) => {
-        return parseInt(b) - parseInt(a);
+        return parseInt(b.children[0].children[collumn].innerHTML) - parseInt(a.children[0].children[collumn].innerHTML);
       }
     } else {
       var func = (a,b) => {
