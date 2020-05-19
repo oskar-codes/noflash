@@ -158,3 +158,15 @@ div[data-project] p {
   right: 0;
   margin: auto; 
 }
+
+.arrow-up {
+  background: url(icons/arrow-up.png);
+  background-repeat: no-repeat;
+  background-position: center right 10px;
+}
+
+.arrow-down {
+  background: url(icons/arrow-down.png);
+  background-repeat: no-repeat;
+  background-position: center right 10px;
+}
