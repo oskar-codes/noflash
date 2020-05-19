@@ -52,10 +52,10 @@ img {
 
 @media only screen and (max-width: 612px) {
   img {
-    width: 97%;
+    width: 100%;
   }
   div[data-project] p {
-    width: 97%;
+    width: 100%;
   }
 }
 
