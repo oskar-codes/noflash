@@ -139,6 +139,8 @@ div[data-project] p {
   color: white;
   font-size: 30px;
   caret-color: red;
+  padding: 0;
+  margin: 0;
 }
 
 #search::placeholder {
