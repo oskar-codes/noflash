@@ -1,8 +1,6 @@
 name: CI
 
-on:
-  page_build:
-    branches: [ master ]
+on: [push, page_build]
 
 jobs:
   build:
