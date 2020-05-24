@@ -150,7 +150,8 @@ for (var i=0; i<projectNodes.length; i++) {
   existingProjects.push({
     tag: p.parentNode.getAttribute('data-tag'),
     id: Array.from(p.parentNode.children).indexOf(p),
-    data: attr(p)
+    data: attr(p),
+    node: p
   });
 }
 
