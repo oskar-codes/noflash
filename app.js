@@ -274,6 +274,20 @@ function sort(e) {
 }
 
 var randomPictures = document.querySelectorAll("div[data-tag='random'] img");
-for (var i=0; i<randomPictures.length; i++) {
+for (let i=0; i<randomPictures.length; i++) {
   randomPictures[i].outerHTML = `<div style='position: relative; vertical-align: middle; width: 100%; height: 100%; background-color: black;'>${randomPictures[i].outerHTML}</div>`
 }
+
+var allPictures = document.querySelectorAll("img");
+for (let i=0; i<allPictures.length; i++) {
+  let p = allPictures[i];
+  let n = p.parentNode;
+  let a = [].filter.call(n.attributes, function(at) { return /^data-/.test(at.name); });
+  if (a.length) {
+    for (let j=0; j<a.length; j++){
+      p.alt += a[j].value + " ";
+    }
+  }
+}
+
+
