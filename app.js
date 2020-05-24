@@ -164,9 +164,9 @@ input.addEventListener('keyup',(e) => {
       p.match = false;
       for (var d=0; d<4; d++) {
         if (p.data[d]) {
-          var words = input.value.split(" ");
+          var words = input.value.toLowerCase().split(" ");
           for (var j=0; j<words.length; j++) {
-            if (p.data[d].nodeValue.toLowerCase().includes(words[j]) && !p.match && input.value.trim() !== "" && words[j].trim() !== "") {
+            if ((p.data[d].nodeValue.toLowerCase().includes(words[j]) || p.node.innerText.tolowerCase().includes(words[j])) && !p.match && input.value.trim() !== "" && words[j].trim() !== "") {
               p.match = true;
               if (searchResults.innerHTML === "") {
                 searchResults.innerHTML += `
