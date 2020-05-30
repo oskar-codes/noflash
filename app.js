@@ -17,7 +17,6 @@ window.addEventListener("load",(e) => {
     try {
       let bytes = CryptoJS.AES.decrypt(h.replace(/#p=/,""),"key");
       let data = bytes.toString(CryptoJS.enc.Utf8).split(";");
-      console.log(data)
       openSearchResult(data[0],data[1]);
     } catch(e) {
       console.error(e);
