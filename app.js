@@ -11,6 +11,20 @@ for (var i=0; i<divs.length; i++) {
   }
 }
 
+window.addEventListener("load",(e) => {
+  var h = window.location.hash;
+  if (h && h.includes("p=")) {
+    try {
+      let bytes = CryptoJS.AES.decrypt(h.replace(/#p=/,""),"key");
+      let data = bytes.toString(CryptoJS.enc.Utf8).split(";");
+      console.log(data)
+      openSearchResult(data[0],data[1]);
+    } catch(e) {
+      console.error(e);
+    }
+  }
+});
+
 tags = Array.from(tags);
 var tagContainer = document.getElementById("tags");
 tags.forEach((e, i) => {
@@ -24,6 +38,8 @@ function openTag(t) {
   layer = 2;
   imagesContainer.style.display = "block";
   
+  window.currentTag = t;
+
   projectsTable.style.display = "table";
   projectsTable.style.opacity = 1;
   
@@ -104,9 +120,12 @@ function openProject(i) {
   projectsTable.style.display = "none";
   projectsTable.style.opacity = 0;
   layer = 3;
+
+  window.location.hash = `p=` + CryptoJS.AES.encrypt(`${currentTag};${i}`,"key").toString();
 }
 
 function closeImages() {
+  window.location.hash = "";
   if (fromSearch) {
     fromSearch = false;
     layer = 1;
@@ -290,5 +309,3 @@ for (let i=0; i<allPictures.length; i++) {
     }
   }
 }
-
-
