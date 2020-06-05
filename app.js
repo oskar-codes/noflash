@@ -119,6 +119,8 @@ function openProject(i) {
   projectsTable.style.display = "none";
   projectsTable.style.opacity = 0;
   layer = 3;
+  
+  imagesContainer.scrollBy(0,-999999999);
 
   window.location.hash = `p=` + CryptoJS.AES.encrypt(`${currentTag};${i}`,"key").toString();
 }
