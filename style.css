@@ -78,7 +78,7 @@ img {
 
 #tags {
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   margin-left: 30px;
 }
 
@@ -124,7 +124,7 @@ div[data-project] {
 }
 
 div[data-project] p {
-  font-size: 20px;
+  font-size: 30px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
