@@ -113,7 +113,7 @@ img {
 
 #projects, #search-results {
   text-align: left;
-  font-size: 30px;
+  font-size: 20px;
   margin-left: 30px;
   width: 95vw;
   transition: opacity 0.3s;
