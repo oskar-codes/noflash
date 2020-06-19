@@ -69,6 +69,7 @@ img {
   }
   #tags br {
     display: inline !important;
+
   }
 }
 
@@ -124,7 +125,7 @@ div[data-project] {
 }
 
 div[data-project] p {
-  font-size: 25px;
+  font-size: 20px;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
