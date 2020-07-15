@@ -31,6 +31,7 @@ h1 {
 #description {
   margin-top: 10px;
   margin-left: 30px;
+  margin-right: 30px;  
   font-size: 30px;
   caret-color: red;
 }
