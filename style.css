@@ -39,6 +39,14 @@ header ul li {
   padding: 0;
   margin: 0;
   font-size: 6.2vw;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+header ul li:hover {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: red;
+  color: transparent;
 }
 
 h1 {
