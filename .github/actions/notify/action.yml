@@ -1,5 +1,0 @@
-name: Notify
-description: Sends a message on Discord when Github pages have finished building
-runs:
-  using: node12
-  main: index.js
