@@ -198,7 +198,7 @@ input.addEventListener('keyup',(e) => {
                     <th onclick='sort(this)' data-order="-1">DATE</td>
                   </tr>
                 </thead>
-                `
+                `;
               }
               searchResults.innerHTML += `
                 <tr onclick='openSearchResult("${p.tag}",${p.id},true)' class='search-result'>
@@ -207,14 +207,14 @@ input.addEventListener('keyup',(e) => {
                   <td class='item'>${p.data[2].nodeValue}</td>
                   <td class='item'>${p.data[3].nodeValue}</td>
                 </tr>
-              `
+              `;
             }
           }
         }
       }
     }
   }
-  if (searchResults.innerHTML === "" && input.value !== "") searchResults.innerHTML += 'No results found.'
+  if (searchResults.innerHTML === "" && input.value !== "") searchResults.innerHTML += 'no results found';
 });
 
 function openSearchResult(t,i,f) {
