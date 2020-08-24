@@ -47,7 +47,7 @@ header ul li a {
   transition: all 0.2s;
 }
 
-header ul li:hover a {
+header ul li:hover a, .current a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: red;
   color: transparent !important;
