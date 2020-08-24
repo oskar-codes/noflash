@@ -8,6 +8,7 @@ body,html {
   color: white;
   overflow-y: scroll;
   overflow-x: hidden;
+  width: 100%;
   height: 100%;
   position:fixed;
   margin: 0;
@@ -39,14 +40,17 @@ header ul li {
   padding: 0;
   margin: 0;
   font-size: 6.2vw;
-  transition: all 0.2s;
   cursor: pointer;
 }
 
-header ul li:hover {
+header ul li a {
+  transition: all 0.2s;
+}
+
+header ul li:hover a {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: red;
-  color: transparent;
+  color: transparent !important;
 }
 
 h1 {
