@@ -96,19 +96,6 @@ img {
   overflow-x: scroll;
 }
 
-@media only screen and (max-width: 612px) {
-  img {
-    width: 100%;
-  }
-  div[data-project] p {
-    width: 100% !important;
-  }
-  #tags br {
-    display: inline !important;
-
-  }
-}
-
 #tags br {
   display: none;
 }
@@ -234,4 +221,16 @@ div[data-project] p {
   background: url(icons/arrow-down.png);
   background-repeat: no-repeat;
   background-position: center right 10px;
+}
+
+@media only screen and (max-width: 612px) {
+  img {
+    width: 95%;
+  }
+  div[data-project] p {
+    width: 95%;
+  }
+  #tags br {
+    display: inline;
+  }
 }
