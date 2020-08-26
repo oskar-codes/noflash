@@ -233,4 +233,7 @@ div[data-project] p {
   #tags br {
     display: inline;
   }
+  #back {
+    position: static;
+  }
 }
