@@ -64,7 +64,11 @@ h1 {
 a {
   text-decoration: none;  
   color: red;
-}  
+}
+
+.pc-br br {
+  display: inline;
+}
   
 #description {
   margin-top: 10px;
@@ -93,6 +97,7 @@ a {
 img {
   width: 50%;
   margin: 20px auto;
+  -webkit-user-drag: none;
 }
 
 .table-scroll {
@@ -132,6 +137,7 @@ img {
 
 #projects {
   margin-top: 15px;
+  margin-left: 2.5%;
 }
 
 #search-results {
@@ -149,6 +155,7 @@ img {
 
 div[data-project] {
   transition: opacity 0.3s;
+  margin-bottom: 100px;
 }
 
 div[data-project] p {
@@ -239,6 +246,7 @@ div[data-project] p {
   }
   #back {
     position: static;
+    margin-bottom: 0;
   }
   header ul {
     text-align: right;
@@ -251,5 +259,8 @@ div[data-project] p {
   }
   header ul br {
     display: inline;
+  }
+  .pc-br br {
+    display: none;
   }
 }
