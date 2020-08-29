@@ -35,6 +35,10 @@ header ul {
   justify-content: space-between;
 }
 
+header ul br {
+  display: none;
+}
+
 header ul li {
   display: inline-block;
   padding: 0;
@@ -235,5 +239,17 @@ div[data-project] p {
   }
   #back {
     position: static;
+  }
+  header ul {
+    text-align: right;
+    display: block;
+    justify-content: unset;
+    white-space: unset;
+  }
+  header ul li {
+    font-size: 10vw;
+  }
+  header ul br {
+    display: inline;
   }
 }
