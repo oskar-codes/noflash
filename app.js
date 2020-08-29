@@ -4,6 +4,11 @@ var layer = 1;
 var projectsTable = document.getElementById("projects");
 var fromSearch = false;
 
+document.addEventListener("contextmenu", (e) => {
+  e.preventDefault();
+}
+                          
+
 for (var i=0; i<divs.length; i++) {
   var div = divs[i];
   if (div.hasAttribute("data-tag")) {
