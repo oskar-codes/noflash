@@ -235,7 +235,7 @@ div[data-project] p {
   background-position: center right 10px;
 }
 
-@media only screen and (max-width: 612px) {
+@media only screen and (max-width: 700px) {
   img {
     width: 95%;
   }
@@ -266,5 +266,8 @@ div[data-project] p {
   }
   div[data-project] p:nth-child(1) {
     margin-top: 40px;
+  }
+  #projects, #search-results {
+    border-spacing: 30px 0px;
   }
 }
