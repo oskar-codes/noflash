@@ -152,6 +152,7 @@ img {
 #projects {
   margin-top: 15px;
   margin-left: 2.5%;
+  margin-bottom: 50px;
 }
 
 div[data-project] {
