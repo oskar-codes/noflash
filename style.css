@@ -131,7 +131,7 @@ img {
   font-size: 30px;
   margin-top: 20px;
   width: 50px;
-  position: fixed;
+  position: absolute;
   z-index: 1;
 }
 
@@ -235,6 +235,9 @@ div[data-project] p {
   background-position: center right 10px;
 }
 
+.mobile {
+  display: none;
+}
 @media only screen and (max-width: 700px) {
   img {
     width: 95%;
@@ -269,5 +272,60 @@ div[data-project] p {
   }
   #projects, #search-results {
     border-spacing: 30px 0px;
+    display: block;
+    white-space: initial;
+  }
+  table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+  #projects thead, #search-results thead {
+    position: absolute;
+		top: -9999px;
+		left: -9999px;
+  }
+	#search-results {
+    margin: 0;
+    width: 100%;
+  }
+	tr {
+    width: 90% !important;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 10px auto !important;
+  }
+	
+	td { 
+		/* Behave  like a "row" */
+		position: relative;
+    /* padding-left: 50%; */
+    width: fit-content;
+    display: inline;
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px;
+	}
+	
+	/*
+	Label the data
+	*/
+  td:nth-of-type(1) { display: none; }
+  td:nth-of-type(2)::after {
+    content: '\00000a';
+  }
+	/*td:nth-of-type(2):before { content: "AUTHOR"; }
+	td:nth-of-type(3):before { content: "NAME"; }
+	td:nth-of-type(4):before { content: "LOCATION"; }
+  td:nth-of-type(5):before { content: "DATE"; } */
+  
+  .mobile {
+    display: initial;
   }
 }

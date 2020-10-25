@@ -43,7 +43,7 @@ function openTag(t) {
   
   window.currentTag = t;
 
-  projectsTable.style.display = "table";
+  projectsTable.style.position = "static";
   projectsTable.style.opacity = 1;
   
   divs.forEach((e) => {
@@ -80,8 +80,8 @@ function openTag(t) {
     projectsContainer.innerHTML += `
       <tr onclick='openProject(${i})' class='project'>
         <td>${i+1}</td>
-        <td>${get(e,"author")}</td>
-        <td>${get(e,"project")}</td>
+        <td>${get(e,"author")}<span class="mobile">, </span></td>
+        <td>${get(e,"project")}<br class="mobile"></td>
         <td>${get(e,"location")}</td>
         <td>${get(e,"date")}</td>
       </tr>`
@@ -120,7 +120,7 @@ function openProject(i) {
     e.style.opacity = 1;
   },10,projects[i]);
   
-  projectsTable.style.display = "none";
+  projectsTable.style.position = "absolute";
   projectsTable.style.opacity = 0;
   layer = 3;
   
@@ -151,7 +151,7 @@ function closeImages() {
       },300);
     } else if (layer === 3) {
       layer = 2;
-      projectsTable.style.display = "table";
+      projectsTable.style.position = "static";
       window.setTimeout(() => {
         projectsTable.style.opacity = 1;
       },10);
