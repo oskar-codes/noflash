@@ -80,9 +80,9 @@ function openTag(t) {
     projectsContainer.innerHTML += `
       <tr onclick='openProject(${i})' class='project'>
         <td>${i+1}</td>
-        <td>${get(e,"author")}<span class="mobile">, </span></td>
+        <td>${get(e,"author")}<br class="mobile"></td>
         <td>${get(e,"project")}<br class="mobile"></td>
-        <td>${get(e,"location")}</td>
+        <td>${get(e,"location")}<br class="mobile"></td>
         <td>${get(e,"date")}</td>
       </tr>`
   });
@@ -206,9 +206,9 @@ input.addEventListener('keyup',(e) => {
               }
               searchResults.innerHTML += `
                 <tr onclick='openSearchResult("${p.tag}",${p.id},true)' class='search-result'>
-                  <td class='item'>${p.data[0].nodeValue}</td>
-                  <td class='item'>${p.data[1].nodeValue}</td>
-                  <td class='item'>${p.data[2].nodeValue}</td>
+                  <td class='item'>${p.data[0].nodeValue}<br class="mobile"></td>
+                  <td class='item'>${p.data[1].nodeValue}<br class="mobile"></td>
+                  <td class='item'>${p.data[2].nodeValue}<br class="mobile"></td>
                   <td class='item'>${p.data[3].nodeValue}</td>
                 </tr>
               `;
