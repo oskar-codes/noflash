@@ -44,7 +44,7 @@ function openTag(t) {
   window.currentTag = t;
 
   projectsTable.style.position = "static";
-  projectsTable.style.opacity = 1;
+  projectsTable.style.display = '';
   
   divs.forEach((e) => {
     if (e.getAttribute("data-tag") === t) {
@@ -121,7 +121,7 @@ function openProject(i) {
   },10,projects[i]);
   
   projectsTable.style.position = "absolute";
-  projectsTable.style.opacity = 0;
+  projectsTable.style.display = 'none';
   layer = 3;
   
   imagesContainer.scrollBy(0,-999999999);
@@ -153,7 +153,7 @@ function closeImages() {
       layer = 2;
       projectsTable.style.position = "static";
       window.setTimeout(() => {
-        projectsTable.style.opacity = 1;
+        projectsTable.style.display = '';
       },10);
 
       projects.forEach((e) => {

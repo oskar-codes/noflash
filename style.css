@@ -285,8 +285,10 @@ div[data-project] p {
 		left: -9999px;
   }
 	#search-results {
-    margin: 0;
     width: 100%;
+  }
+  #search-results tr {
+    margin: 0 !important;
   }
 	tr {
     width: 90% !important;
