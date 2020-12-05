@@ -307,10 +307,39 @@ var allPictures = document.querySelectorAll("img");
 for (let i=0; i<allPictures.length; i++) {
   let p = allPictures[i];
   let n = p.parentNode;
+  // Create a string of the image description and make it the alt text
   let a = [].filter.call(n.attributes, function(at) { return /^data-/.test(at.name); });
   if (a.length) {
     for (let j=0; j<a.length; j++){
       p.alt += a[j].value + " ";
     }
   }
+
+  p.addEventListener('click', (e) => {
+    const background = document.createElement('div');
+    const bigPicture = document.createElement('img');
+
+    background.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #00000066;
+    `;
+    bigPicture.src = p.src;
+    bigPicture.style.cssText = `
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    `;
+
+    background.addEventListener('click', (e) => {
+      background.parentElement.removeChild(background);
+    });
+
+    background.appendChild(bigPicture);
+    document.body.appendChild(background);
+  });
 }

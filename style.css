@@ -98,6 +98,7 @@ img {
   width: 50%;
   margin: 20px auto;
   -webkit-user-drag: none;
+  cursor: pointer;
 }
 
 .table-scroll {
