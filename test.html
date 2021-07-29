@@ -1,0 +1,24 @@
+<a href="#">main</a>
+
+<canvas width="1458" height="208"></canvas>
+
+<script>
+  window.addEventListener('mousedown', e => {
+    //console.log(e.button);
+    if (e.button === 3 || e.button === 4) {
+      //e.preventDefault();
+    }
+  });
+
+  document.querySelector('a').addEventListener('mousedown', e => {
+    console.log(e.button);
+  })
+
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');
+
+  const image = document.createElement('img');
+  image.src = 'images/title/1.png';
+
+  ctx.drawImage(image, 0, 0);
+</script>
