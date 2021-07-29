@@ -190,6 +190,7 @@ html, body {
 .article-selection .image-gallery img {
   max-width: 300px;
   margin: 20px;
+  align-self: center;
 }
 
 .article-selection .research-gallery {
