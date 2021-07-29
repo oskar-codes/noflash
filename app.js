@@ -15,8 +15,14 @@ for (var i=0; i<divs.length; i++) {
   }
 }
 
+window.addEventListener('hashchange', (e) => {
+  if (!e.newURL.includes('#')) {
+    window.location.reload();
+  }
+})
+
 window.addEventListener("load",(e) => {
-  var h = window.location.hash;
+  const h = window.location.hash;
   if (h && h.includes("p=")) {
     try {
       let bytes = CryptoJS.AES.decrypt(h.replace(/#p=/,""),"key");
