@@ -28,10 +28,24 @@ const app = new Vue({
           name: name,
           type: category.getAttribute('data-type'),
           articles: Array.from(document.querySelectorAll(`.articles-data .category[data-name='${name}'] .article`)).map(article => {
+            
+            let previewImgSrc = '';
+            const specifiedSrc = article.getAttribute('data-preview-src');
+            if (specifiedSrc) {
+              previewImgSrc = specifiedSrc;
+            } else {
+              const firstImage = article.querySelector('img');
+              
+              if (firstImage) {
+                previewImgSrc = firstImage.getAttribute('data-src');
+              }
+              
+            }
+            
             return {
               el: article,
               name: article.getAttribute('data-name'),
-              previewImgSrc: article.querySelector('img')?.getAttribute('data-src')
+              previewImgSrc: previewImgSrc
             }
           })
         }

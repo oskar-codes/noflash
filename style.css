@@ -94,11 +94,11 @@ html, body {
 }
 
 .screen header {
-  left: 50%; top: 100px;
+  left: 50%; top: 50px;
 }
 
 .screen footer {
-  left: 50%; bottom: 100px;
+  left: 50%; bottom: 50px;
 }
 
 .splash {
@@ -194,13 +194,14 @@ html, body {
   text-align: center;
   font-weight: normal;
   font-size: var(--font-size-text);
+  margin-top: 50px;
+}
+
+.article-reader > p {
+  margin-bottom: 50px;
 }
 
 .article-reader p {
-  font-size: var(--font-size-text);
-}
-
-.article-reader .article p {
   font-size: var(--font-size-text);
 }
 
