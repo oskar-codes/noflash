@@ -1,0 +1,40 @@
+---
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404</title>
+    <style>
+      body, html {
+        margin: 0;
+        background: url(images/image1.jpg);
+      }
+      h1 {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 100px;
+        white-space: nowrap;
+        font-family: sans-serif;
+        margin: 0;
+        cursor: pointer;
+        transition: color 0.3s ease;
+      }
+      h1:hover {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>ERROR 404</h1>
+    <script>
+      document.querySelector('h1').addEventListener('click', e => {
+        window.location.href = '/';
+      });
+    </script>
+  </body>
+</html>
