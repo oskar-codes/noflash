@@ -101,7 +101,7 @@ const app = new Vue({
     ctx.putImageData(im, 0, 0);
   });
 
-  window.addEventListener('click', () => {
+  document.body.addEventListener('click', () => {
     window.setTimeout(() => {
       app.showSplash = false;
     }, 300);
