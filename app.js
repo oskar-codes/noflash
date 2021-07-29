@@ -8,7 +8,8 @@ const app = new Vue({
     hoveredArticle: -1,
     selectedArticle: -1,
     windowWidth: window.innerWidth,
-    splashTitleFrame: 1
+    splashTitleFrame: 1,
+    imagesIndex: Array.from(document.querySelectorAll('.articles-data img')).map(e => e.getAttribute('data-src'))
   },
   computed: {
     currentCategory() {
@@ -68,6 +69,9 @@ const app = new Vue({
     },
     onResize() {
       this.windowWidth = window.innerWidth;
+    },
+    openImage(img) {
+      window.open(img);
     }
   },
   mounted() {

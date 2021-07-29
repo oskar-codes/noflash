@@ -21,7 +21,7 @@
   
           <!-- <h1 class="text-red">NO FLASH</h1> -->
           <canvas width="1458" height="208"></canvas>
-          <footer class="text-red italic">directed by a. n. zanota</footer>
+          <footer class="text-red italic floating">directed by a. n. zanota</footer>
         
         </div>
       </transition>
@@ -38,7 +38,7 @@
           </div>
 
           <transition name="fade">
-            <footer class="text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer>
+            <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer>
           </transition>
         
         </div>
@@ -46,11 +46,12 @@
         <div key="article-selection" class="article-selection screen" v-else-if="/category_[0-9]+/.test(state)">
 
           <header class="text-red italic">{{currentCategory.name}}</header>
-
+          
           <template v-if="currentCategory.type === 'articles'">
 
+            
             <transition-group name="fade">
-              <img v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && windowWidth > 768">
+              <img class="preview-image" v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && windowWidth > 768">
             </transition-group>
   
             <div class="items">
@@ -64,29 +65,50 @@
   
             </div>
 
+            <footer class="text-red italic button floating" @click="back">back</footer>
+
+          </template>
+
+          <template v-else-if="currentCategory.type === 'research'">
+
+            <div class="research-gallery">
+
+              <div v-for="i in 9" class="item">
+                FMF ISSUE 0{{i}}
+              </div>
+
+            </div>
+
+            <footer class="text-red italic button" @click="back">back</footer>
+
           </template>
 
           <template v-else-if="currentCategory.type === 'images'">
             
-            <div v-html="currentCategory.el.innerHTML"></div>
+            <div class="image-gallery">
+              <img class="button" v-for="img in imagesIndex" :src="img" @click="openImage(img)">
+            </div>
+
+            <footer class="text-red italic button" @click="back">back</footer>
 
           </template>
 
           <template v-else-if="currentCategory.type === 'text'">
-            
-            <div v-html="currentCategory.el.innerHTML"></div>
+
+            <div class="about" v-html="currentCategory.el.innerHTML"></div>
+
+            <footer class="text-red italic button" @click="back">back</footer>
 
           </template>
-
-
-          <footer class="text-red italic button" @click="back">back</footer>
         
         </div>
 
         <div key="article-reader" class="article-reader screen" v-else>
-          <h1><span class="bold">({{selectedArticle + 1}})</span> <span class="serif">{{currentArticle.name}}</span></h1>
+          <header><span class="sans-serif bold">({{selectedArticle + 1}})</span> {{currentArticle.name}}</header>
           <div class="article" v-html="currentArticle.el.innerHTML"></div>
-          <p class="button italic center serif" @click="back">back</p>
+          <footer class="italic center serif">
+            <span class="button" @click="back">back</span>
+          </footer>
         </div>
 
       </transition>
@@ -159,7 +181,10 @@
 
         <div class="category" data-name="about" data-type="text">
 
-          lijawddlawjdliajwdl
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam, suscipit! Nisi aperiam reprehenderit necessitatibus delectus dolor atque, commodi deserunt obcaecati tempore dolorum quas sapiente excepturi tenetur cumque ad rem dolore.
+          Ipsa aspernatur ut magni? Culpa quae, delectus modi obcaecati repellat veritatis inventore ducimus voluptatibus. Doloribus delectus, magni nisi dolore doloremque neque maiores ipsam at reprehenderit, incidunt architecto sapiente deserunt fuga!
+          Quia, minima rerum, harum ipsum vero unde eveniet beatae, modi cumque eos quasi veritatis voluptatem? Iure quisquam rem, hic illo enim esse, id impedit adipisci harum sapiente a officiis repudiandae!
+          Possimus illo iste, voluptates quis cum assumenda repudiandae ullam dignissimos atque ipsum dolores vero velit dolore ad optio nihil maiores asperiores in ipsa explicabo iure laudantium debitis aspernatur? Repudiandae, iste?
 
         </div>
 
