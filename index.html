@@ -86,7 +86,8 @@
           <template v-else-if="currentCategory.type === 'images'">
             
             <div class="image-gallery">
-              <img class="button" v-for="img in imagesIndex" :src="img" @click="openImage(img)">
+              <div v-for="img in imagesIndex" :style="`background-image: url(${img});`"></div>
+              <!-- <img class="button" v-for="img in imagesIndex" :src="img" @click="openImage(img)"> -->
             </div>
 
             <footer class="text-red italic button" @click="back">back</footer>
