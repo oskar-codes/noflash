@@ -129,7 +129,7 @@ window.addEventListener('hashchange', handleUrlChange);
 window.addEventListener('load', handleUrlChange);
 
 function handleUrlChange(event) {
-  const hash = window.location.hash.replace(/#/, '');
+  const hash = decodeURIComponent(window.location.hash.replace(/#/, ''));
   if (hash) {
 
     if (hash === 'menu') {
