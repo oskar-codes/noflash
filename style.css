@@ -184,22 +184,18 @@ html, body {
 .article-selection .image-gallery {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.article-selection .image-gallery img {
-  max-width: 300px;
-  margin: 20px;
-  align-self: center;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 .article-selection .image-gallery div {
-  width: 300px;
-  height: 150px;
+  width: 177px;
+  height: 100px;
   align-self: center;
   margin: 10px;
   background-size: cover;
   background-position: center;
+  background-color: #181818;
 }
 
 .article-selection .research-gallery {
