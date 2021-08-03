@@ -30,15 +30,15 @@
 
         <div key="menu" class="menu screen" v-if="state === 'menu'">
 
-          <div class="items">
-            <span v-for="(category, i) in categories" class="text-red bold button" 
+          <div class="numbers">
+            <span v-for="(category, i) in categories" class="text-red bold button" :data-category="category.name"
               @mouseover="hoveredCategory = i"
               @mouseout="hoveredCategory = -1"
-              @click="selectedCategory = i; state = `category_${i+1}`">{{windowWidth > 768 ? i + 1 : category.name}}</span>
+              @click="selectedCategory = i; state = `category_${i+1}`;">{{windowWidth > 768 ? i + 1 : category.name}}</span>
           </div>
 
           <transition name="fade">
-            <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer>
+            <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 && !TOUCH ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer>
           </transition>
         
         </div>
@@ -49,13 +49,19 @@
           
           <template v-if="currentCategory.type === 'articles'">
 
-            
             <transition-group name="fade">
               <img class="preview-image" v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && windowWidth > 768">
             </transition-group>
   
-            <div class="items">
+            <div class="items" @scroll="updateItems(this)" @wheel="scrollItems(this)">
               
+              <span v-for="(article, i) in currentCategory.articles"
+                @mouseover="hoveredArticle = i; updateImages()"
+                @mouseout="hoveredArticle = -1"
+                @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
+                <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
+              </span>
+
               <span v-for="(article, i) in currentCategory.articles"
                 @mouseover="hoveredArticle = i; updateImages()"
                 @mouseout="hoveredArticle = -1"
@@ -73,9 +79,7 @@
 
             <div class="research-gallery">
 
-              <div v-for="i in 9" class="item">
-                FMF ISSUE 0{{i}}
-              </div>
+              <img v-for="i in 9" :src="`images/3/${i}`" class="item">
 
             </div>
 
@@ -86,8 +90,11 @@
           <template v-else-if="currentCategory.type === 'images'">
             
             <div class="image-gallery">
-              <div v-for="img in imagesIndex" v-if="img" :style='`background-image: url("${img}");`'></div>
+              <div v-for="img in imagesIndex" v-if="img" :data-src="img" :style='`background-image: url("${img}");`' @click="openSpotlight(this)"></div>
             </div>
+
+            <div class="spotlight" @click="closeSpotlight"></div>
+            <div class="spotlight-background" @click="closeSpotlight"></div>
 
             <footer class="text-red italic button" @click="back">back</footer>
 
