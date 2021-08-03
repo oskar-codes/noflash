@@ -75,7 +75,7 @@
               <img v-for="(article, index) in currentCategory.articles" 
                    :src="`images/3-RESEARCH/FMF-ISSUE-${index+1}.jpg`"
                    class="item"
-                   @click="selectedArticle = index; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">>
+                   @click="selectedArticle = index; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
 
             </div>
 
