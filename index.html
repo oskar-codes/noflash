@@ -61,13 +61,6 @@
                 @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
                 <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
               </span>
-
-              <span v-for="(article, i) in currentCategory.articles"
-                @mouseover="hoveredArticle = i; updateImages()"
-                @mouseout="hoveredArticle = -1"
-                @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
-                <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
-              </span>
   
             </div>
 
@@ -79,7 +72,10 @@
 
             <div class="research-gallery">
 
-              <img v-for="i in 9" :src="`images/3/${i}`" class="item">
+              <img v-for="(article, index) in currentCategory.articles" 
+                   :src="`images/3-RESEARCH/FMF-ISSUE-${index+1}.jpg`"
+                   class="item"
+                   @click="selectedArticle = index; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">>
 
             </div>
 
@@ -183,6 +179,17 @@
         </div>
 
         <div class="category" data-name="research" data-type="research">
+
+          <div class="article" data-name="FMF-ISSUE-1">awd</div>
+          <div class="article" data-name="FMF-ISSUE-2"></div>
+          <div class="article" data-name="FMF-ISSUE-3"></div>
+          <div class="article" data-name="FMF-ISSUE-4"></div>
+          <div class="article" data-name="FMF-ISSUE-5"></div>
+          <div class="article" data-name="FMF-ISSUE-6"></div>
+          <div class="article" data-name="FMF-ISSUE-7"></div>
+          <div class="article" data-name="FMF-ISSUE-8"></div>
+          <div class="article" data-name="FMF-ISSUE-9"></div>
+          <div class="article" data-name="FMF-ISSUE-10"></div>
 
         </div>
 
