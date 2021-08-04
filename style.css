@@ -62,13 +62,6 @@ html, body {
   text-align: center;
 }
 
-.button:hover {
-  /*-webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: var(--col-red);
-  color: transparent !important;*/
-  color: var(--col-red);
-}
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity .3s;
 }
@@ -183,10 +176,6 @@ html, body {
   margin-bottom: 266px;
 }
 
-.article-selection .items > span:hover {
-  color: var(--col-red);
-}
-
 .article-selection .preview-image {
   position: absolute;
   top: 50%; left: 50%;
@@ -260,12 +249,6 @@ html, body {
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.2s ease;
-}
-
-.article-selection .research-gallery img:hover {
-  transform: scale(1.1);
-  /* box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.4),
-              -10px -10px 32px 0px rgba(0,0,0,0.4); */
 }
 
 .article-reader {
@@ -344,5 +327,22 @@ html, body {
   }
   body.touch .menu .numbers span {
     text-align: center;
+  }
+}
+
+@media (hover: hover) {
+  .button:hover {
+    /*-webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--col-red);
+    color: transparent !important;*/
+    color: var(--col-red);
+  }
+  .article-selection .items > span:hover {
+    color: var(--col-red);
+  }
+  .article-selection .research-gallery img:hover {
+    transform: scale(1.1);
+    /* box-shadow: 10px 10px 32px 0px rgba(0,0,0,0.4),
+                -10px -10px 32px 0px rgba(0,0,0,0.4); */
   }
 }
