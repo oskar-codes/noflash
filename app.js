@@ -250,7 +250,7 @@ window.addEventListener('load', () => {
   window.setTimeout(() => {
     const overlay = document.querySelector('.overlay');
     overlay.style.opacity = 0;
-  }, 50);
+  }, 200);
 });
 
 function handleUrlChange() {
