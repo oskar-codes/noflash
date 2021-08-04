@@ -12,13 +12,21 @@
 
     <div id='app'>
 
-      <div class="splash screen" v-show="showSplash">
-
-        <!-- <h1 class="text-red center">NO FLASH</h1> -->
-        <canvas width="1458" height="208"></canvas>
-        <footer class="text-red italic floating">directed by a. n. zanota</footer>
-      
+      <div class="overlay screen">
+        
       </div>
+
+      <transition name="fade">
+
+        <div class="splash screen" v-if="showSplash">
+
+          <!-- <h1 class="text-red center">NO FLASH</h1> -->
+          <canvas width="1458" height="208"></canvas>
+          <footer class="text-red italic floating">directed by a. n. zanota</footer>
+        
+        </div>
+
+      </transition>
       
       <transition name="fade">
 

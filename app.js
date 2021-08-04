@@ -224,10 +224,7 @@ const images = [];
 
   document.body.addEventListener('click', () => {
     window.setTimeout(() => {
-      splash.style.opacity = 0;
-      window.setTimeout(() => {
-        app.showSplash = false;
-      }, 300);
+      app.showSplash = false;
     }, 300);
 
     const interval = window.setInterval(() => {
@@ -249,12 +246,16 @@ const images = [];
 
 window.addEventListener('hashchange', handleUrlChange);
 window.addEventListener('load', handleUrlChange);
+window.addEventListener('load', () => {
+  window.setTimeout(() => {
+    const overlay = document.querySelector('.overlay');
+    overlay.style.opacity = 0;
+  }, 50);
+});
 
 function handleUrlChange() {
-
-  fadeSplash();
-
   const hash = decodeURIComponent(window.location.hash.replace(/#/, ''));
+  
   if (hash) {
 
     if (hash === 'menu') {
@@ -263,6 +264,8 @@ function handleUrlChange() {
     }
 
     app.showSplash = false;
+    const splash = document.querySelector('.splash');
+    if (splash) splash.style.display = 'none';
 
     if (/category_[0-9]+/.test(hash)) {
       app.selectedCategory = parseInt(hash.replace(/category_/, '')) - 1;
@@ -288,13 +291,6 @@ function handleUrlChange() {
   }
 
   app.updateImages();
-}
-
-function fadeSplash() {
-  const splash = document.querySelector('.screen.splash');
-  if (splash) {
-    splash.style.filter = 'brightness(1)';
-  }
 }
 
 function preload() {
