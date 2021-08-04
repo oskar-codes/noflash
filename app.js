@@ -73,11 +73,6 @@ const app = new Vue({
     }
   },
   methods: {
-    updateImages() {
-      window.setTimeout(() => {
-        yall();
-      });
-    },
     back() {
       history.back();
     },

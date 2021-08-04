@@ -54,7 +54,7 @@
             <div class="items" @scroll="updateItems(this)" @wheel="scrollItems(this)">
               
               <span v-for="(article, i) in currentCategory.articles"
-                @mouseover="hoveredArticle = i; updateImages()"
+                @mouseover="hoveredArticle = i"
                 @mouseout="hoveredArticle = -1"
                 @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
                 <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
