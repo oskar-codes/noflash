@@ -103,14 +103,15 @@ const app = new Vue({
       
       await delay();
 
-      const size = 0.8;
+      const sizeLandscape = 0.7;
+      const sizePortrait = 0.7;
 
       const width = img.width > img.height ? 
-        window.innerWidth * size
-      : window.innerHeight * size * (img.width / img.height);
+        window.innerWidth * sizeLandscape // landscape
+      : window.innerHeight * sizePortrait * (img.width / img.height); // portrait
       const height = img.width > img.height ? 
-      window.innerWidth * size * (img.height / img.width)
-    : window.innerHeight * size
+        window.innerWidth * sizeLandscape * (img.height / img.width) // landscape
+      : window.innerHeight * sizePortrait // portrait
       
       spotlight.style.left = `calc(50% - ${width / 2}px)`;
       spotlight.style.top = `calc(50% - ${height / 2}px)`;
@@ -204,6 +205,7 @@ const images = [];
   image.src = 'images/title/1.png';
 
   image.addEventListener('load', () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0);
 
     const im = ctx.getImageData(0, 0, canvas.width, canvas.height);
