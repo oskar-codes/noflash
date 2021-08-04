@@ -15,7 +15,7 @@
       <transition name="fade">
         <div class="splash screen" v-if="showSplash">
   
-          <!-- <h1 class="text-red">NO FLASH</h1> -->
+          <!-- <h1 class="text-red center">NO FLASH</h1> -->
           <canvas width="1458" height="208"></canvas>
           <footer class="text-red italic floating">directed by a. n. zanota</footer>
         
@@ -30,7 +30,7 @@
             <span v-for="(category, i) in categories" class="text-red bold button" :data-category="category.name"
               @mouseover="hoveredCategory = i"
               @mouseout="hoveredCategory = -1"
-              @click="selectedCategory = i; state = `category_${i+1}`;">{{windowWidth > 768 ? i + 1 : category.name}}</span>
+              @click="selectedCategory = i; state = `category_${i+1}`;">{{isLandscape ? i + 1 : category.name}}</span>
           </div>
 
           <transition name="fade">
@@ -48,7 +48,7 @@
           <template v-if="currentCategory.type === 'articles'">
 
             <transition-group name="fade">
-              <img class="preview-image" v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && windowWidth > 768">
+              <img class="preview-image" v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && isLandscape">
             </transition-group>
   
             <div class="items" @scroll="updateItems(this)" @wheel="scrollItems(this)">

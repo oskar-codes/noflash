@@ -54,7 +54,7 @@ html, body {
 
 .button {
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: color 0.3s ease;
   color: var(--col-white);
 }
 
@@ -107,8 +107,11 @@ html, body {
 }
 
 .splash {
+  background-color: black;
   background-image: url(images/image1.jpg);
   z-index: 1;
+  filter: brightness(0);
+  transition: filter 0.3s ease;
 }
 
 .splash h1, .splash canvas {
@@ -302,7 +305,7 @@ html, body {
   font-size: var(--font-size-text);
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (orientation: portrait) {
   .splash h1 {
     font-size: var(--font-size-title-mobile);
   }
@@ -328,7 +331,7 @@ html, body {
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (orientation: landscape) {
   body.touch .menu .numbers span::after {
     content: attr(data-category);
     display: block;

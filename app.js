@@ -12,6 +12,7 @@ const app = new Vue({
     hoveredArticle: -1,
     selectedArticle: -1,
     windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight,
     splashTitleFrame: 1,
     TOUCH: 'ontouchstart' in document,
     imagesIndex: Array.from(document.querySelectorAll('.articles-data img')).map(e => e.getAttribute('data-src'))
@@ -56,6 +57,9 @@ const app = new Vue({
           })
         }
       });
+    },
+    isLandscape() {
+      return this.windowWidth > this.windowHeight;
     }
   },
   watch: {
@@ -79,6 +83,7 @@ const app = new Vue({
     },
     onResize() {
       this.windowWidth = window.innerWidth;
+      this.windowHeight = window.innerHeight;
       this.TOUCH = 'ontouchstart' in document;
     },
     async openSpotlight(windowEvent) {
@@ -245,6 +250,9 @@ window.addEventListener('hashchange', handleUrlChange);
 window.addEventListener('load', handleUrlChange);
 
 function handleUrlChange() {
+
+  fadeSplash();
+
   const hash = decodeURIComponent(window.location.hash.replace(/#/, ''));
   if (hash) {
 
@@ -281,6 +289,13 @@ function handleUrlChange() {
   }
 
   app.updateImages();
+}
+
+function fadeSplash() {
+  const splash = document.querySelector('.screen.splash');
+  if (splash) {
+    splash.style.filter = 'brightness(1)';
+  }
 }
 
 function preload() {
