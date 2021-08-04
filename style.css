@@ -111,7 +111,7 @@ html, body {
   background-image: url(images/image1.jpg);
   z-index: 1;
   filter: brightness(0);
-  transition: filter 0.3s ease;
+  transition: filter 0.3s ease, opacity 0.3s ease;
 }
 
 .splash h1, .splash canvas {

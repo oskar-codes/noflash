@@ -197,6 +197,7 @@ const images = [];
 
 (() => {
 
+  const splash = document.querySelector('.screen.splash');
 
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
@@ -223,13 +224,18 @@ const images = [];
 
   document.body.addEventListener('click', () => {
     window.setTimeout(() => {
-      app.showSplash = false;
+      splash.style.opacity = 0;
+      window.setTimeout(() => {
+        app.showSplash = false;
+      }, 300);
     }, 300);
 
-    window.setInterval(() => {
+    const interval = window.setInterval(() => {
       if (app.splashTitleFrame < 7) {
         app.splashTitleFrame++;
         image.src = `images/title/${app.splashTitleFrame}.png`;
+      } else {
+        window.clearInterval(interval);
       }
     }, 50);
   });
@@ -257,8 +263,6 @@ function handleUrlChange() {
     }
 
     app.showSplash = false;
-    const splash = document.querySelector('.screen.splash');
-    if (splash) splash.style.display = 'none';
 
     if (/category_[0-9]+/.test(hash)) {
       app.selectedCategory = parseInt(hash.replace(/category_/, '')) - 1;
