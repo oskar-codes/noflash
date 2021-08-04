@@ -43,10 +43,12 @@
         
         </div>
 
-        <div key="article-selection" class="article-selection screen" v-else-if="/category_[0-9]+/.test(state)">
+        <!-- ARTICLE SELECTION -->
+        <div key="article-selection" class="article-selection screen" :class="{ scrollable: currentCategory.type !== 'articles' }" v-else-if="/category_[0-9]+/.test(state)">
 
           <header class="text-red italic">{{currentCategory.name}}</header>
           
+          <!-- ARTICLE LIST -->
           <template v-if="currentCategory.type === 'articles'">
 
             <transition-group name="fade">
@@ -68,6 +70,7 @@
 
           </template>
 
+          <!-- RESEARCH POSTERS -->
           <template v-else-if="currentCategory.type === 'research'">
 
             <div class="research-gallery">
@@ -83,6 +86,7 @@
 
           </template>
 
+          <!-- IMAGES INDEX -->
           <template v-else-if="currentCategory.type === 'images'">
             
             <div class="image-gallery">
@@ -96,6 +100,7 @@
 
           </template>
 
+          <!-- PLAIN TEXT -->
           <template v-else-if="currentCategory.type === 'text'">
 
             <div class="about" v-html="currentCategory.el.innerHTML"></div>
@@ -108,7 +113,7 @@
 
         <div key="article-reader" class="article-reader screen" v-else>
           <header><span class="sans-serif bold">({{selectedArticle + 1}})</span> {{currentArticle.name}}</header>
-          <div class="article" v-html="currentArticle.el.innerHTML"></div>
+          <div class="article" v-html="currentArticle.el.innerHTML.replace(/data-src/g, 'src')"></div>
           <footer class="italic center serif">
             <span class="button" @click="back">back</span>
           </footer>
@@ -122,15 +127,15 @@
         <div class="category" data-name="architecture" data-type="articles">
 
           <div class="article" data-name="house for an enemy">
-            <img src="images/loading.png" class="lazy" data-src="images/1/house for an enemy/GL-S-01.png">
+            <img data-src="images/1/house for an enemy/GL-S-01.png">
           </div>
 
           <div class="article" data-name="les invalides" data-preview-src="images/1/les invalides/PARIS-DEUX-4-CH-01.png">
-            <img src="images/loading.png" class="lazy" data-src="images/1/les invalides/PARIS-DEUX-1.1-E-10.png">
-            <img src="images/loading.png" class="lazy" data-src="images/1/les invalides/PARIS-DEUX-2-S-03.png">
-            <img src="images/loading.png" class="lazy" data-src="images/1/les invalides/PARIS-DEUX-2-S-04.png">
-            <img src="images/loading.png" class="lazy" data-src="images/1/les invalides/PARIS-DEUX-4-CH-01.png">
-            <img src="images/loading.png" class="lazy" data-src="images/1/les invalides/PARIS-DEUX-5-SB-01.png">
+            <img data-src="images/1/les invalides/PARIS-DEUX-1.1-E-10.png">
+            <img data-src="images/1/les invalides/PARIS-DEUX-2-S-03.png">
+            <img data-src="images/1/les invalides/PARIS-DEUX-2-S-04.png">
+            <img data-src="images/1/les invalides/PARIS-DEUX-4-CH-01.png">
+            <img data-src="images/1/les invalides/PARIS-DEUX-5-SB-01.png">
             <p>exercitationem ratione molestias.
               </p>
             <table>
@@ -146,25 +151,25 @@
           </div>
 
           <div class="article" data-name="the third room">
-            <img src="images/loading.png" class="lazy" data-src="">
+            <img data-src="">
           </div>
           
           <div class="article" data-name="imaged house">
-            <img src="images/loading.png" class="lazy" data-src="">
+            <img data-src="">
           </div>
           
           <div class="article" data-name="maison des jours meilleurs">
-            <img src="images/loading.png" class="lazy" data-src="">
+            <img data-src="">
           </div>
           
           <div class="article" data-name="incredulità di san tommaso">
-            <img src="images/loading.png" class="lazy" data-src="">
+            <img data-src="">
           </div>
           
           <div class="article" data-name="impression, soleil levant" data-preview-src="images/1/impression/Z-Seegarten-Morning-B-04.jpg">
-            <img src="images/loading.png" class="lazy" data-src="images/1/impression/Z-Seegarten-Morning-EXT-04.jpg">
-            <img src="images/loading.png" class="lazy" data-src="images/1/impression/Z-Seegarten-Morning-EXT-03.jpg">
-            <img src="images/loading.png" class="lazy" data-src="images/1/impression/Z-Seegarten-Morning-B-04.jpg">
+            <img data-src="images/1/impression/Z-Seegarten-Morning-EXT-04.jpg">
+            <img data-src="images/1/impression/Z-Seegarten-Morning-EXT-03.jpg">
+            <img data-src="images/1/impression/Z-Seegarten-Morning-B-04.jpg">
           </div>
          
           </div>
@@ -172,8 +177,8 @@
         <div class="category" data-name="furniture" data-type="articles">
 
           <div class="article" data-name="marble table">
-            <img src="images/loading.png" class="lazy" data-src="images/2/marble-table/fmf-MARBLE-03.jpg">
-            <img src="images/loading.png" class="lazy" data-src="images/2/marble-table/fmf-MARBLE-02.jpg">
+            <img data-src="images/2/marble-table/fmf-MARBLE-03.jpg">
+            <img data-src="images/2/marble-table/fmf-MARBLE-02.jpg">
           </div>
 
         </div>
@@ -196,16 +201,16 @@
         <div class="category" data-name="references" data-type="articles">
 
           <div class="article" data-name="otto e mezzo, federico fellini">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/2AXTUn1.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/03%20(2).jpg?bwg=1547138265">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/YU8A0Nr.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/SwZQzVK.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/IzpbGU3.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/Nss16UY.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/33%20(2).jpg?bwg=1547138264">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/Lc9Rf8C.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/57%20(2).jpg?bwg=1547138264">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/11zmVYH.png">
+            <img data-src="https://i.imgur.com/2AXTUn1.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/03%20(2).jpg?bwg=1547138265">
+            <img data-src="https://i.imgur.com/YU8A0Nr.png">
+            <img data-src="https://i.imgur.com/SwZQzVK.png">
+            <img data-src="https://i.imgur.com/IzpbGU3.png">
+            <img data-src="https://i.imgur.com/Nss16UY.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/33%20(2).jpg?bwg=1547138264">
+            <img data-src="https://i.imgur.com/Lc9Rf8C.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/57%20(2).jpg?bwg=1547138264">
+            <img data-src="https://i.imgur.com/11zmVYH.png">
             <table>
               <tr>
                 <td class="bold sans-serif">YEAR</td>
@@ -232,20 +237,20 @@
           
           <div class="article" data-name="le mépris, jean-luc godard">
             <br>
-            <img src="images/loading.png" class="lazy" data-src="images/4-REFERENCES/MEPRIS-Title-01.jpg" style="margin-bottom:30px;">
-            <img src="images/loading.png" class="lazy" data-src="images/4-REFERENCES/MEPRIS-Title-02.jpg" style="margin-bottom:30px;">
-            <img src="images/loading.png" class="lazy" data-src="images/4-REFERENCES/MEPRIS-Title-03.jpg" style="margin-bottom:30px;">
-            <img src="images/loading.png" class="lazy" data-src="images/4-REFERENCES/MEPRIS-Title-04.jpg">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/w4Ot6nQ.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/38%20(605).jpg?bwg=1547227783">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/gJuczSY.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/39%20(605).jpg?bwg=1547227783">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/62ouxMz.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/5%20(12).jpg?bwg=1547227784">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/XLa183J.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/51%20(580).jpg?bwg=1547227783">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/40sSWJq.png">
-            <img src="images/loading.png" class="lazy" data-src="https://film-grab.com/wp-content/uploads/photo-gallery/62%20(498).jpg?bwg=1547227783">
+            <img data-src="images/4-REFERENCES/MEPRIS-Title-01.jpg" style="margin-bottom:30px;">
+            <img data-src="images/4-REFERENCES/MEPRIS-Title-02.jpg" style="margin-bottom:30px;">
+            <img data-src="images/4-REFERENCES/MEPRIS-Title-03.jpg" style="margin-bottom:30px;">
+            <img data-src="images/4-REFERENCES/MEPRIS-Title-04.jpg">
+            <img data-src="https://i.imgur.com/w4Ot6nQ.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/38%20(605).jpg?bwg=1547227783">
+            <img data-src="https://i.imgur.com/gJuczSY.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/39%20(605).jpg?bwg=1547227783">
+            <img data-src="https://i.imgur.com/62ouxMz.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/5%20(12).jpg?bwg=1547227784">
+            <img data-src="https://i.imgur.com/XLa183J.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/51%20(580).jpg?bwg=1547227783">
+            <img data-src="https://i.imgur.com/40sSWJq.png">
+            <img data-src="https://film-grab.com/wp-content/uploads/photo-gallery/62%20(498).jpg?bwg=1547227783">
             <table>
               <tr>
                 <td class="bold sans-serif">YEAR</td>
@@ -267,13 +272,13 @@
           </div>
           
           <div class="article" data-name="down by law, jim jarmusch">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/szpcN9r.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/JE9vJTP.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/F5iWyEX.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/Fot06NA.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/Zfupfyd.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/TAnvryt.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/ahjp0Qk.png">
+            <img data-src="https://i.imgur.com/szpcN9r.png">
+            <img data-src="https://i.imgur.com/JE9vJTP.png">
+            <img data-src="https://i.imgur.com/F5iWyEX.png">
+            <img data-src="https://i.imgur.com/Fot06NA.png">
+            <img data-src="https://i.imgur.com/Zfupfyd.png">
+            <img data-src="https://i.imgur.com/TAnvryt.png">
+            <img data-src="https://i.imgur.com/ahjp0Qk.png">
             <table>
               <tr>
                 <td class="bold sans-serif">YEAR</td>
@@ -295,17 +300,17 @@
           </div>
           
           <div class="article" data-name="the thin red line, terrence malick">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/UB7zLyn.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/U83qTpz.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/CHn1Mxk.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/LYVbWP0.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/vYITlVM.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/iw8PXSF.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/8yGOVYn.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/6tecaze.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/d6va9iZ.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/CweEgLO.png">
-            <img src="images/loading.png" class="lazy" data-src="https://i.imgur.com/BqVemoh.png">
+            <img data-src="https://i.imgur.com/UB7zLyn.png">
+            <img data-src="https://i.imgur.com/U83qTpz.png">
+            <img data-src="https://i.imgur.com/CHn1Mxk.png">
+            <img data-src="https://i.imgur.com/LYVbWP0.png">
+            <img data-src="https://i.imgur.com/vYITlVM.png">
+            <img data-src="https://i.imgur.com/iw8PXSF.png">
+            <img data-src="https://i.imgur.com/8yGOVYn.png">
+            <img data-src="https://i.imgur.com/6tecaze.png">
+            <img data-src="https://i.imgur.com/d6va9iZ.png">
+            <img data-src="https://i.imgur.com/CweEgLO.png">
+            <img data-src="https://i.imgur.com/BqVemoh.png">
             <table>
               <tr>
                 <td class="bold sans-serif">YEAR</td>

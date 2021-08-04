@@ -79,6 +79,7 @@ const app = new Vue({
     },
     onResize() {
       this.windowWidth = window.innerWidth;
+      this.TOUCH = 'ontouchstart' in document;
     },
     async openSpotlight(windowEvent) {
 
@@ -187,9 +188,14 @@ const app = new Vue({
   }
 });
 
+const images = [];
+(() => {
+  for (let i = 1; i < 8; i++) preload(`images/title/${i}.png`);
+  for (let i = 0; i < app.categories[2].articles.length; i++) preload(`images/3-RESEARCH/FMF-ISSUE-${i+1}.jpg`);
+})();
+
 (() => {
 
-  for (let i = 1; i < 8; i++) fetch(`images/title/${i}.png`); // preload images
 
   const canvas = document.querySelector('canvas');
   const ctx = canvas.getContext('2d');
@@ -273,4 +279,13 @@ function handleUrlChange() {
   }
 
   app.updateImages();
+}
+
+function preload() {
+  for (const url of arguments) {
+    const img = new Image();
+    img.src = url;
+
+    images.push(img);
+  }
 }
