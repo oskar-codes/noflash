@@ -169,7 +169,7 @@ html, body {
 }
 
 .article-selection .items > span:first-child {
-  margin-top: 300px;
+  margin-top: 170px;
 }
 
 .article-selection .items > span:last-child {
@@ -271,7 +271,6 @@ html, body {
   width: 100%;
   background-color: #181818;
   cursor: pointer;
-  border-radius: 10px;
   transition: all 0.2s ease;
 }
 
@@ -340,6 +339,19 @@ html, body {
   }
   .article-reader .article {
     width: 98%;
+  }
+
+  .article-selection .image-gallery + .spotlight + .spotlight-background .button.left {
+    left: 10px;
+  }
+  .article-selection .image-gallery + .spotlight + .spotlight-background .button.right {
+    right: 10px;
+  }
+  .article-selection .image-gallery + .spotlight + .spotlight-background .button.open {
+    top: 10px;
+  }
+  .article-selection .image-gallery + .spotlight + .spotlight-background .id {
+    bottom: 10px;
   }
 }
 

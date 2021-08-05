@@ -111,7 +111,7 @@ const app = new Vue({
       if (move) await delay();
 
       const sizeLandscape = 0.7;
-      const sizePortrait = 0.7;
+      const sizePortrait = this.isLandscape ? 0.7 : 0.5;
 
       const width = img.width > img.height ? 
         window.innerWidth * sizeLandscape // landscape
@@ -306,8 +306,6 @@ function handleUrlChange() {
   } else {
     window.location.hash = 'menu';
   }
-
-  app.updateImages();
 }
 
 function preload() {
