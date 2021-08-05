@@ -15,7 +15,15 @@ const app = new Vue({
     windowHeight: window.innerHeight,
     splashTitleFrame: 1,
     TOUCH: 'ontouchstart' in document,
-    imagesIndex: Array.from(document.querySelectorAll('.articles-data img')).map(e => e.getAttribute('data-src'))
+    spotlightImageIndex: 0,
+    imagesIndex: Array.from(document.querySelectorAll('.articles-data img')).map(e => {
+      const articleName = e.parentNode.getAttribute('data-name');
+      const categoryIndex = Array.from(document.querySelectorAll('.articles-data .category')).indexOf(e.parentNode.parentNode);
+      return {
+        src: e.getAttribute('data-src'),
+        url: `${categoryIndex + 1}_${articleName.split(' ').join('_')}`
+      }
+    }).filter(e => !!e.src)
   },
   computed: {
     currentCategory() {
@@ -81,12 +89,11 @@ const app = new Vue({
       this.windowHeight = window.innerHeight;
       this.TOUCH = 'ontouchstart' in document;
     },
-    async openSpotlight(windowEvent) {
-
-      const div = windowEvent.event.target;
+    async openSpotlight(div, move = true) {
       const imgCoords = div.getBoundingClientRect();
 
       this.spotlightImg = div;
+      this.spotlightImageIndex = Array.from(div.parentNode.children).indexOf(div);
 
       const img = new Image();
       img.src = div.getAttribute('data-src');
@@ -101,7 +108,7 @@ const app = new Vue({
 
       background.style.display = 'block';
       
-      await delay();
+      if (move) await delay();
 
       const sizeLandscape = 0.7;
       const sizePortrait = 0.7;
@@ -121,12 +128,15 @@ const app = new Vue({
       background.style.opacity = 1;
 
     },
-    async closeSpotlight() {
+    async closeSpotlight(tagName) {
+
+      if (tagName !== 'DIV') return;
+
       const spotlight = document.querySelector('.spotlight');
       const background = document.querySelector('.spotlight-background');
 
       const coords = this.spotlightImg.getBoundingClientRect();
-      
+
       background.style.opacity = 0;
       spotlight.style.left = `${coords.left}px`;
       spotlight.style.top = `${coords.top}px`;
@@ -137,6 +147,13 @@ const app = new Vue({
 
       spotlight.style.display = 'none';
       background.style.display = 'none';
+    },
+    moveSpotlight(delta) {
+      const nextDiv = this.spotlightImg[delta > 0 ? 'nextSibling' : 'previousSibling'];
+      if (nextDiv) this.openSpotlight(nextDiv, false);
+    },
+    openSpotlightArticle() {
+      window.location.hash = this.spotlightImg.getAttribute('data-url');
     },
     updateItems() {
       const items = document.querySelector('.items')?.children;

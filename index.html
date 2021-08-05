@@ -92,11 +92,16 @@
           <template v-else-if="currentCategory.type === 'images'">
             
             <div class="image-gallery">
-              <div v-for="img in imagesIndex" v-if="img" :data-src="img" :style='`background-image: url("${img}");`' @click="openSpotlight(this)"></div>
+              <div v-for="img in imagesIndex" :data-src="img.src" :style='`background-image: url("${img.src}");`' @click="openSpotlight(this.event.target)" :data-url="img.url"></div>
             </div>
 
-            <div class="spotlight" @click="closeSpotlight"></div>
-            <div class="spotlight-background" @click="closeSpotlight"></div>
+            <div class="spotlight"></div>
+            <div class="spotlight-background" @click="closeSpotlight(this.event.target.tagName)">
+              <span class="left button serif" @click="moveSpotlight(-1)">🡨</span>
+              <span class="right button serif" @click="moveSpotlight(1)">🡪</span>
+              <span class="open button serif" @click="openSpotlightArticle">open</span>
+              <span class="id serif">{{spotlightImageIndex + 1}} - {{imagesIndex.length}}</span>
+            </div>
 
             <footer class="text-red italic button" @click="back">back</footer>
 
