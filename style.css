@@ -6,7 +6,7 @@
   --font-size-title-mobile: 60px;
 
   --font-size-text: 20px;
-  --font-size-text-mobile: 15px;
+  --font-size-text-mobile: 17px;
 }
 
 ::-webkit-scrollbar {
@@ -352,6 +352,13 @@ html, body {
   }
   .article-selection .image-gallery + .spotlight + .spotlight-background .id {
     bottom: 10px;
+  }
+  html, body,
+  .screen header, .screen footer,
+  .article-selection .items,
+  .article-reader > h1,
+  .article-reader p {
+    font-size: var(--font-size-text-mobile);
   }
 }
 

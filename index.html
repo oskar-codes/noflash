@@ -37,7 +37,7 @@
             <span v-for="(category, i) in categories" class="text-red bold button" :data-category="category.name"
               @mouseover="hoveredCategory = i"
               @mouseout="hoveredCategory = -1"
-              @click="selectedCategory = i; state = `category_${i+1}`;">{{isLandscape ? i + 1 : category.name}}</span>
+              @click="selectedCategory = i; state = category.name;">{{isLandscape ? i + 1 : category.name}}</span>
           </div>
 
           <transition name="fade">
@@ -47,7 +47,7 @@
         </div>
 
         <!-- ARTICLE SELECTION -->
-        <div key="article-selection" class="article-selection screen" :class="{ scrollable: currentCategory.type !== 'articles' }" v-else-if="/category_[0-9]+/.test(state)">
+        <div key="article-selection" class="article-selection screen" :class="{ scrollable: currentCategory.type !== 'articles' }" v-else-if="isCategory(state)">
 
           <header class="text-red italic">{{currentCategory.name}}</header>
           

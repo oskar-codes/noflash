@@ -193,6 +193,9 @@ const app = new Vue({
         left: 0,
         behavior: 'smooth'
       });
+    },
+    isCategory(state) {
+      return this.categories.map(e => e.name).indexOf(state) !== -1;
     }
   },
   mounted() {
@@ -212,17 +215,18 @@ const images = [];
   for (let i = 0; i < app.categories[2].articles.length; i++) preload(`images/3-RESEARCH/FMF-ISSUE-${i+1}.jpg`);
 })();
 
+/*
 (() => {
 
   const splash = document.querySelector('.screen.splash');
 
- /* const canvas = document.querySelector('canvas');
-  const ctx = canvas.getContext('2d');*/
+  const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');
 
   const image = document.createElement('img');
   image.src = 'images/title/1.png';
 
- /* image.addEventListener('load', () => {
+  image.addEventListener('load', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0);
 
@@ -237,7 +241,7 @@ const images = [];
       }
     }
     ctx.putImageData(im, 0, 0);
-  });*/
+  });
 
   document.body.addEventListener('click', () => {
     window.setTimeout(() => {
@@ -255,7 +259,11 @@ const images = [];
   });
 
 
-})();
+})();*/
+
+document.body.addEventListener('click', () => {
+  app.showSplash = false;
+});
 
 /*window.setTimeout(() => {
   app.showSplash = false;
@@ -284,8 +292,8 @@ function handleUrlChange() {
     const splash = document.querySelector('.splash');
     if (splash) splash.style.display = 'none';
 
-    if (/category_[0-9]+/.test(hash)) {
-      app.selectedCategory = parseInt(hash.replace(/category_/, '')) - 1;
+    if (app.isCategory(hash)) {
+      app.selectedCategory = app.categories.map(e => e.name).indexOf(hash);
       app.state = hash;
       return;
     }
