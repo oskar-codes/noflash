@@ -110,15 +110,29 @@ const app = new Vue({
       
       if (move) await delay();
 
-      const sizeLandscape = 0.7;
-      const sizePortrait = this.isLandscape ? 0.7 : 0.5;
+      const maxWidth = window.innerWidth - 200; // Max width for the image
+      const maxHeight = window.innerHeight - 200;    // Max height for the image
+      let ratio = 0;  // Used for aspect ratio
+      let width = img.width;    // Current image width
+      let height = img.height;  // Current image height
 
-      const width = img.width > img.height ? 
-        window.innerWidth * sizeLandscape // landscape
-      : window.innerHeight * sizePortrait * (img.width / img.height); // portrait
-      const height = img.width > img.height ? 
-        window.innerWidth * sizeLandscape * (img.height / img.width) // landscape
-      : window.innerHeight * sizePortrait // portrait
+      // Check if the current width is larger than the max
+      if(width > maxWidth){
+        ratio = maxWidth / width;   // get ratio for scaling image
+        spotlight.style.width = `${maxWidth}px`; // Set new width
+        spotlight.style.height = `${height * ratio}px`; // Scale height based on ratio
+        height = height * ratio;    // Reset height to match scaled image
+        width = width * ratio;    // Reset width to match scaled image
+      }
+
+      // Check if current height is larger than max
+      if(height > maxHeight){
+        ratio = maxHeight / height; // get ratio for scaling image
+        spotlight.style.height = `${maxHeight}px`; // Set new height
+        spotlight.style.width = `${width * ratio}px`; // Scale width based on ratio
+        width = width * ratio;    // Reset width to match scaled image
+        height = height * ratio;    // Reset height to match scaled image
+      }
       
       spotlight.style.left = `calc(50% - ${width / 2}px)`;
       spotlight.style.top = `calc(50% - ${height / 2}px)`;
