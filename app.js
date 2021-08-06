@@ -216,13 +216,13 @@ const images = [];
 
   const splash = document.querySelector('.screen.splash');
 
-  const canvas = document.querySelector('canvas');
-  const ctx = canvas.getContext('2d');
+ /* const canvas = document.querySelector('canvas');
+  const ctx = canvas.getContext('2d');*/
 
   const image = document.createElement('img');
   image.src = 'images/title/1.png';
 
-  image.addEventListener('load', () => {
+ /* image.addEventListener('load', () => {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(image, 0, 0);
 
@@ -237,7 +237,7 @@ const images = [];
       }
     }
     ctx.putImageData(im, 0, 0);
-  });
+  });*/
 
   document.body.addEventListener('click', () => {
     window.setTimeout(() => {
