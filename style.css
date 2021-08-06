@@ -115,7 +115,7 @@ html, body {
 .splash h1, .splash canvas {
   position: absolute;
   left: 50%; top: 50%;
-  transform: translate(-50%, -50%) translateY(-100px);
+  transform: translate(-50%, -50%) /*translateY(-100px)*/;
   font-size: var(--font-size-title);
   white-space: nowrap;
   margin: 0;
