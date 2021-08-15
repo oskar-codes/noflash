@@ -170,6 +170,7 @@ const app = new Vue({
       if (nextDiv) this.openSpotlight(nextDiv, false);
     },
     openSpotlightArticle() {
+      document.removeEventListener('keyup', this.handleSpotlightKey);
       window.location.hash = this.spotlightImg.getAttribute('data-url');
     },
     updateItems() {
