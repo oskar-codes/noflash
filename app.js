@@ -141,6 +141,7 @@ const app = new Vue({
 
       background.style.opacity = 1;
 
+      document.addEventListener('keyup', this.handleSpotlightKey);
     },
     async closeSpotlight(tagName) {
 
@@ -161,6 +162,8 @@ const app = new Vue({
 
       spotlight.style.display = 'none';
       background.style.display = 'none';
+
+      document.removeEventListener('keyup', this.handleSpotlightKey);
     },
     moveSpotlight(delta) {
       const nextDiv = this.spotlightImg[delta > 0 ? 'nextSibling' : 'previousSibling'];
@@ -182,6 +185,12 @@ const app = new Vue({
           item.style.transform = `scale(${val})`;
         }
       }
+    },
+    handleSpotlightKey({ key }) {
+      if (key === 'ArrowLeft') this.moveSpotlight(-1);
+      if (key === 'ArrowRight') this.moveSpotlight(1);
+
+      if (key === 'Escape') this.closeSpotlight('DIV');
     },
     scrollItems(windowEvent) {
 
