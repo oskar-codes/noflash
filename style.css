@@ -189,7 +189,7 @@ html, body {
 }
 
 .article-selection > .about {
-  width: 50%;
+  width: 300px;
   margin: 0 auto;
   text-align: justify;
 }
