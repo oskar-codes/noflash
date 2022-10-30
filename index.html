@@ -34,7 +34,7 @@
           <div class="numbers">
             <span v-for="(category, i) in categories" class="text-red bold button" :data-category="category.name"
               @mouseover="hoveredCategory = i"
-              @mouseout="hoveredCategory = -1"
+              @mouseout="hoveredCategory = i"
               @click="selectedCategory = i; state = category.name;">{{isLandscape ? i + 1 : category.name}}</span>
           </div>
 
@@ -60,7 +60,7 @@
               
               <span v-for="(article, i) in currentCategory.articles"
                 @mouseover="hoveredArticle = i"
-                @mouseout="hoveredArticle = -1"
+                @mouseout="hoveredArticle = i"
                 @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
                 <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
               </span>
