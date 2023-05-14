@@ -32,14 +32,18 @@
         <div key="menu" class="menu screen" v-if="state === 'menu'">
 
           <div class="numbers">
-            <span v-for="(category, i) in categories" class="text-red bold button" :data-category="category.name"
+            <span class="filler"></span>
+            <span v-for="(category, i) in categories" class="text-red bold button" :data-index="i" :data-category="category.name"
               @mouseover="hoveredCategory = i"
               @mouseout="hoveredCategory = i"
-              @click="selectedCategory = i; state = category.name;">{{isLandscape ? i + 1 : category.name}}</span>
+              @click="selectedCategory = i; state = category.name;">
+                {{ category.name }}
+            </span>
+            <span class="filler"></span>
           </div>
 
           <transition name="fade">
-            <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 && !TOUCH ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer>
+            <!-- <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 && !TOUCH ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer> -->
           </transition>
         
         </div>
@@ -56,15 +60,13 @@
               <img class="preview-image" v-for="(article, i) in currentCategory.articles" :key="article.name" :src="article?.previewImgSrc" v-show="currentCategory.articles[hoveredArticle]?.name === article.name && isLandscape">
             </transition-group>
   
-            <div class="items" @scroll="updateItems(this)" @wheel="scrollItems(this)">
-              
+            <div class="items" @scroll="updateItems(this)" @wheel="scrollItems(this)">              
               <span v-for="(article, i) in currentCategory.articles"
                 @mouseover="hoveredArticle = i"
                 @mouseout="hoveredArticle = i"
                 @click="selectedArticle = i; state = (selectedCategory + 1) + '_' + article.name.split(' ').join('_')">
                 <span class="bold">({{i + 1}})</span> <span class="serif">{{article.name}}</span>&nbsp;
-              </span>
-  
+              </span>              
             </div>
 
             <footer class="text-red italic button floating" @click="back">back</footer>
