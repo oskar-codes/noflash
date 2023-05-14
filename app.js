@@ -1,4 +1,4 @@
-const delay = (time = 1) => new Promise((resolve, reject) => setTimeout(resolve, time));
+const delay = (time = 1) => new Promise(resolve => setTimeout(resolve, time));
 const lerp = (a, b, r) => (a * (1 - r)) + (b * r);
 const clamp = (v, a, b) => Math.max(a,Math.min(b, v));
 
@@ -7,6 +7,8 @@ const app = new Vue({
   data: {
     state: 'menu',
     showSplash: true,
+    categoryIndex: 0,
+    canScroll: true,
     hoveredCategory: -1,
     selectedCategory: -1,
     hoveredArticle: -1,
@@ -88,6 +90,32 @@ const app = new Vue({
       this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
       this.TOUCH = 'ontouchstart' in document;
+      this.scrollToCategory({ animate: false });
+    },
+    setupMenu() {
+      document.querySelector('.numbers').addEventListener('wheel', this.onScroll, { passive: false });
+      this.scrollToCategory({ animate: false });
+    },
+    scrollToCategory({ animate }) {
+      document.querySelector(`.numbers span[data-index='${this.categoryIndex}']`).scrollIntoView({
+        behavior: animate ? 'smooth' : 'auto',
+        inline: 'center'
+      });
+    },
+    onScroll(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const offset = e.deltaY > 0 || e.deltaX > 0 ? 1 : -1;
+      if (this.canScroll && this.categoryIndex + offset >= 0 && this.categoryIndex + offset < this.categories.length) {
+        this.categoryIndex += offset;
+        this.scrollToCategory({ animate: true });
+        this.canScroll = false;
+        setTimeout(() => {
+          this.canScroll = true;
+        }, 500);
+      }
+      return false;
     },
     async openSpotlight(div, move = true) {
       const imgCoords = div.getBoundingClientRect();
@@ -302,13 +330,15 @@ window.addEventListener('load', () => {
   }, 200);
 });
 
-function handleUrlChange() {
+async function handleUrlChange() {
   const hash = decodeURIComponent(window.location.hash.replace(/#/, ''));
   
   if (hash) {
 
     if (hash === 'menu') {
       app.state = hash;
+      await delay();
+      app.setupMenu();
       return;
     }
 
@@ -319,6 +349,9 @@ function handleUrlChange() {
     if (app.isCategory(hash)) {
       app.selectedCategory = app.categories.map(e => e.name).indexOf(hash);
       app.state = hash;
+      app.categoryIndex = app.selectedCategory;
+      await delay();
+      app.updateItems();
       return;
     }
 
@@ -332,7 +365,6 @@ function handleUrlChange() {
         app.selectedArticle = articleIndex;
         app.state = hash;
       }
-
     }
 
   } else {
