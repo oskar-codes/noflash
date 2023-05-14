@@ -137,14 +137,31 @@ html, body {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  gap: 100px;
+  overflow-x: scroll;
+  width: 100%;
+}
+
+.menu .numbers span.filler:after {
+  content: '';
+  display: block;
+  width: 100vw;
 }
 
 .menu .numbers span {
   font-size: var(--font-size-title);
   width: 100%;
   text-align: center;
+}
+
+.menu .numbers span.button {
+  transition: filter 0.3s ease;
+}
+
+.menu .numbers span.button:hover {
+  filter: blur(20px);
 }
 
 .articles-data {
@@ -325,6 +342,15 @@ html, body {
   font-size: var(--font-size-text);
 }
 
+#video {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/** MEDIA QUERIES **/
+
+/* Portrait */
 @media only screen and (orientation: portrait) {
   .splash h1 {
     font-size: var(--font-size-title-mobile);
@@ -333,6 +359,7 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    gap: 0;
   }
   .menu .numbers span {
     font-size: var(--font-size-title-mobile);
@@ -371,9 +398,10 @@ html, body {
   }
 }
 
+/* Landscape */
 @media only screen and (orientation: landscape) {
   body.touch .menu .numbers span::after {
-    content: attr(data-category);
+    /* content: attr(data-category); */
     display: block;
     font-size: var(--font-size-text);
   }
@@ -382,12 +410,13 @@ html, body {
   }
 }
 
+/* Hover */
 @media (hover: hover) {
   .button:hover {
     /*-webkit-text-stroke-width: 2px;
     -webkit-text-stroke-color: var(--col-red);
     color: transparent !important;*/
-    color: var(--col-red);
+    /* color: var(--col-red); */
   }
   .article-selection .items > span:hover {
     color: var(--col-red);
