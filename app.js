@@ -253,6 +253,19 @@ const app = new Vue({
   mounted() {
     this.$nextTick(() => {
       window.addEventListener('resize', this.onResize);
+
+      const canvidControl = canvid({
+        selector : '.video',
+        videos: {
+            clip1: { src: 'images/title/frames.jpg', frames: 64, cols: 6, loops: 1, fps: 10,
+            width: 1920, height: 1080, onEnd: function(){
+              canvidControl.play('clip1');
+            }},
+        },
+        loaded: function() {
+          canvidControl.play('clip1');
+        }
+      });
     });
 
     if (this.TOUCH) {

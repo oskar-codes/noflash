@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NO FLASH</title>
     <link rel="stylesheet" href="style.css">
+    <script src="canvid.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/cbebc4ac70.js" crossorigin="anonymous"></script>
   </head>
@@ -20,8 +21,11 @@
         <div class="splash screen" v-if="showSplash">
 
           <!--<h1 class="text-red center">NO FLASH</h1>-->
-          <video id="video" muted playsinline autoplay loop src="images/title/810_VD_2305_NF-Logo-Blur.mp4"></video>
+          <!-- <video class="video" muted playsinline autoplay loop src="images/title/810_VD_2305_NF-Logo-Blur.mp4"></video> -->
           
+          <div class="video"></div>
+
+
             <!-- <canvas width="1458" height="208"></canvas> -->
           <footer class="text-red italic floating">directed by a. n. zanota</footer>
         
