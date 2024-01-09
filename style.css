@@ -162,7 +162,7 @@ html, body {
 }
 
 .menu .numbers span.button:hover {
-  filter: blur(20px);
+  filter: blur(2px);
 }
 
 .articles-data {
