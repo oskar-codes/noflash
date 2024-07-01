@@ -1,1 +1,35 @@
+:root {
+  --col-white: white;
+  --col-red: red;
+  --col-black: black;
 
+  --font-size-title: 40px;
+  --font-size-title-mobile: 60px;
+
+  --font-size-text: 20px;
+  --font-size-text-mobile: 17px;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  box-sizing: border-box;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+html, body {
+  margin: 0;
+  height: 100%;
+  color: var(--col-black);
+  font-size: var(--font-size-text);
+  padding:.1em;
+}
+
+img {
+  max-height:700px;
+  max-width:100%;
+}
