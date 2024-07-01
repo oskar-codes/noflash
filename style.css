@@ -29,7 +29,7 @@ html, body {
   padding:.1em;
 }
 
-img {
+img, canvas {
   max-height:700px;
   max-width:100%;
 }
