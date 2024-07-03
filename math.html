@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LMT</title>
+    <title>Learn Multiplication Table</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +21,7 @@
     </style>
 </head>
 <body>
-    <h1>LMT</h1>
+    <h1>Learn the Multiplication Table</h1>
     <div class="question" id="question"></div>
     <form id="answerForm">
         <input type="number" id="answer" required>
@@ -30,32 +30,57 @@
     <div class="response" id="response"></div>
 
     <script>
+        const questions = {};
+        let currentQuestion;
+
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function generateQuestion() {
-            const num1 = getRandomInt(1, 10);
-            const num2 = getRandomInt(1, 10);
+        function generateWeightedRandomQuestion() {
+            const allQuestions = [];
+            for (let i = 1; i <= 10; i++) {
+                for (let j = 1; j <= 10; j++) {
+                    const key = `${i}x${j}`;
+                    const weight = questions[key] ? questions[key] : 1;
+                    for (let k = 0; k < weight; k++) {
+                        allQuestions.push(key);
+                    }
+                }
+            }
+            const randomIndex = getRandomInt(0, allQuestions.length - 1);
+            const [num1, num2] = allQuestions[randomIndex].split('x').map(Number);
+            currentQuestion = { num1, num2, answer: num1 * num2 };
             document.getElementById('question').textContent = `${num1} x ${num2} = ?`;
-            return num1 * num2;
         }
 
-        let correctAnswer = generateQuestion();
+        function updateQuestionWeight(num1, num2, correct) {
+            const key = `${num1}x${num2}`;
+            if (!questions[key]) {
+                questions[key] = 1;
+            }
+            if (!correct) {
+                questions[key]++;
+            }
+        }
+
+        generateWeightedRandomQuestion();
 
         document.getElementById('answerForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const userAnswer = parseInt(document.getElementById('answer').value);
             const responseElement = document.getElementById('response');
-            if (userAnswer === correctAnswer) {
+            if (userAnswer === currentQuestion.answer) {
                 responseElement.textContent = 'Correct!';
                 responseElement.style.color = 'green';
+                updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, true);
             } else {
                 responseElement.textContent = 'Incorrect. Try again!';
                 responseElement.style.color = 'red';
+                updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, false);
             }
             document.getElementById('answer').value = '';
-            correctAnswer = generateQuestion();
+            generateWeightedRandomQuestion();
         });
     </script>
 </body>
