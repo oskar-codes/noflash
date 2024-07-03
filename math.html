@@ -87,7 +87,7 @@
                 updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, true);
                 generateWeightedRandomQuestion();
             } else {
-                responseElement.textContent = 'Incorrect. Try again!';
+                responseElement.textContent = '!';
                 responseElement.style.color = 'red';
                 correctAnswerElement.textContent = `The correct answer is: ${currentQuestion.answer}`;
                 updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, false);
