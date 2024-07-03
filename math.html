@@ -67,8 +67,10 @@
             if (!questions[key]) {
                 questions[key] = 1;
             }
-            if (!correct) {
-                questions[key]++;
+            if (correct) {
+                questions[key] = Math.max(1, questions[key] - 1); // Ensure the weight doesn't go below 1
+            } else {
+                questions[key] += 4; // Increase weight by 4 (1+4=5 times more likely to appear)
             }
         }
 
