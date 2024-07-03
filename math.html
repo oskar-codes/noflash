@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Multiplication Table</title>
+    <title>LMT</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,16 +18,22 @@
             margin-top: 20px;
             font-size: 18px;
         }
+        .correct-answer {
+            margin-top: 10px;
+            font-size: 16px;
+            color: red;
+        }
     </style>
 </head>
 <body>
-    <h1>Learn the Multiplication Table</h1>
+    <h1>LMT</h1>
     <div class="question" id="question"></div>
     <form id="answerForm">
         <input type="number" id="answer" required>
         <button type="submit">Submit</button>
     </form>
     <div class="response" id="response"></div>
+    <div class="correct-answer" id="correct-answer"></div>
 
     <script>
         const questions = {};
@@ -52,6 +58,8 @@
             const [num1, num2] = allQuestions[randomIndex].split('x').map(Number);
             currentQuestion = { num1, num2, answer: num1 * num2 };
             document.getElementById('question').textContent = `${num1} x ${num2} = ?`;
+            document.getElementById('response').textContent = '';
+            document.getElementById('correct-answer').textContent = '';
         }
 
         function updateQuestionWeight(num1, num2, correct) {
@@ -70,17 +78,19 @@
             event.preventDefault();
             const userAnswer = parseInt(document.getElementById('answer').value);
             const responseElement = document.getElementById('response');
+            const correctAnswerElement = document.getElementById('correct-answer');
             if (userAnswer === currentQuestion.answer) {
                 responseElement.textContent = 'Correct!';
                 responseElement.style.color = 'green';
                 updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, true);
+                generateWeightedRandomQuestion();
             } else {
                 responseElement.textContent = 'Incorrect. Try again!';
                 responseElement.style.color = 'red';
+                correctAnswerElement.textContent = `The correct answer is: ${currentQuestion.answer}`;
                 updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, false);
             }
             document.getElementById('answer').value = '';
-            generateWeightedRandomQuestion();
         });
     </script>
 </body>
