@@ -45,8 +45,8 @@
 
         function generateWeightedRandomQuestion() {
             const allQuestions = [];
-            for (let i = 1; i <= 10; i++) {
-                for (let j = 1; j <= 10; j++) {
+            for (let i = 3; i <= 9; i++) {
+                for (let j = 3; j <= 9; j++) {
                     const key = `${i}x${j}`;
                     const weight = questions[key] ? questions[key] : 1;
                     for (let k = 0; k < weight; k++) {
