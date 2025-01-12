@@ -29,7 +29,7 @@
     <h1>LMT</h1>
     <div class="question" id="question"></div>
     <form id="answerForm">
-        <input type="number" step="0.1" id="answer" required>
+        <input type="number" step="0.01" id="answer" required>
         <button type="submit">Submit</button>
     </form>
     <div class="response" id="response"></div>
@@ -43,28 +43,23 @@
             return Math.floor(Math.random() * (max - min + 1)) + min;
         }
 
-        function getRandomDecimal(min, max) {
-            const decimals = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9];
-            const integerPart = getRandomInt(min, max);
-            const decimalPart = decimals[getRandomInt(0, decimals.length - 1)];
-            return integerPart + decimalPart;
+        function getRandomDecimal(min, max, step) {
+            const range = (max - min) / step;
+            const randomStep = Math.floor(Math.random() * (range + 1));
+            return parseFloat((min + randomStep * step).toFixed(1));
         }
 
         function generateWeightedRandomQuestion() {
             const allQuestions = [];
-            for (let i = 3; i <= 9; i++) {
-                for (let j = 3; j <= 9; j++) {
-                    const key = `${i}x${j}`;
-                    const weight = questions[key] ? questions[key] : 1;
-                    for (let k = 0; k < weight; k++) {
-                        allQuestions.push(key);
-                    }
-                }
-            }
-            // Add decimal-based questions
-            for (let i = 0.1; i < 1; i += 0.1) {
-                for (let j = 3; j <= 9; j++) {
-                    const key = `${i}x${j}`;
+            
+            // Generate combinations of integers (3 to 9) and decimals (0.1 to 0.9)
+            const values = [];
+            for (let i = 3; i <= 9; i++) values.push(i);
+            for (let i = 0.1; i <= 0.9; i = parseFloat((i + 0.1).toFixed(1))) values.push(i);
+
+            for (const num1 of values) {
+                for (const num2 of values) {
+                    const key = `${num1}x${num2}`;
                     const weight = questions[key] ? questions[key] : 1;
                     for (let k = 0; k < weight; k++) {
                         allQuestions.push(key);
@@ -72,9 +67,11 @@
                 }
             }
 
+            // Randomly select a question
             const randomIndex = getRandomInt(0, allQuestions.length - 1);
             const [num1, num2] = allQuestions[randomIndex].split('x').map(Number);
-            currentQuestion = { num1, num2, answer: +(num1 * num2).toFixed(1) }; // Rounded to 1 decimal
+            currentQuestion = { num1, num2, answer: parseFloat((num1 * num2).toFixed(2)) };
+
             document.getElementById('question').textContent = `${num1} x ${num2} = ?`;
             document.getElementById('response').textContent = '';
             document.getElementById('correct-answer').textContent = '';
@@ -99,6 +96,7 @@
             const userAnswer = parseFloat(document.getElementById('answer').value);
             const responseElement = document.getElementById('response');
             const correctAnswerElement = document.getElementById('correct-answer');
+
             if (userAnswer === currentQuestion.answer) {
                 responseElement.textContent = 'Correct!';
                 responseElement.style.color = 'green';
@@ -110,6 +108,7 @@
                 correctAnswerElement.textContent = `The correct answer is: ${currentQuestion.answer}`;
                 updateQuestionWeight(currentQuestion.num1, currentQuestion.num2, false);
             }
+
             document.getElementById('answer').value = '';
         });
     </script>
