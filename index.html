@@ -9,9 +9,13 @@
     <script src="canvid.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://kit.fontawesome.com/cbebc4ac70.js" crossorigin="anonymous"></script>
+  
   </head>
   <body>
 
+    <img data-src="images/image2.jpg">
+    
+<!--
     <div id='app'>
 
       <div class="overlay screen"></div>
@@ -21,13 +25,13 @@
         <div class="splash screen" v-if="showSplash">
 
           <!--<h1 class="text-red center">NO FLASH</h1>-->
-          <!-- <video class="video" muted playsinline autoplay loop src="images/title/810_VD_2305_NF-Logo-Blur.mp4"></video> -->
+          <!-- <video class="video" muted playsinline autoplay loop src="images/title/810_VD_2305_NF-Logo-Blur.mp4"></video> --
           
           <div class="video"></div>
 
 
-            <!-- <canvas width="1458" height="208"></canvas> -->
-          <footer class="text-red italic floating">directed by a. n. zanota</footer>
+            <!-- <canvas width="1458" height="208"></canvas> --
+          <footer class="text-red italic floating">directed by a. n. zanota</footer> 
         
         </div>
 
@@ -49,17 +53,17 @@
           </div>
 
           <transition name="fade">
-            <!-- <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 && !TOUCH ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer> -->
+            <!-- <footer class="floating text-red italic" v-if="hoveredCategory !== -1" :style="`display: ${windowWidth > 768 && !TOUCH ? 'auto' : 'none'}`">{{categories[hoveredCategory].name}}</footer> --
           </transition>
         
         </div>
 
-        <!-- ARTICLE SELECTION -->
+        <!-- ARTICLE SELECTION --
         <div key="article-selection" class="article-selection screen" :class="{ scrollable: currentCategory.type !== 'articles' }" v-else-if="isCategory(state)">
 
           <header class="text-red italic">{{currentCategory.name}}</header>
           
-          <!-- ARTICLE LIST -->
+          <!-- ARTICLE LIST --
           <template v-if="currentCategory.type === 'articles'">
 
             <transition-group name="fade">
@@ -79,7 +83,7 @@
 
           </template>
 
-          <!-- RESEARCH POSTERS -->
+          <!-- RESEARCH POSTERS --
           <template v-else-if="currentCategory.type === 'research'">
 
             <div class="research-gallery">
@@ -95,7 +99,7 @@
 
           </template>
 
-          <!-- IMAGES INDEX -->
+          <!-- IMAGES INDEX --
           <template v-else-if="currentCategory.type === 'images'">
             
             <div class="image-gallery">
@@ -114,7 +118,7 @@
 
           </template>
 
-          <!-- PLAIN TEXT -->
+          <!-- PLAIN TEXT --
           <template v-else-if="currentCategory.type === 'text'">
 
             <div class="about" v-html="currentCategory.el.innerHTML"></div>
@@ -135,7 +139,7 @@
 
       </transition>
 
-      <!-- START CONTENT DATA -->
+      <!-- START CONTENT DATA --
       <div class="articles-data">
 
         <div class="category" data-name="architecture" data-type="articles">
@@ -262,7 +266,7 @@
               </tr>
             </table>
           </div> 
-          -->
+          --
           
           <div class="article" data-name="impression, soleil levant" data-preview-src="images/1/impression/Z-Seegarten-Morning-EXT-04.jpg">
             <img data-src="images/1/impression/Z-Seegarten-Morning-EXT-04.jpg">
@@ -365,7 +369,7 @@ the load-bearing core.</td>
               </tr>
             </table>
           </div>
--->
+--
          
           </div>
 
@@ -497,7 +501,7 @@ the load-bearing core.</td>
             <p class="font-times">In architectural theory as well as in practice, the relation to the past as a concept is often considered. It is not uncommon for architects to cite references ranging from 16th century plans to early 20th century diagrams. But even if this intention can be considered inherently fruitful and positive, it most often only leads to buildings as physically naïve fictional reenactments of what no longer exists. The past is blindly treated like an immaterial substance fleeting above its ruins, metaphorically and physically. Existing buildings — mainly from the second half of the 20th — are being demolished and replaced at a ferocious pace by contemporary pseudo-improved versions. Our present-day architecture has not yet found a goal, other than to dismiss existing conditions through an authoritarian arm-wrestling fight with its modern past.</p>  
             <!---   
             <p class="font-times">What is real in architecture? If architecture is solely a fictional reenactment (extension?) of the natural conditions it replaces, then a building faces the same theoretical questions raised by any (figurative) painting. "The world, what's left?" (Hockney) <br/> Roland Barthes begins his 1979 essay entitled Sagesse de l'art (interestingly dedicated to Cy Twombly and Yvon Lambert) with the following hypothesis: "Whatever the transformations of painting, whatever its substance and its context, the same question always arises: What is happening here?". For Barthes, the fundamental aspect of all representation is that it oscillates between two temporalities: the present of the contemporary viewer, and the past inherent to the viewed image. This oscillation is not without any friction, and a painting thus becomes a moment of tension between past and present. In an architectural context, one could add another factor, namely that of location. A building remains stationary (french for building is "immeuble", meaning non-movable), and is inextricably bound to its location. In the mid 18th century, french philosophers and architects expanded this notion of location and defined a moral role for architecture, as having to relate - and remind the viewers of the natural conditions that a building inherently dismisses; hence extending architecture to be a fictional reenactment of what it had replaced.</p>
-            -->          
+            --         
             <p class="font-times">“If you view nature through the glass walls of the Farnsworth House, it gains a more profound significance than if viewed from outside.” Mies Van Der Rohe, cited by Jacques Herzog.</p>
             <p class="font-times"></p>
             
@@ -1150,10 +1154,11 @@ the load-bearing core.</td>
         </div>
 
       </div>
-      <!-- END CONTENT DATA -->
+      <!-- END CONTENT DATA --
 
     </div>
     
-    <script src="app.js"></script>
+    <script src="app.js"></script> -->
   </body>
 </html>
+
