@@ -1,0 +1,152 @@
+{
+  "vars": {
+    "$1": "Antigone",
+    "$2": "Antigone",
+    "$3": "Project Study",
+    "$11": "Project Study",
+    "$12": "Project Study",
+    "$13": "Project Study",
+    "$14": "Project Study",
+    "$15": "Index Housing",
+    "$16": "Project Study",
+    "$17": "Antigone",
+    "$18": "Project Study",
+    "$19": "Project Study",
+    "$20": "NN",
+    "$21": "KUSNACHT",
+    "$22": "MB8ACPG",
+    "$23": "Royen",
+    "$24": "Two Walls"
+  },
+  "posts": 
+  [
+  {
+    "permalink": "https://example.com/posts/1",
+    "date": "017_CI_2402_ZM-01-2-001.jpg",
+    "label": "$17",
+    "alt": "Sample image one",
+    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg",
+    "width": 900,
+    "height": 10
+  },
+  {
+    "permalink": "https://example.com/posts/2",
+    "date": "PH-TP-INT-Day-E1-20-C-01.jpg",
+    "label": "$3",
+    "alt": "Sample image two",
+    "url": "https://noflash.xyz/images/1/PH/PH-TP-INT-Day-E1-20-C-01.jpg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "permalink": "https://example.com/posts/3",
+    "date": "L-180-08.jpg",
+    "label": "$3",
+    "alt": "Sample image three",
+    "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg",
+    "width": 4540,
+    "height": 800
+  },
+  {
+    "permalink": "https://example.com/posts/4",
+    "date": "TH-02-GR.jpg",
+    "label": "$3",
+    "alt": "Sample image four",
+    "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg",
+    "width": 700,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/5",
+    "date": "P-180-EXT-01-PED.jpg",
+    "label": "$3",
+    "alt": "Sample image five",
+    "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg",
+    "width": 1000,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "017_CI_2402_ZM-03-002.jpg",
+    "label": "$3",
+    "alt": "Sample image six",
+    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "TH-S-02.jpg",
+    "label": "$3",
+    "alt": "Sample image six",
+    "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg",
+    "width": 600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/1",
+    "date": "017_CI_2402_ZM-01-2-001.jpg",
+    "label": "$17",
+    "alt": "Sample image one",
+    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg",
+    "width": 900,
+    "height": 10
+  },
+  {
+    "permalink": "https://example.com/posts/2",
+    "date": "PH-TP-INT-Day-E1-20-C-01.jpg",
+    "label": "$3",
+    "alt": "Sample image two",
+    "url": "https://noflash.xyz/images/1/PH/PH-TP-INT-Day-E1-20-C-01.jpg",
+    "width": 1200,
+    "height": 800
+  },
+  {
+    "permalink": "https://example.com/posts/3",
+    "date": "L-180-08.jpg",
+    "label": "$3",
+    "alt": "Sample image three",
+    "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg",
+    "width": 4540,
+    "height": 800
+  },
+  {
+    "permalink": "https://example.com/posts/4",
+    "date": "TH-02-GR.jpg",
+    "label": "$3",
+    "alt": "Sample image four",
+    "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg",
+    "width": 700,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/5",
+    "date": "P-180-EXT-01-PED.jpg",
+    "label": "$3",
+    "alt": "Sample image five",
+    "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg",
+    "width": 1000,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "017_CI_2402_ZM-03-002.jpg",
+    "label": "$3",
+    "alt": "Sample image six",
+    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "TH-S-02.jpg",
+    "label": "$3",
+    "alt": "Sample image six",
+    "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg",
+    "width": 600,
+    "height": 900
+  }
+  
+
+]
+}
