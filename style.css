@@ -140,7 +140,7 @@ body {
   height: auto;
   display: block;
   background-color: var(--color-surface-tinted);
-  cursor: zoom-in;
+  cursor: pointer;
 }
 
 .card-meta {
