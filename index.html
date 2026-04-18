@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NO FLASH</title>
+  <meta name="description" content="An ongoing index of visual references.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="site-nav">
+    <h1 class="site-title">
+      <a class="site-title-link" href="/">NO FLASH</a>
+    </h1>
+    <p class="site-description">An architecture practice still in the process of defining itself.</p>
+    <ul class="nav-list">
+      <li class="nav-list-item"><a href="/about"   class="nav-list-link">About</a></li>
+      <li class="nav-list-item"><a href="/archive" class="nav-list-link">Archive</a></li>
+      <li class="nav-list-item"><a href="/contact" class="nav-list-link">Contact</a></li>
+    </ul>
+  </nav>
+
+  <button class="filter-reset" hidden>Reset Selection</button>
+
+  <main class="index">
+    <div class="index-list"></div>
+    <div class="index-sentinel" aria-hidden="true"></div>
+    <div class="index-status" role="status" aria-live="polite">Loading…</div>
+  </main>
+
+  <dialog class="lightbox" closedby="closerequest">
+    <img class="lightbox-img" src="" alt="">
+    <button class="lightbox-close-btn" aria-label="Close lightbox">Close</button>
+  </dialog>
+
+  <script src="gallery.js"></script>
+  <script>
+    Gallery.init({ dataFile: 'data.json' });
+  </script>
+
+</body>
+</html>
