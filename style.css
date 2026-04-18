@@ -1,0 +1,237 @@
+/* ── Design tokens ─────────────────────────────────────────── */
+:root {
+  --page-margin:      1rem;
+  --col-min-width:    10lh;          /* minimum card column width  */
+  --col-gap:          2lh;
+  --row-gap:          3lh;
+  --caption-gap:      1lh;
+
+  --color-surface:         #ffffff;
+  --color-surface-tinted:  #f4f3f1;
+  --color-on-surface:      #000000;
+  --color-scrim:           #ffffff;
+  --opacity-scrim:         0.75;
+
+  --main-font:        sans-serif
+}
+
+/* ── Reset ─────────────────────────────────────────────────── */
+*, ::before, ::after { box-sizing: border-box; }
+
+html {
+  font-size: 87.5%;
+  text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+blockquote, body, button, dd, dl, figcaption, figure,
+h1, h2, h3, h4, h5, h6, li, ol, p, ul {
+  margin: 0;
+  padding: 0;
+}
+
+figure { margin: 0; }
+h1, h2, h3, h4, h5, h6 { font: inherit; }
+li, ol, ul { list-style-type: none; }
+a { color: inherit; text-decoration: none; }
+
+input, button, textarea, select { font: inherit; }
+
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img {
+  max-inline-size: 100%;
+  block-size: auto;
+  vertical-align: middle;
+}
+
+::selection {
+  color: var(--color-surface);
+  background: var(--color-on-surface);
+}
+
+/* ── Page layout ───────────────────────────────────────────── */
+body {
+  min-height: 100vh;
+  font: 400 100% / 1.215 var(--main-font);
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  display: flex;
+  flex-direction: column;
+  padding: var(--page-margin);
+  row-gap: 4lh;
+}
+
+/* ── Site navigation ───────────────────────────────────────── */
+.site-nav {
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.site-title-link {
+  color: var(--color-on-surface);
+  text-decoration: none;
+}
+
+.site-description {
+  margin-block-start: 0.25lh;
+}
+
+.nav-list {
+  margin-block-start: 1lh;
+}
+
+.nav-list-link:hover {
+  font-style: italic;
+}
+
+/* ── Gallery index ─────────────────────────────────────────── */
+.index {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.index-list {
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, var(--col-min-width)), 1fr)
+  );
+  gap: var(--row-gap) var(--col-gap);
+}
+
+.index-status {
+  margin-block-start: auto;
+  padding-block-start: 4lh;
+  height: 5lh;
+  font-size: 0.85em;
+  color: color-mix(in srgb, var(--color-on-surface) 50%, transparent);
+}
+
+/* ── Card ──────────────────────────────────────────────────── */
+.card-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: var(--caption-gap);
+}
+
+/*
+  --format is the image's aspect ratio (width / height).
+  When > 1 (landscape) the anchor fills the full column width.
+  When < 1 (portrait) it narrows proportionally so the grid
+  column centres the card without stretching it.
+*/
+
+.card-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  background-color: var(--color-surface-tinted);
+  cursor: zoom-in;
+}
+
+.card-meta {
+  text-align: center;
+  font-size: 0.8em;
+}
+
+/* Show date by default; swap to label on hover */
+.card-label { display: none; }
+
+.card-item:hover .card-date  { display: none; }
+.card-item:hover .card-label { display: block; }
+
+/* Freeze the swap while lightbox is open */
+body:has(.lightbox[open]) .card-label { display: none  !important; }
+body:has(.lightbox[open]) .card-date  { display: block !important; }
+
+/* ── Filter reset button ───────────────────────────────────── */
+.filter-reset {
+  align-self: flex-start;
+  font: inherit;
+  font-size: 0.85em;
+  cursor: pointer;
+  padding: 0.25em 0.6em;
+  border: 1px solid var(--color-on-surface);
+  background: none;
+  color: var(--color-on-surface);
+}
+
+.filter-reset:hover {
+  background: var(--color-on-surface);
+  color: var(--color-surface);
+}
+
+/* ── Card label — clickable ───────────────────────────────── */
+.card-label {
+  cursor: pointer;
+}
+
+.card-label:hover {
+  font-style: none;
+}
+
+/* ── Lightbox (<dialog>) ───────────────────────────────────── */
+.lightbox {
+  inset: 0;
+  inline-size: 100%;
+  block-size: 100%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  max-block-size:  85vh;
+  max-inline-size: 85vw;
+  overflow: visible;
+  cursor: pointer;
+}
+
+.lightbox::backdrop {
+  background-color: var(--color-scrim);
+  opacity: var(--opacity-scrim);
+}
+
+.lightbox[open] { display: flex; }
+
+body:has(.lightbox[open]) { overflow: hidden; }
+
+.lightbox-anchor {
+  cursor: default;
+  inline-size: fit-content;
+  block-size: fit-content;
+}
+
+.lightbox-img {
+  max-block-size:  100%;
+  max-inline-size: 100%;
+  block-size: auto;
+  inline-size: auto;
+  background-color: var(--color-surface-tinted);
+  vertical-align: middle;
+}
+
+.lightbox-close-btn {
+  position: fixed;
+  inset-block-start: var(--page-margin);
+  inset-inline-end: var(--page-margin);
+  pointer-events: none;
+  opacity: 0;
+  font-size: 0.85em;
+}
+
+.lightbox-close-btn:focus { opacity: 1; }
