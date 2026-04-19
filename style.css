@@ -23,6 +23,7 @@ html {
   text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow: scroll
 }
 
 blockquote, body, button, dd, dl, figcaption, figure,
@@ -202,8 +203,9 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 }
 
 .lightbox::backdrop {
-  background-color: var(--color-scrim);
-  opacity: var(--opacity-scrim);
+  backdrop-filter: blur(3px);
+  /*background-color: var(--color-scrim);*/
+  /*opacity: var(--opacity-scrim);*/
 }
 
 .lightbox[open] { display: flex; }
