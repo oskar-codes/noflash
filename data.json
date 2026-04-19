@@ -6,6 +6,7 @@
     "$L-180": "Project Study",
     "$P-180": "Project Study",
     "$T-FA": "Project Study",
+    "$MFT": "Project Study",
     "$11": "Project Study",
     "$12": "Project Study",
     "$13": "Project Study",
@@ -208,7 +209,80 @@
     "url": "https://noflash.xyz/images/5/392810954_2108987752807324_7353352107473843956_n.jpg",
     "width": 1600,
     "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-46.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-46.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-45.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-45.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-42.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-42.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-41.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-41.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-36.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-36.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-28.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-28.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-6.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-6.jpg",
+    "width": 1600,
+    "height": 900
+  },
+  {
+    "permalink": "https://example.com/posts/6",
+    "date": "MFT_2506_W-S-4.jpg",
+    "label": "$MFT",
+    "alt": "$MFT",
+    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-4.jpg",
+    "width": 1600,
+    "height": 900
   }
+  
 
 ]
 }
