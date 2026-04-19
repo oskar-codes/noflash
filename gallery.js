@@ -1,5 +1,23 @@
+/**
+ * gallery.js
+ *
+ * Loads images from data.json and renders them into an auto-fill
+ * grid with infinite scroll, a native <dialog> lightbox, and
+ * label-based filtering.
+ *
+ * - Clicking an image  → opens the lightbox
+ * - Clicking a label   → filters the grid by the original $var key,
+ *                        not the resolved string — so two vars that
+ *                        happen to share a display value still filter
+ *                        independently.
+ * - "Show all" button  → clears the filter
+ *
+ * Usage:  Gallery.init({ dataFile: 'data.json' });
+ */
+
 const Gallery = (() => {
 
+  /* ── State ────────────────────────────────────────────── */
   let allPosts     = [];
   let activeFilter = null;  // $varKey string, or null for unfiltered
 
@@ -39,6 +57,18 @@ const Gallery = (() => {
       date:      resolveVar(post.date, vars),
       alt:       resolveVar(post.alt,  vars),
     };
+  }
+
+  /* ── Shuffle ──────────────────────────────────────────── */
+
+  /** Fisher-Yates shuffle — returns a new randomised array. */
+  function shuffle(arr) {
+    const a = [...arr];
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+    return a;
   }
 
   /* ── Filtering ────────────────────────────────────────── */
@@ -179,7 +209,7 @@ const Gallery = (() => {
     });
 
     dialog.addEventListener('click', (e) => {
-      if (e.target !== imgElm) close();
+      if (e.target === imgElm || e.target === dialog) close();
     });
 
     dialog.addEventListener('keydown', (e) => {
@@ -205,7 +235,7 @@ const Gallery = (() => {
 
       const vars  = data.vars ?? {};
       const posts = Array.isArray(data) ? data : (data.posts ?? []);
-      allPosts = posts.map(post => resolvePost(post, vars));
+      allPosts = shuffle(posts.map(post => resolvePost(post, vars)));
 
     } catch (err) {
       console.error('[Gallery] Could not load data file:', err);
