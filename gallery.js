@@ -3,14 +3,25 @@
  *
  * Loads images from data.json and renders them into an auto-fill
  * grid with infinite scroll, a native <dialog> lightbox, and
- * label-based filtering.
+ * label-based filtering with structured metadata.
  *
- * - Clicking an image  → opens the lightbox
- * - Clicking a label   → filters the grid by the original $var key,
- *                        not the resolved string — so two vars that
- *                        happen to share a display value still filter
- *                        independently.
+ * - Clicking an image  → opens the lightbox (click again to close)
+ * - Clicking a label   → filters the grid by the original $var key
  * - "Show all" button  → clears the filter
+ *
+ * vars in data.json accept any of these shapes:
+ *
+ *   "$key": "Label"
+ *   "$key": ["Label", "Plain description"]
+ *   "$key": {
+ *     "label":         "Display name",   // required
+ *     "Client":        "Acme Studio",    // any fields you want
+ *     "Location":      "London, UK",
+ *     "Date":          "2023–2024",
+ *     "Collaborators": "Jane Doe",
+ *     "Type":          "Architecture"
+ *     // … add or remove fields freely
+ *   }
  *
  * Usage:  Gallery.init({ dataFile: 'data.json' });
  */
@@ -19,49 +30,66 @@ const Gallery = (() => {
 
   /* ── State ────────────────────────────────────────────── */
   let allPosts     = [];
-  let activeFilter = null;  // $varKey string, or null for unfiltered
+  let resolvedVars = {};
+  let activeFilter = null;
 
   const PAGE_SIZE = 15;
 
   /* ── DOM refs ─────────────────────────────────────────── */
-  let gridElm     = null;
-  let sentinelElm = null;
-  let statusElm   = null;
-  let resetBtnElm = null;
-  let observer    = null;
+  let gridElm       = null;
+  let sentinelElm   = null;
+  let statusElm     = null;
+  let filterBarElm  = null;
+  let resetBtnElm   = null;
+  let filterDescElm = null;
+  let observer      = null;
 
   /* ── Variable resolution ──────────────────────────────── */
 
-  function resolveVar(value, vars) {
-    if (typeof value === 'string' && value.startsWith('$') && value in vars) {
-      return vars[value];
+  /**
+   * Normalise a var value into { label, meta }
+   * where meta is an ordered array of { key, value } pairs
+   * (everything except "label" in the object).
+   */
+  function parseVars(vars) {
+    const out = {};
+    for (const [key, value] of Object.entries(vars)) {
+      if (typeof value === 'string') {
+        out[key] = { label: value, meta: [] };
+      } else if (Array.isArray(value)) {
+        out[key] = { label: value[0] ?? '', meta: value[1] ? [{ key: '', value: value[1] }] : [] };
+      } else if (typeof value === 'object' && value !== null) {
+        const { label = '', ...rest } = value;
+        out[key] = {
+          label,
+          meta: Object.entries(rest).map(([k, v]) => ({ key: k, value: v })),
+        };
+      }
+    }
+    return out;
+  }
+
+  function resolveVar(value) {
+    if (typeof value === 'string' && value.startsWith('$') && value in resolvedVars) {
+      return resolvedVars[value].label;
     }
     return value ?? '';
   }
 
-  /**
-   * Resolve a post, keeping the original $varKey as `filterKey`
-   * so filtering is always by var identity, not display string.
-   *
-   * If label is a plain string (no $), filterKey === label,
-   * so plain strings still filter correctly among themselves.
-   */
-  function resolvePost(post, vars) {
+  function resolvePost(post) {
     const rawLabel = post.label ?? '';
-    const isVar    = typeof rawLabel === 'string' && rawLabel.startsWith('$') && rawLabel in vars;
-
+    const isVar    = typeof rawLabel === 'string' && rawLabel.startsWith('$') && rawLabel in resolvedVars;
     return {
       ...post,
-      label:     resolveVar(rawLabel, vars),   // display string
-      filterKey: isVar ? rawLabel : rawLabel,  // $varName if a var, else the plain string
-      date:      resolveVar(post.date, vars),
-      alt:       resolveVar(post.alt,  vars),
+      label:     isVar ? resolvedVars[rawLabel].label : rawLabel,
+      filterKey: rawLabel,
+      date:      resolveVar(post.date),
+      alt:       resolveVar(post.alt),
     };
   }
 
   /* ── Shuffle ──────────────────────────────────────────── */
 
-  /** Fisher-Yates shuffle — returns a new randomised array. */
   function shuffle(arr) {
     const a = [...arr];
     for (let i = a.length - 1; i > 0; i--) {
@@ -81,22 +109,42 @@ const Gallery = (() => {
   function applyFilter(filterKey) {
     activeFilter = filterKey;
     rebuildGrid();
-    resetBtnElm.hidden = false;
+
+    const varEntry = resolvedVars[filterKey];
+    filterDescElm.innerHTML = '';
+
+    if (varEntry?.meta?.length) {
+      varEntry.meta.forEach(({ key, value }) => {
+        const line = document.createElement('span');
+        line.className = 'filter-meta-line';
+        if (key) {
+          const keySpan = document.createElement('span');
+          keySpan.className   = 'filter-meta-key';
+          keySpan.textContent = key + ': ';
+          line.appendChild(keySpan);
+        }
+        line.appendChild(document.createTextNode(value));
+        filterDescElm.appendChild(line);
+      });
+    }
+
+    filterBarElm.hidden = false;
   }
 
   function clearFilter() {
     activeFilter = null;
     rebuildGrid();
-    resetBtnElm.hidden = true;
+    filterBarElm.hidden     = true;
+    filterDescElm.innerHTML = '';
   }
 
   function rebuildGrid() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     if (observer) observer.disconnect();
-    gridElm.innerHTML = '';
+    gridElm.innerHTML     = '';
     statusElm.textContent = '';
 
     const posts = filteredPosts();
-
     if (!posts.length) {
       statusElm.textContent = 'No images found.';
       return;
@@ -121,7 +169,6 @@ const Gallery = (() => {
       card.className = 'card-item';
       card.style.setProperty('--format', String(format));
 
-      // Image — clicking opens the lightbox
       const img = document.createElement('img');
       img.className = 'card-img';
       img.src       = post.url;
@@ -133,11 +180,10 @@ const Gallery = (() => {
       const meta = document.createElement('div');
       meta.className = 'card-meta';
 
-      // Label — clicking filters by filterKey, displays resolved string
       const labelSpan = document.createElement('span');
-      labelSpan.className            = 'card-label';
-      labelSpan.textContent          = post.label || '';
-      labelSpan.dataset.filterKey    = post.filterKey; // $varName or plain string
+      labelSpan.className         = 'card-label';
+      labelSpan.textContent       = post.label || '';
+      labelSpan.dataset.filterKey = post.filterKey;
 
       const dateSpan = document.createElement('span');
       dateSpan.className   = 'card-date';
@@ -156,7 +202,6 @@ const Gallery = (() => {
 
   function setupObserver(posts) {
     let rendered = Math.min(posts.length, PAGE_SIZE);
-
     if (rendered >= posts.length) return;
 
     observer = new IntersectionObserver(
@@ -164,7 +209,6 @@ const Gallery = (() => {
         if (!entries[0].isIntersecting) return;
         obs.unobserve(entries[0].target);
         rendered = renderBatch(posts, rendered);
-
         if (rendered >= posts.length) {
           obs.disconnect();
           statusElm.textContent = !activeFilter ? 'End of posts' : '';
@@ -192,20 +236,14 @@ const Gallery = (() => {
       dialog.showModal();
     }
 
-    function close() {
-      dialog.close();
-    }
+    function close() { dialog.close(); }
 
     gridElm.addEventListener('click', (e) => {
-      // Image clicks → lightbox
       const img = e.target.closest('.card-img');
       if (img) { open(img); return; }
 
-      // Label clicks → filter by $varKey
       const label = e.target.closest('.card-label');
-      if (label && label.dataset.filterKey) {
-        applyFilter(label.dataset.filterKey);
-      }
+      if (label?.dataset.filterKey) applyFilter(label.dataset.filterKey);
     });
 
     dialog.addEventListener('click', (e) => {
@@ -220,10 +258,12 @@ const Gallery = (() => {
   /* ── Public API ───────────────────────────────────────── */
 
   async function init({ dataFile = 'data.json' } = {}) {
-    gridElm     = document.querySelector('.index-list');
-    sentinelElm = document.querySelector('.index-sentinel');
-    statusElm   = document.querySelector('.index-status');
-    resetBtnElm = document.querySelector('.filter-reset');
+    gridElm       = document.querySelector('.index-list');
+    sentinelElm   = document.querySelector('.index-sentinel');
+    statusElm     = document.querySelector('.index-status');
+    filterBarElm  = document.querySelector('.filter-bar');
+    resetBtnElm   = document.querySelector('.filter-reset');
+    filterDescElm = document.querySelector('.filter-description');
 
     resetBtnElm.addEventListener('click', clearFilter);
 
@@ -233,9 +273,9 @@ const Gallery = (() => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
-      const vars  = data.vars ?? {};
-      const posts = Array.isArray(data) ? data : (data.posts ?? []);
-      allPosts = shuffle(posts.map(post => resolvePost(post, vars)));
+      resolvedVars = parseVars(data.vars ?? {});
+      const posts  = Array.isArray(data) ? data : (data.posts ?? []);
+      allPosts     = shuffle(posts.map(resolvePost));
 
     } catch (err) {
       console.error('[Gallery] Could not load data file:', err);
