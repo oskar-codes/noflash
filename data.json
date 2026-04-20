@@ -1,19 +1,41 @@
 {
   "vars": {
-    "$1": "Antigone",
-    "$2": "Antigone",
+    "$1":     ["Antigone", "Simple Description Here"],
+    "$2":     ["Antigone", "Simple Description Here"],
     "$3": "Project Study",
     "$L-180": "Project Study",
     "$P-180": "Project Study",
     "$T-FA": "Project Study",
-    "$MFT": "Project Study",
+    "$MFT": {
+      "label": "MFT",
+      "Collaborators": "TMIS, Oslo",
+      "Status": "In progress"
+    },
+    "$9": {
+      "label": "Exhibition",
+      "Location": "Zurich, Switzerland",
+      "Date": "2022",
+      "Type": "Exhibition",
+      "Status": "Completed"
+    },
+    "$10": {
+      "label": "Exhibition",
+      "Location": "Zurich, Switzerland",
+      "Date": "2023",
+      "Type": "Exhibition",
+      "Status": "Completed"
+    },
     "$11": "Project Study",
     "$12": "Project Study",
     "$13": "Project Study",
     "$14": "Project Study",
     "$15": "Index Housing",
     "$16": "Project Study",
-    "$17": "Antigone",
+    "$17": {
+      "label": "Antigone",
+      "Type": "Scenography",
+      "Status": "Realised"
+    },
     "$18": "Project Study",
     "$19": "Project Study",
     "$20": "NN",
@@ -21,12 +43,40 @@
     "$22": "MB8ACPG",
     "$23": "Royen",
     "$24": "Two Walls",
-    "$E27": "EBA 027",
-    "$E34": "EBA 034",
-    "$E37": "EBA 037",
-    "$EBWZT": "EBA BWZT",
-    "$ZM5": "0.00208DAYS",
-    "$ZM1": "29.FEB.2024"
+    "$E27": {
+      "label": "EBA 027",
+      "Collaborators": "EBA, Zurich",
+      "Status": "In progress"
+    },
+    "$E34": {
+      "label": "EBA 034",
+      "Collaborators": "EBA, Zurich",
+      "Status": "In Progress"
+    },
+    "$E37": {
+      "label": "EBA 037",
+      "Client": "Vowels",
+      "Location": "New York, United States",
+      "Date": "2024",
+      "Collaborators": "EBA, Zurich + ANY, New York",
+      "Status": "Completed"
+    },
+    "$EBWZT": {
+      "label": "EBA BWZT",
+      "Collaborators": "EBA, Zurich",
+      "Status": "Completed"
+    },
+    "$ZM5": {
+      "label": "0.00208DAYS", 
+      "Publisher": "Zeitung Magazine",
+      "Collaborators": "EBA, Zurich",
+      "Status": "Completed"
+    },
+    "$ZM1": {
+      "label": "29.FEB.2024", 
+      "Publisher": "Zeitung Magazine",
+      "Status": "Completed"
+    }
   },
   "posts": 
   [
@@ -282,6 +332,9 @@
     "width": 1600,
     "height": 900
   }
+  
+  
+  
   
 
 ]
