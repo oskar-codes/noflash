@@ -71,12 +71,8 @@ body {
   row-gap: 4lh;
 }
 
-/* ── Site navigation ───────────────────────────────────────── */
 .site-nav {
-  max-width: 30rem;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  display: contents; /* lets children flow directly into site-header */
 }
 
 .site-title-link {
@@ -234,6 +230,39 @@ body:has(.lightbox[open]) { overflow: hidden; }
   pointer-events: none;
   opacity: 0;
   font-size: 0.85em;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .lightbox-close-btn:focus { opacity: 1; }
+/* ── Site header ───────────────────────────────────────────── */
+.site-header {
+  max-width: 30rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* ── Filter controls ───────────────────────────────────────── */
+.filter-bar {
+  font-size: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 0.5lh;
+  margin-block-start: 1lh;
+}
+
+.filter-bar[hidden] { display: none; }
+
+.filter-description {
+  color: color-mix(in srgb, var(--color-on-surface) 100%, transparent);
+}
+
+.filter-meta-line {
+  display: block;
+}
+
+.filter-meta-key {
+  margin-right: 0px;
+}
