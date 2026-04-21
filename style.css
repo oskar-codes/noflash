@@ -89,7 +89,8 @@ body {
 }
 
 .nav-list-link:hover {
-  font-style: italic;
+  font-style: none;
+  color: red;
 }
 
 /* ── Gallery index ─────────────────────────────────────────── */
