@@ -211,7 +211,7 @@ const Gallery = (() => {
         rendered = renderBatch(posts, rendered);
         if (rendered >= posts.length) {
           obs.disconnect();
-          statusElm.textContent = !activeFilter ? 'End of posts' : '';
+          statusElm.textContent = !activeFilter ? 'NO FLASH 2026' : '';
         } else {
           obs.observe(entries[0].target);
         }
