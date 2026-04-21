@@ -12,6 +12,8 @@
   --color-scrim:           #ffffff;
   --opacity-scrim:         0.75;
 
+  var(--color-hover):      red;
+
   --main-font:        sans-serif
 }
 
@@ -80,6 +82,10 @@ body {
   text-decoration: none;
 }
 
+.site:title-link:hover {
+  color: var(--color-hover);
+}
+
 .site-description {
   margin-block-start: 0.25lh;
 }
@@ -90,7 +96,7 @@ body {
 
 .nav-list-link:hover {
   font-style: none;
-  color: red;
+  color: var(--color-hover);
 }
 
 /* ── Gallery index ─────────────────────────────────────────── */
