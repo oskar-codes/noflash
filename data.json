@@ -9,19 +9,21 @@
     "$MFT": {
       "label": "MFT",
       "Collaborators": "TMIS, Oslo",
+      "Advisors": "Adam Caruso, Zurich",
+      "Project": "2022-",
       "Status": "In progress"
     },
     "$9": {
       "label": "Exhibition",
       "Location": "Zurich, Switzerland",
-      "Date": "2022",
+      "Project": "2022",
       "Type": "Exhibition",
       "Status": "Completed"
     },
     "$10": {
       "label": "Exhibition",
       "Location": "Zurich, Switzerland",
-      "Date": "2023",
+      "Project": "2023",
       "Type": "Exhibition",
       "Status": "Completed"
     },
