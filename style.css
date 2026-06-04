@@ -180,6 +180,7 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 
 
 /* ── Filter reset button ───────────────────────────────────── */
+/*
 .filter-reset {
   align-self: flex-start;
   font: inherit;
@@ -194,6 +195,15 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 .filter-reset:hover {
   background: var(--color-on-surface);
   color: var(--color-surface);
+}
+*/
+.filter-reset {
+  color: color-mix(in srgb, var(--color-on-surface) 30%, transparent);
+}
+
+.filter-reset:hover {
+  color: #000000;
+  font-weight: 100;
 }
 
 /* ── Card label — clickable ───────────────────────────────── */
