@@ -6,7 +6,7 @@
     "links": [
       {
         "label": "Grid",
-        "url": "/grid.html"
+        "url": "grid"
       },
       {
         "label": "Index",
@@ -14,11 +14,11 @@
       },
       {
         "label": "About",
-        "url": "/about"
+        "url": "about"
       },
       {
         "label": "Contact",
-        "url": "/contact"
+        "url": "contact"
       }
     ]
   },
