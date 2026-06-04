@@ -12,7 +12,7 @@
   --color-scrim:           #ffffff;
   --opacity-scrim:         0.75;
 
-  --main-font:        Helvetica, Arial, sans-serif;
+  --main-font:        -apple-system, Helvetica, Arial, sans-serif;
   --main-font-size:   100%;
   --sec-font-size:    0.85em;
 }
@@ -288,6 +288,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
   border-collapse: collapse;
   font-size: var(--main-font-size);
   table-layout: none;
+  /*table-layout:fixed*/
 }
  
 .vars-table th,
