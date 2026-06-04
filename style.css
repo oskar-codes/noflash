@@ -287,7 +287,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
   width: 100%;
   border-collapse: collapse;
   font-size: var(--main-font-size);
-  table-layout: fixed;
+  table-layout: none;
 }
  
 .vars-table th,
@@ -307,16 +307,15 @@ col.col-location      { width: 10%; }
 col.col-date          { width: 10%; }
 col.col-collaborators { width: 10%; }
 col.col-type          { width: 10%; }
- 
+
+
 @media (max-width: 600px) {
-
-  col.col-client,
-  col.col-collaborators,
-  col.col-location { width: 0; }
-
-  col.col-label    { width: 20%; }
-  col.col-type     { width: 10%; }
-  col.col-date     { width: 10%; }
+  col.col-label         { width: 50%; }
+  col.col-index         { width: 0; }
+  col.col-location      { width: 0; }
+  col.col-date          { width: 10%; }
+  col.col-collaborators { width: 0; }
+  col.col-type          { width: 10%; }
 }
 
 /* ── Mobile: hide all but Label, Location, Date, Type ─────── */
