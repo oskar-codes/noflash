@@ -14,7 +14,7 @@
 
   --main-font:        -apple-system, Helvetica, Arial, sans-serif;
   --main-font-size:   100%;
-  --main-font-weight: 400;
+  --main-font-weight: 100;
   --sec-font-size:    0.85em;
 }
 
@@ -65,7 +65,7 @@ img {
 /* ── Page layout ───────────────────────────────────────────── */
 body {
   min-height: 100vh;
-  font: 400 100% / 1.215 var(--main-font);
+  font: var(--main-font-weight) 100% / 1.215 var(--main-font);
   background-color: var(--color-surface);
   color: var(--color-on-surface);
   display: flex;
@@ -204,7 +204,7 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 
 .filter-reset:hover {
   color: var(--color-on-surface);
-  font-weight: 400;
+  font-weight: var(--main-font-weight);
 }
 
 /* ── Card label — clickable ───────────────────────────────── */
@@ -359,7 +359,7 @@ col.col-type          { width: 10%; }
 .vars-table th {
   padding: 0.1lh 1.5lh 1.1lh 0;
   color: color-mix(in srgb, var(--color-on-surface) 30%, transparent);
-  font-weight: 400;
+  font-weight: var(--main-font-weight);
   cursor: pointer;
   user-select: none;
 }
