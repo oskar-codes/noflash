@@ -6,19 +6,19 @@
     "links": [
       {
         "label": "Grid",
-        "url": "grid.html"
+        "url": "/grid.html"
       },
       {
         "label": "Index",
-        "url": "index-list.html"
+        "url": "index-list"
       },
       {
         "label": "About",
-        "url": "about.html"
+        "url": "/about"
       },
       {
         "label": "Contact",
-        "url": "contact.html"
+        "url": "/contact"
       }
     ]
   },
