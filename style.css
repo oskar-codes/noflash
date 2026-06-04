@@ -12,7 +12,7 @@
   --color-scrim:           #ffffff;
   --opacity-scrim:         0.75;
 
-  --main-font:        sans-serif;
+  --main-font:        Helvetica, Arial, sans-serif;
   --main-font-size:   100%;
   --sec-font-size:    0.85em;
 }
@@ -309,9 +309,14 @@ col.col-collaborators { width: 10%; }
 col.col-type          { width: 10%; }
  
 @media (max-width: 600px) {
-  col.col-label    { width: 30%; }
-  col.col-date     { width: 30%; }
-  col.col-type     { width: 30%; }
+
+  col.col-client,
+  col.col-collaborators,
+  col.col-location { width: 0; }
+
+  col.col-label    { width: 20%; }
+  col.col-type     { width: 10%; }
+  col.col-date     { width: 10%; }
 }
 
 /* ── Mobile: hide all but Label, Location, Date, Type ─────── */
