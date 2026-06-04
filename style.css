@@ -14,6 +14,7 @@
 
   --main-font:        -apple-system, Helvetica, Arial, sans-serif;
   --main-font-size:   100%;
+  --main-font-weight: 400;
   --sec-font-size:    0.85em;
 }
 
@@ -97,13 +98,13 @@ body {
 }
 
 .nav-list-link:hover {
-  color: #000000;
-  font-weight: 400;
+  color: var(--color-on-surface);
+  font-weight: var(--main-font-weight);
 }
 
 .nav-list-link[aria-current="page"] {
-  color: #000000;
-  font-weight: 400;
+  color: var(--color-on-surface);
+  font-weight: var(--main-font-weight);
 }
 
 a {
@@ -111,8 +112,8 @@ a {
 }
 
 a:hover {
-  color: #000000;
-  font-weight: 100;
+  color: var(--color-on-surface);
+  font-weight: var--main-font-weight;
 }
 
 /* ── Gallery index ─────────────────────────────────────────── */
@@ -202,8 +203,8 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 }
 
 .filter-reset:hover {
-  color: #000000;
-  font-weight: 100;
+  color: var(--color-on-surface);
+  font-weight: 400;
 }
 
 /* ── Card label — clickable ───────────────────────────────── */
