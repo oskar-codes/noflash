@@ -3,51 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NO FLASH</title>
+  <title>Gallery</title>
   <meta name="description" content="An ongoing index of visual references.">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- ── Navigation + filter controls ───────────────────── -->
+ 
+  <!-- ── Navigation ──────────────────────────────────────── -->
   <header class="site-header">
-    <nav class="site-nav">
-      <h1 class="site-title">
-        <a class="site-title-link" href="/">NO FLASH</a>
-      </h1>
-      <p class="site-description">Version 04-21</p>
-      <ul class="nav-list">
-        <li class="nav-list-item"><a href="/about"   class="nav-list-link">About</a></li>
-        <li class="nav-list-item"><a href="/" class="nav-list-link">Archive</a></li>
-        <li class="nav-list-item"><a href="/contact" class="nav-list-link">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="filter-bar" hidden>
-      <br>
-      <p class="filter-description"></p>
-      <br>
-      <button class="filter-reset">Reset Selection</button>
-    </div>
+    <!-- Populated by nav.js -->
   </header>
-
-  <!-- ── Gallery grid ────────────────────────────────────── -->
-  <main class="index">
-    <div class="index-list"></div>
-    <div class="index-sentinel" aria-hidden="true"></div>
-    <div class="index-status" role="status" aria-live="polite">Loading…</div>
+ 
+  <!-- ── Landing page content ────────────────────────────── -->
+  <main><!--
+    <img src="https://noflash.xyz/images/5/download.jpg" alt="Description" style="width: 100%; height: auto;">
+    <img style="width: 10em;" src="https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-5.jpg">-->
   </main>
-
-  <!-- ── Lightbox ────────────────────────────────────────── -->
-  <dialog class="lightbox" closedby="closerequest">
-    <img class="lightbox-img" src="" alt="">
-    <button class="lightbox-close-btn" aria-label="Close lightbox">Close</button>
-  </dialog>
-
-  <!-- ── Scripts ─────────────────────────────────────────── -->
-  <script src="gallery.js"></script>
-  <script>
-    Gallery.init({ dataFile: 'data.json' });
-  </script>
-
+ 
+  <script src="nav.js"></script>
+ 
 </body>
 </html>

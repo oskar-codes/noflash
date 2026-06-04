@@ -1,343 +1,305 @@
 {
-  "vars": {
-    "$1":     ["Antigone", "Simple Description Here"],
-    "$2":     ["Antigone", "Simple Description Here"],
-    "$3": "Project Study",
-    "$L-180": "Project Study",
-    "$P-180": "Project Study",
-    "$T-FA": "Project Study",
-    "$MFT": {
-      "label": "MFT",
-      "Collaborators": "TMIS, Oslo",
-      "Advisors": "Adam Caruso, Zurich",
-      "Project": "2022-",
-      "Status": "In progress"
-    },
-    "$9": {
-      "label": "Exhibition",
-      "Location": "Zurich, Switzerland",
-      "Project": "2022",
-      "Type": "Exhibition",
-      "Status": "Completed"
-    },
-    "$10": {
-      "label": "Exhibition",
-      "Location": "Zurich, Switzerland",
-      "Project": "2023",
-      "Type": "Exhibition",
-      "Status": "Completed"
-    },
-    "$11": "Project Study",
-    "$12": "Project Study",
-    "$13": "Project Study",
-    "$14": "Project Study",
-    "$15": "Index Housing",
-    "$16": "Project Study",
-    "$17": {
-      "label": "Antigone",
-      "Type": "Scenography",
-      "Status": "Realised"
-    },
-    "$18": "Project Study",
-    "$19": "Project Study",
-    "$20": "NN",
-    "$21": "KUSNACHT",
-    "$22": "MB8ACPG",
-    "$23": "Royen",
-    "$24": "Two Walls",
-    "$E27": {
-      "label": "EBA 027",
-      "Collaborators": "EBA, Zurich",
-      "Status": "In progress"
-    },
-    "$E34": {
-      "label": "EBA 034",
-      "Collaborators": "EBA, Zurich",
-      "Status": "In Progress"
-    },
-    "$E37": {
-      "label": "EBA 037",
-      "Client": "Vowels",
-      "Location": "New York, United States",
-      "Date": "2024",
-      "Collaborators": "EBA, Zurich + ANY, New York",
-      "Status": "Completed"
-    },
-    "$EBWZT": {
-      "label": "EBA BWZT",
-      "Collaborators": "EBA, Zurich",
-      "Status": "Completed"
-    },
-    "$ZM5": {
-      "label": "0.00208DAYS", 
-      "Publisher": "Zeitung Magazine",
-      "Collaborators": "EBA, Zurich",
-      "Status": "Completed"
-    },
-    "$ZM1": {
-      "label": "29.FEB.2024", 
-      "Publisher": "Zeitung Magazine",
-      "Status": "Completed"
-    }
+  "nav": {
+    "title": "NO FLASH",
+    "title_url": "/",
+    "description": "Version 1.12.07",
+    "links": [
+      {
+        "label": "Grid",
+        "url": "grid.html"
+      },
+      {
+        "label": "Index",
+        "url": "index-list.html"
+      },
+      {
+        "label": "About",
+        "url": "about.html"
+      },
+      {
+        "label": "Contact",
+        "url": "contact.html"
+      }
+    ]
   },
-  "posts": 
-  [
+  "projects": [
   {
-    "permalink": "https://example.com/posts/1",
-    "date": "017_CI_2402_ZM-01-2-001.jpg",
-    "label": "$17",
-    "alt": "Sample image one",
-    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg",
-    "width": 900,
-    "height": 10
+    "key": "$1",
+    "label": "",
+    "Index": "001",
+    "Client": "",
+    "Location": "",
+    "Date": "",
+    "Collaborators": "",
+    "Type": "",
+    "Status": ""
   },
   {
-    "permalink": "https://example.com/posts/2",
-    "date": "PH-TP-INT-Day-E1-20-C-01.jpg",
-    "label": "$T-FA",
-    "alt": "Sample image two",
-    "url": "https://noflash.xyz/images/1/PH/PH-TP-INT-Day-E1-20-C-01.jpg",
-    "width": 1200,
-    "height": 800
+    "key": "$2",
+    "label": "",
+    "Index": "002",
+    "Client": "",
+    "Location": "",
+    "Date": "",
+    "Collaborators": "",
+    "Type": "",
+    "Status": ""
   },
   {
-    "permalink": "https://example.com/posts/3",
-    "date": "L-180-08.jpg",
-    "label": "$L-180",
-    "alt": "Sample image three",
-    "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg",
-    "width": 4540,
-    "height": 800
+    "key": "$3",
+    "label": "",
+    "Index": "003",
+    "Client": "",
+    "Location": "Zurich, CH",
+    "Date": "2023",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised"
   },
   {
-    "permalink": "https://example.com/posts/4",
-    "date": "TH-02-GR.jpg",
-    "label": "$3",
-    "alt": "Sample image four",
-    "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg",
-    "width": 700,
-    "height": 900
+    "key": "$4",
+    "label": "Project Study",
+    "Index": "004",
+    "Client": "",
+    "Location": "London, UK",
+    "Date": "2023",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "004_CI_L-E1-C-08.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/5",
-    "date": "P-180-EXT-01-PED.jpg",
-    "label": "$P-180",
-    "alt": "Sample image five",
-    "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg",
-    "width": 1000,
-    "height": 900
+    "key": "$5",
+    "label": "Project Study",
+    "Index": "005",
+    "Client": "",
+    "Location": "Paris, FR",
+    "Date": "2023",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "005_CI_P-E1-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "017_CI_2402_ZM-03-002.jpg",
-    "label": "$17",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$6",
+    "label": "Project Study",
+    "Index": "006",
+    "Client": "",
+    "Location": "London, UK",
+    "Date": "2022",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "006_CI_T-E1-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/PH/PH-TP-INT-Day-E1-20-C-01.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "TH-S-02.jpg",
-    "label": "$3",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg",
-    "width": 600,
-    "height": 900
+    "key": "$7",
+    "label": "Project Study",
+    "Index": "007",
+    "Client": "",
+    "Location": "London, UK",
+    "Date": "2022",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "007_CI_S-E1-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg",  "width": 900,  "height": 1200 },
+      { "date": "007_CI_GR-E2-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/4",
-    "date": "2452_027-SML-C-V-06.jpg",
-    "label": "$E27",
-    "alt": "Sample image four",
-    "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-2-V-06.jpg",
-    "width": 700,
-    "height": 900
+    "key": "$17",
+    "label": "Antigone",
+    "Index": "017",
+    "Client": "",
+    "Location": "Oslo, NO",
+    "Date": "2021",
+    "Collaborators": "",
+    "Type": "Scenography",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "017_CI_S-E0-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg",  "width": 900,  "height": 1200 },
+      { "date": "017_CI_S-E0-C-03.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/5",
-    "date": "2452_027-SML-C-H-04.png",
-    "label": "$E27",
-    "alt": "Sample image five",
-    "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-4-07-04.png",
-    "width": 1000,
-    "height": 900
+    "key": "$18",
+    "label": "Impression",
+    "Index": "018",
+    "Client": "",
+    "Location": "Oslo, NO",
+    "Date": "2021",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Unrealised",
+    "images": [
+      { "date": "018_CI_M-E4-C-03.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Midday-UPPER-03-part-1.jpg",  "width": 900,  "height": 1200 },
+      { "date": "018_CI_M-E4-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-BLUR.jpg",  "width": 900,  "height": 1200 },
+      { "date": "018_CI_M-E4-C-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Morning-EXT-04.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "2452_027-SML-C-INT-V-01.jpg",
-    "label": "$E27",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/2452_027-SML-C-INT-02-1-V-01.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$19",
+    "label": "Les Invalides",
+    "Index": "019",
+    "Client": "",
+    "Location": "Paris, FR",
+    "Date": "2022",
+    "Collaborators": "",
+    "Type": "Architecture",
+    "Status": "Completed",
+    "images": [
+      { "date": "019_CP_P-GL-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-02-PED.jpg",  "width": 900,  "height": 1200 },
+      { "date": "019_CP_P-G3-C-03.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-03-PED.jpg",  "width": 900,  "height": 1200 },
+      { "date": "019_CP_P-G4-C-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-04-PED.jpg",  "width": 900,  "height": 1200 },
+      { "date": "019_CP_P-G3-E-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-EXT-01-PED.jpg",  "width": 900,  "height": 1200 }
+      
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "2453_0-SML-C-E-V-07.jpg",
-    "label": "$E34",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/2453_0-SML-C-E-01-3-V-07.jpg",
-    "width": 600,
-    "height": 900
+    "key": "$MFT",
+    "label": "MFT",
+    "Index": "803.01",
+    "Client": "",
+    "Location": "Oslo, NO",
+    "Date": "2024",
+    "Collaborators": "TMIS",
+    "Type": "Architecture",
+    "Status": "In progress",
+    "images": [
+      { "date": "MFT_CI_W-S-046.jpg", "alt": "MFT46",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-46.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-045.jpg", "alt": "MFT45",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-45.jpg",  "width": 900,  "height": 1200 },
+      { "date": "MFT_CI_W-S-042.jpg", "alt": "MFT42",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-42.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-041.jpg", "alt": "MFT41",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-41.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-036.jpg", "alt": "MFT36",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-36.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-028.jpg", "alt": "MFT28",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-28.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-006.jpg", "alt": "MFT6",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-6.jpg",  "width": 1200, "height": 800  },
+      { "date": "MFT_CI_W-S-004.jpg", "alt": "MFT4",   "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-4.jpg",  "width": 1200, "height": 800  }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "1",
-    "label": "$EBWZT",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/503431566_18007501034772987_4926344512292961491_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$E27",
+    "label": "EBA 027",
+    "Index": "803.27",
+    "Client": "",
+    "Location": "",
+    "Date": "2023",
+    "Collaborators": "EBA, Zurich",
+    "Type": "Architecture",
+    "Status": "In progress",
+    "images": [
+      { "date": "803-027_CI_V-C-06.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-2-V-06.jpg",  "width": 900,  "height": 1200 },
+      { "date": "803-027_CI_H-C-04.png", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-4-07-04.png",  "width": 1200, "height": 800  },
+      { "date": "803-027_CI_I-C-01.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-INT-02-1-V-01.jpg",  "width": 1200, "height": 800  },
+      { "date": "803-027_CI_I-C-03.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/495407274_18001616660772987_1984892888359387740_n.jpg",  "width": 1200, "height": 800  },
+      { "date": "803-027_CI_I-C-05.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/495356769_18001616651772987_3030083462477671748_n.jpg",  "width": 1200, "height": 800  }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "2",
-    "label": "$EBWZT",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/503613429_18007596542772987_2120660975129688270_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$E34",
+    "label": "EBA 034",
+    "Index": "803.34",
+    "Client": "",
+    "Location": "",
+    "Date": "2024",
+    "Collaborators": "EBA, Zurich",
+    "Type": "Architecture",
+    "Status": "In progress",
+    "images": [
+      { "date": "803-034_CI_S-C-07.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/5/2453_0-SML-C-E-01-3-V-07.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "3",
-    "label": "$EBWZT",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/503642656_18007501061772987_4227197152451653438_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$E37",
+    "label": "EBA 037",
+    "Index": "803.37",
+    "Client": "",
+    "Location": "",
+    "Date": "2024",
+    "Collaborators": "EBA, Zurich + ANY, New York",
+    "Type": "Architecture",
+    "Status": "Completed",
+    "images": [
+      { "date": "803-037_CP_S-C-07.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/5/656211735_18010369859849883_4553523132688544307_n.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "4",
-    "label": "$EBWZT",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/503701526_18007596569772987_4064391945972141690_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$K1",
+    "label": "Kunsthalle Zurich",
+    "Index": "810.02",
+    "Client": "Kunsthalle Zurich",
+    "Location": "",
+    "Date": "Timeless",
+    "Collaborators": "",
+    "Type": "Editorial",
+    "Status": "Completed",
+    "images": [
+      { "date": "810-02_CP_S-C-01.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/download.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "5",
-    "label": "$EBWZT",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/510913046_18007596578772987_2152019013263057643_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$ZM1",
+    "label": "29.FEB.2024",
+    "Index": "810.03",
+    "Client": "",
+    "Location": "",
+    "Date": "2024",
+    "Collaborators": "",
+    "Type": "Editorial",
+    "Status": "Completed",
+    "images": [
+      { "date": "810-03_CP_S-C-01.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/392810954_2108987752807324_7353352107473843956_n.jpg",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "6",
-    "label": "$ZM5",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/570205909_18022340426772987_3117029422904001531_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$ZM2",
+    "label": "27.APR.2024",
+    "Index": "810.04",
+    "Client": "",
+    "Location": "",
+    "Date": "2024",
+    "Collaborators": "",
+    "Type": "Editorial",
+    "Status": "Completed",
+    "images": [
+      { "date": "810-04_CP_S-C-01.jpg", "alt": "",   "url": "https://shop.shadowplay.online/cdn/shop/files/IMG-3715.heic?v=1725025592&width=823",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "7",
-    "label": "$ZM5",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/572664697_18022340435772987_8435471728827288504_n.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$C3",
+    "label": "Capsule Issue 03",
+    "Index": "810.05",
+    "Client": "",
+    "Location": "",
+    "Date": "",
+    "Collaborators": "EBA, Zurich",
+    "Type": "Editorial",
+    "Status": "Completed",
+    "images": [
+      { "date": "810-05_CP_S-C-03.jpg", "alt": "",   "url": "https://cdn.shopify.com/s/files/1/0585/4887/9499/files/capsule_MDW24_0229.jpg?v=1713019170",  "width": 900,  "height": 1200 }
+    ]
   },
   {
-    "permalink": "https://example.com/posts/6",
-    "date": "8",
-    "label": "$E37",
-    "alt": "Sample image six",
-    "url": "https://noflash.xyz/images/5/656211735_18010369859849883_4553523132688544307_n.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "8",
-    "label": "$ZM1",
-    "alt": "$ZM1",
-    "url": "https://noflash.xyz/images/5/392810954_2108987752807324_7353352107473843956_n.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-46.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-46.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-45.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-45.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-42.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-42.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-41.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-41.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-36.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-36.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-28.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-28.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-6.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-6.jpg",
-    "width": 1600,
-    "height": 900
-  },
-  {
-    "permalink": "https://example.com/posts/6",
-    "date": "MFT_2506_W-S-4.jpg",
-    "label": "$MFT",
-    "alt": "$MFT",
-    "url": "https://works.arch.ethz.ch/assets/masterthesis/adam_caruso/architecture-beside-itself/_image/MFT_2506_WEB-SELECTION-4.jpg",
-    "width": 1600,
-    "height": 900
+    "key": "$ZM5",
+    "label": "0.00208DAYS",
+    "Index": "810.06",
+    "Client": "",
+    "Location": "",
+    "Date": "2024",
+    "Collaborators": "EBA, Zurich",
+    "Type": "Editorial",
+    "Status": "Completed",
+    "images": [
+      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/572664697_18022340435772987_8435471728827288504_n.jpg",  "width": 900,  "height": 1200 },
+      { "date": "810-06_CP_S-C-02.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/570205909_18022340426772987_3117029422904001531_n.jpg",  "width": 1200, "height": 800  }
+    ]
   }
   
-  
-  
-  
-
 ]
 }

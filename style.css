@@ -12,9 +12,9 @@
   --color-scrim:           #ffffff;
   --opacity-scrim:         0.75;
 
-  var(--color-hover):      red;
-
-  --main-font:        sans-serif
+  --main-font:        sans-serif;
+  --main-font-size:   100%;
+  --sec-font-size:    0.85em;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -73,6 +73,11 @@ body {
   row-gap: 4lh;
 }
 
+.logo-header {
+  font-size: clamp(16px, 5vw, 60px);
+  font-weight: 900;
+}
+
 .site-nav {
   display: contents; /* lets children flow directly into site-header */
 }
@@ -82,21 +87,23 @@ body {
   text-decoration: none;
 }
 
-.site:title-link:hover {
-  color: var(--color-hover);
-}
-
 .site-description {
   margin-block-start: 0.25lh;
 }
 
 .nav-list {
   margin-block-start: 1lh;
+  color: color-mix(in srgb, var(--color-on-surface) 30%, transparent);
 }
 
 .nav-list-link:hover {
-  font-style: none;
-  color: var(--color-hover);
+  color: #000000;
+  font-weight: 100;
+}
+
+.nav-list-link[aria-current="page"] {
+  color: #000000;
+  font-weight: 100;
 }
 
 /* ── Gallery index ─────────────────────────────────────────── */
@@ -120,7 +127,7 @@ body {
   margin-block-start: auto;
   padding-block-start: 4lh;
   height: 5lh;
-  font-size: 0.85em;
+  font-size: var(--main-font-size);
   color: color-mix(in srgb, var(--color-on-surface) 50%, transparent);
 }
 
@@ -149,7 +156,7 @@ body {
 
 .card-meta {
   text-align: center;
-  font-size: 0.8em;
+  font-size: var(--main-font-size);
 }
 
 /* Show date by default; swap to label on hover */
@@ -162,11 +169,12 @@ body {
 body:has(.lightbox[open]) .card-label { display: none  !important; }
 body:has(.lightbox[open]) .card-date  { display: block !important; }
 
+
 /* ── Filter reset button ───────────────────────────────────── */
 .filter-reset {
   align-self: flex-start;
   font: inherit;
-  font-size: 0.85em;
+  font-size: var(--main-font-size);
   cursor: pointer;
   padding: 0.25em 0.6em;
   border: 1px solid var(--color-on-surface);
@@ -236,7 +244,7 @@ body:has(.lightbox[open]) { overflow: hidden; }
   inset-inline-end: var(--page-margin);
   pointer-events: none;
   opacity: 0;
-  font-size: 0.85em;
+  font-size: var(--main-font-size);
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -273,3 +281,96 @@ body:has(.lightbox[open]) { overflow: hidden; }
 .filter-meta-key {
   margin-right: 0px;
 }
+
+/* ── Vars table ────────────────────────────────────────────── */
+.vars-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--main-font-size);
+  table-layout: fixed;
+}
+ 
+.vars-table th,
+.vars-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.1lh 1.5lh 0.1lh 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+ 
+/* Column widths — defined on <col> so table-layout: fixed locks them */
+col.col-label         { width: 10%; }
+col.col-index         { width: 10%; }
+col.col-location      { width: 10%; }
+col.col-date          { width: 10%; }
+col.col-collaborators { width: 10%; }
+col.col-type          { width: 10%; }
+ 
+@media (max-width: 600px) {
+  col.col-label    { width: 30%; }
+  col.col-date     { width: 30%; }
+  col.col-type     { width: 30%; }
+}
+
+/* ── Mobile: hide all but Label, Location, Date, Type ─────── */
+@media (max-width: 600px) {  
+  .vars-table th,
+  .vars-table td {
+    display: none;
+  }
+ 
+  .vars-table th.col-label,
+  .vars-table td.col-label,
+  .vars-table th.col-date,
+  .vars-table td.col-date,
+  .vars-table th.col-type,
+  .vars-table td.col-type {
+    display: table-cell;
+  }
+}
+
+.vars-table th {
+  padding: 0.1lh 1.5lh 1.1lh 0;
+  color: color-mix(in srgb, var(--color-on-surface) 30%, transparent);
+  font-weight: 400;
+  cursor: pointer;
+  user-select: none;
+}
+ 
+.vars-table th:hover {
+  color: var(--color-on-surface);
+}
+ 
+/* Sort indicator */
+.vars-table th[data-sort="asc"]::after  { content: ' ↑'; }
+.vars-table th[data-sort="desc"]::after { content: ' ↓'; }
+ 
+.vars-table td.empty-cell {
+  color: color-mix(in srgb, var(--color-on-surface) 30%, transparent);
+}
+ 
+.vars-table tbody tr {
+  cursor: pointer;
+}
+ 
+.vars-table tbody tr:hover td {
+  background: color-mix(in srgb, var(--color-on-surface) 4%, transparent);
+}
+ 
+.vars-table a {
+  text-decoration: none;
+  color: inherit;
+}
+ 
+.vars-table a::after {
+  content: ' →';
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+ 
+.vars-table tbody tr:hover a::after {
+  opacity: 1;
+}
+ 

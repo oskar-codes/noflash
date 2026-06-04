@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>NO FLASH</title>
+  <title>Gallery — Template</title>
   <meta name="description" content="An ongoing index of visual references.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -11,29 +11,31 @@
 
   <!-- ── Navigation + filter controls ───────────────────── -->
   <header class="site-header">
-    <nav class="site-nav">
-      <h1 class="site-title">
-        <a class="site-title-link" href="/">NO FLASH</a>
-      </h1>
-      <p class="site-description">Version 04-21</p>
-      <ul class="nav-list">
-        <li class="nav-list-item"><a href="/about"   class="nav-list-link">About</a></li>
-        <li class="nav-list-item"><a href="/" class="nav-list-link">Archive</a></li>
-        <li class="nav-list-item"><a href="/contact" class="nav-list-link">Contact</a></li>
-      </ul>
-    </nav>
+    <!-- Populated by nav.js -->
     <div class="filter-bar" hidden>
-      <br>
       <p class="filter-description"></p>
-      <br>
-      <button class="filter-reset">Reset Selection</button>
+      <button class="filter-reset">Show all</button>
     </div>
   </header>
 
   <!-- ── Gallery grid ────────────────────────────────────── -->
   <main class="index">
-    <p>A flash doesn't just illuminate. It interferes, flattens, exaggerates and imposes a momentary effect onto something that already has its own conditions. NO FLASH is a refusal to default to that interference. It means designing in a way to reveal what's already there rather than overpowering it.</p>
+    <p>NO FLASH is an architecture practice still in the process of defining itself.
+      <!--
+      <br>
+      A flash doesn't just illuminate. It interferes, flattens, exaggerates and imposes a momentary effect onto something that already has its own conditions.
+      <br>
+      NO FLASH is a refusal to default to that interference.
+      -->
+    </p>
   </main>
+
+  <!-- ── Scripts ─────────────────────────────────────────── -->
+  <script src="nav.js"></script>
+  <script src="gallery.js"></script>
+  <script>
+    Gallery.init({ dataFile: 'data.json' });
+  </script>
 
 </body>
 </html>

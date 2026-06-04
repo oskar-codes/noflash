@@ -6,22 +6,20 @@
  * label-based filtering with structured metadata.
  *
  * - Clicking an image  → opens the lightbox (click again to close)
- * - Clicking a label   → filters the grid by the original $var key
- * - "Show all" button  → clears the filter
+ * - Clicking a label   → filters the grid by the project key
+ * - "Show all" button  → clears the filter (or returns to index-list)
  *
- * vars in data.json accept any of these shapes:
- *
- *   "$key": "Label"
- *   "$key": ["Label", "Plain description"]
- *   "$key": {
- *     "label":         "Display name",   // required
- *     "Client":        "Acme Studio",    // any fields you want
- *     "Location":      "London, UK",
- *     "Date":          "2023–2024",
- *     "Collaborators": "Jane Doe",
- *     "Type":          "Architecture"
- *     // … add or remove fields freely
- *   }
+ * Each project entry in data.json looks like:
+ * {
+ *   "key":          "$myProject",   // unique $key used for filtering
+ *   "label":        "My Project",   // display name shown under images
+ *   "Location":     "Oslo, Norway", // any metadata fields (optional)
+ *   "Date":         "2024",
+ *   "Type":         "Photography",
+ *   "images": [
+ *     { "url": "…", "width": 900, "height": 1200, "date": "18 April 2026", "alt": "…" }
+ *   ]
+ * }
  *
  * Usage:  Gallery.init({ dataFile: 'data.json' });
  */
@@ -47,45 +45,66 @@ const Gallery = (() => {
   /* ── Variable resolution ──────────────────────────────── */
 
   /**
-   * Normalise a var value into { label, meta }
-   * where meta is an ordered array of { key, value } pairs
-   * (everything except "label" in the object).
+   * Parse the new flat array format into:
+   *   resolvedVars: { $key → { label, meta: [{key, value}] } }
+   *   posts:        [ { url, width, height, date, alt, label, filterKey } ]
    */
-  function parseVars(vars) {
-    const out = {};
-    for (const [key, value] of Object.entries(vars)) {
-      if (typeof value === 'string') {
-        out[key] = { label: value, meta: [] };
-      } else if (Array.isArray(value)) {
-        out[key] = { label: value[0] ?? '', meta: value[1] ? [{ key: '', value: value[1] }] : [] };
-      } else if (typeof value === 'object' && value !== null) {
-        const { label = '', ...rest } = value;
-        out[key] = {
-          label,
-          meta: Object.entries(rest).map(([k, v]) => ({ key: k, value: v })),
-        };
+  function parseData(data) {
+    const vars  = {};
+    const posts = [];
+
+    for (const entry of data) {
+      const { key, label, images = [], ...metaFields } = entry;
+
+      // Build meta array from all fields except key, label, images
+      const meta = Object.entries(metaFields)
+        .filter(([, v]) => v !== '')   // skip empty fields
+        .map(([k, v]) => ({ key: k, value: v }));
+
+      if (key) {
+        vars[key] = { label: label || '', meta };
+      }
+
+      for (const img of images) {
+        posts.push({
+          url:       img.url,
+          width:     img.width,
+          height:    img.height,
+          date:      img.date  || '',
+          alt:       img.alt   || '',
+          label:     key ? (vars[key]?.label || '') : (label || ''),
+          filterKey: key || label || '',
+        });
       }
     }
-    return out;
+
+    return { vars, posts };
   }
 
-  function resolveVar(value) {
-    if (typeof value === 'string' && value.startsWith('$') && value in resolvedVars) {
-      return resolvedVars[value].label;
+  /* ── Scroll ───────────────────────────────────────────── */
+
+  /**
+   * Scroll the page to the top over `duration` milliseconds
+   * using an ease-in-out curve.
+   * @param {number} duration — ms, default 1800
+   */
+  function smoothScrollToTop(duration = 1800) {
+    const start     = window.scrollY;
+    if (start === 0) return;
+    const startTime = performance.now();
+
+    function easeInOut(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
     }
-    return value ?? '';
-  }
 
-  function resolvePost(post) {
-    const rawLabel = post.label ?? '';
-    const isVar    = typeof rawLabel === 'string' && rawLabel.startsWith('$') && rawLabel in resolvedVars;
-    return {
-      ...post,
-      label:     isVar ? resolvedVars[rawLabel].label : rawLabel,
-      filterKey: rawLabel,
-      date:      resolveVar(post.date),
-      alt:       resolveVar(post.alt),
-    };
+    function step(now) {
+      const elapsed  = now - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      window.scrollTo(0, start * (1 - easeInOut(progress)));
+      if (progress < 1) requestAnimationFrame(step);
+    }
+
+    requestAnimationFrame(step);
   }
 
   /* ── Shuffle ──────────────────────────────────────────── */
@@ -132,6 +151,12 @@ const Gallery = (() => {
   }
 
   function clearFilter() {
+    // If we arrived from the list page, go back there
+    const params = new URLSearchParams(window.location.search);
+    if (params.get('from') === 'list') {
+      window.location.href = 'index-list.html';
+      return;
+    }
     activeFilter = null;
     rebuildGrid();
     filterBarElm.hidden     = true;
@@ -139,7 +164,7 @@ const Gallery = (() => {
   }
 
   function rebuildGrid() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    smoothScrollToTop(1800);
     if (observer) observer.disconnect();
     gridElm.innerHTML     = '';
     statusElm.textContent = '';
@@ -211,7 +236,7 @@ const Gallery = (() => {
         rendered = renderBatch(posts, rendered);
         if (rendered >= posts.length) {
           obs.disconnect();
-          statusElm.textContent = !activeFilter ? 'NO FLASH 2026' : '';
+          statusElm.textContent = !activeFilter ? 'NF 2026' : '';
         } else {
           obs.observe(entries[0].target);
         }
@@ -268,14 +293,13 @@ const Gallery = (() => {
     resetBtnElm.addEventListener('click', clearFilter);
 
     try {
-      statusElm.textContent = 'Loading…';
+      statusElm.textContent = 'NF 2026';
       const response = await fetch(dataFile);
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
-
-      resolvedVars = parseVars(data.vars ?? {});
-      const posts  = Array.isArray(data) ? data : (data.posts ?? []);
-      allPosts     = shuffle(posts.map(resolvePost));
+      const { vars, posts } = parseData(data.projects ?? data);
+      resolvedVars = vars;
+      allPosts     = shuffle(posts);
 
     } catch (err) {
       console.error('[Gallery] Could not load data file:', err);
@@ -284,8 +308,38 @@ const Gallery = (() => {
     }
 
     setupLightbox();
-    renderBatch(allPosts, 0);
-    setupObserver(allPosts);
+
+    // If a filter is in the URL, apply it directly — skip rendering all posts first
+    const urlFilter = new URLSearchParams(window.location.search).get('filter');
+    if (urlFilter && urlFilter in resolvedVars) {
+      activeFilter = urlFilter;
+
+      // Show metadata panel without triggering scroll
+      const varEntry = resolvedVars[urlFilter];
+      filterDescElm.innerHTML = '';
+      if (varEntry?.meta?.length) {
+        varEntry.meta.forEach(({ key, value }) => {
+          const line = document.createElement('span');
+          line.className = 'filter-meta-line';
+          if (key) {
+            const keySpan = document.createElement('span');
+            keySpan.className   = 'filter-meta-key';
+            keySpan.textContent = key + ': ';
+            line.appendChild(keySpan);
+          }
+          line.appendChild(document.createTextNode(value));
+          filterDescElm.appendChild(line);
+        });
+      }
+      filterBarElm.hidden = false;
+
+      const posts = filteredPosts();
+      renderBatch(posts, 0);
+      setupObserver(posts);
+    } else {
+      renderBatch(allPosts, 0);
+      setupObserver(allPosts);
+    }
   }
 
   return { init };

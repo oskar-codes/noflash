@@ -14,18 +14,22 @@
     <!-- Populated by nav.js -->
     <div class="filter-bar" hidden>
       <p class="filter-description"></p>
-      <button class="filter-reset">Show all</button>
+      <button class="filter-reset">Reset Selection</button>
     </div>
   </header>
 
   <!-- ── Gallery grid ────────────────────────────────────── -->
   <main class="index">
-    <p>NO FLASH c/o TMIS
-        <br>
-        <br>
-        <a href="https://www.google.com/maps/place/ONA,+ETH+Z%C3%BCrich,+Oerlikon/@47.4174311,8.5371805,1526m/data=!3m2!1e3!4b1!4m6!3m5!1s0x47900a91b78e51c9:0xddb8b86801b4dcdf!8m2!3d47.4174275!4d8.5397554!16s%2Fg%2F11clzqcb_w?entry=ttu&amp;g_ep=EgoyMDI1MDIwMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">ETH ONA G 16<br>NEUNBRUNNENSTRASSE 50<br>CH-8050 ZURICH</a>
-    </p>
+    <div class="index-list"></div>
+    <div class="index-sentinel" aria-hidden="true"></div>
+    <div class="index-status" role="status" aria-live="polite">Loading…</div>
   </main>
+
+  <!-- ── Lightbox ────────────────────────────────────────── -->
+  <dialog class="lightbox" closedby="closerequest">
+    <img class="lightbox-img" src="" alt="">
+    <button class="lightbox-close-btn" aria-label="Close lightbox">Close</button>
+  </dialog>
 
   <!-- ── Scripts ─────────────────────────────────────────── -->
   <script src="nav.js"></script>

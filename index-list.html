@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Index — Template</title>
+  <meta name="description" content="An ongoing index of visual references.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ── Navigation ──────────────────────────────────────── -->
+  <header class="site-header">
+    <!-- Populated by nav.js -->
+  </header>
+
+  <!-- ── Vars table ──────────────────────────────────────── -->
+  <main class="index">
+    <table class="vars-table" id="vars-table">
+      <tbody id="vars-tbody"></tbody>
+    </table>
+  </main>
+
+  <script src="nav.js"></script>
+  <script>
+    const GALLERY_PAGE = 'grid.html';
+    const DATA_FILE    = 'data.json';
+    const COLUMN_ORDER = ['Label', 'Index', 'Location', 'Date', 'Collaborators', 'Type'];
+
+    // Sort state: { colIndex: number, direction: 'asc'|'desc'|null }
+    let sortState = { colIndex: null, direction: null };
+
+    // Parsed row data: [{ varKey, label, meta, tr }]
+    let rows = [];
+    let allColumns = []; // ['Label', 'Client', ...]
+    let thead;
+
+    async function init() {
+      const response = await fetch(DATA_FILE);
+      const data = await response.json();
+
+      // Parse the new flat array format
+      const vars = {};
+      for (const entry of (data.projects ?? data)) {
+        if (!entry.key || !entry.images?.length) continue;
+        const { key, label, images, ...metaFields } = entry;
+        vars[key] = { label, ...metaFields };
+      }
+
+      // COLUMN_ORDER is a strict allowlist — only listed columns appear
+      const metaKeys = COLUMN_ORDER.filter(k => k !== 'Label');
+      allColumns = ['Label', ...metaKeys];
+
+      // Build colgroup — this is what makes table-layout: fixed actually lock widths
+      const colgroup = document.createElement('colgroup');
+      allColumns.forEach(key => {
+        const col = document.createElement('col');
+        col.className = 'col-' + key.toLowerCase();
+        colgroup.appendChild(col);
+      });
+      document.getElementById('vars-table').prepend(colgroup);
+
+      // Build header
+      thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      allColumns.forEach((key, colIndex) => {
+        const th = document.createElement('th');
+        th.textContent = key;
+        th.className   = 'col-' + key.toLowerCase();
+        th.addEventListener('click', () => handleHeaderClick(colIndex, th));
+        headerRow.appendChild(th);
+      });
+      thead.appendChild(headerRow);
+      document.getElementById('vars-table').prepend(thead);
+
+      // Build rows
+      const tbody = document.getElementById('vars-tbody');
+
+      for (const [varKey, value] of Object.entries(vars)) {
+        const { label = '', ...meta } = value;
+
+        const tr = document.createElement('tr');
+        tr.addEventListener('click', () => {
+          window.location.href = `${GALLERY_PAGE}?filter=${encodeURIComponent(varKey)}&from=list`;
+        });
+
+        // Label cell
+        const labelTd = document.createElement('td');
+        labelTd.className = 'label-cell col-label';
+        labelTd.textContent = label;
+        tr.appendChild(labelTd);
+
+        // Metadata cells
+        metaKeys.forEach(key => {
+          const td = document.createElement('td');
+          td.className = 'col-' + key.toLowerCase();
+          if (meta[key]) {
+            td.textContent = meta[key];
+          } else {
+            td.textContent = 'N/A';
+            td.classList.add('empty-cell');
+          }
+          tr.appendChild(td);
+        });
+
+        tbody.appendChild(tr);
+
+        // Store row data for sorting
+        rows.push({ label, meta, tr });
+      }
+
+      // Shuffle into random default order
+      for (let i = rows.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [rows[i], rows[j]] = [rows[j], rows[i]];
+      }
+      renderRows();
+    }
+
+    function handleHeaderClick(colIndex, th) {
+      // Cycle: none → asc → desc → none (reshuffled)
+      if (sortState.colIndex !== colIndex) {
+        sortState = { colIndex, direction: 'asc' };
+      } else if (sortState.direction === 'asc') {
+        sortState.direction = 'desc';
+      } else if (sortState.direction === 'desc') {
+        sortState = { colIndex: null, direction: null };
+        // Reshuffle so "unsorted" is always a fresh random order
+        for (let i = rows.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [rows[i], rows[j]] = [rows[j], rows[i]];
+        }
+      }
+
+      // Update header indicators
+      thead.querySelectorAll('th').forEach(h => h.removeAttribute('data-sort'));
+      if (sortState.direction) th.setAttribute('data-sort', sortState.direction);
+
+      renderRows();
+    }
+
+    function getCellValue(row, colIndex) {
+      const key = allColumns[colIndex];
+      if (key === 'Label') return row.label.toLowerCase();
+      return (row.meta[key] ?? '').toLowerCase();
+    }
+
+    function renderRows() {
+      const tbody = document.getElementById('vars-tbody');
+      let sorted  = [...rows];
+
+      if (sortState.direction) {
+        sorted.sort((a, b) => {
+          const av = getCellValue(a, sortState.colIndex);
+          const bv = getCellValue(b, sortState.colIndex);
+          // Push empty '—' values to the bottom regardless of direction
+          if (!av || av === '—') return 1;
+          if (!bv || bv === '—') return -1;
+          const cmp = av.localeCompare(bv);
+          return sortState.direction === 'asc' ? cmp : -cmp;
+        });
+      }
+
+      // Re-append rows in the new order
+      sorted.forEach(row => tbody.appendChild(row.tr));
+    }
+
+    init().catch(err => console.error('[VarsList] Error:', err));
+  </script>
+
+</body>
+</html>
