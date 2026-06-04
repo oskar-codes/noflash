@@ -98,12 +98,12 @@ body {
 
 .nav-list-link:hover {
   color: #000000;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 .nav-list-link[aria-current="page"] {
   color: #000000;
-  font-weight: 100;
+  font-weight: 400;
 }
 
 a {
