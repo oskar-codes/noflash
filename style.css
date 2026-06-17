@@ -1,7 +1,7 @@
 /* ── Design tokens ─────────────────────────────────────────── */
 :root {
   --page-margin:      1rem;
-  --col-min-width:    10lh;          /* minimum card column width  */
+  --col-min-width:    9.5lh;          /* minimum card column width, default value 10lh */
   --col-gap:          2lh;
   --row-gap:          3lh;
   --caption-gap:      1lh;
@@ -14,8 +14,10 @@
 
   --main-font:        -apple-system, Helvetica, Arial, sans-serif;
   --main-font-size:   100%;
-  --main-font-weight: 300;
+  --main-font-weight: 100;
   --sec-font-size:    0.85em;
+
+  --main-blur:        7px;
 }
 
 /* ── Reset ─────────────────────────────────────────────────── */
@@ -26,7 +28,7 @@ html {
   text-size-adjust: none;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  overflow: scroll
+  overflow: scroll;
 }
 
 blockquote, body, button, dd, dl, figcaption, figure,
@@ -70,8 +72,13 @@ body {
   color: var(--color-on-surface);
   display: flex;
   flex-direction: column;
-  padding: var(--page-margin);
+  padding-inline: var(--page-margin);  /* no top padding — header must start flush at top */
+  padding-bottom: var(--page-margin);
   row-gap: 4lh;
+}
+
+main {
+  padding-top: var(--page-margin);     /* restore the spacing that body top padding used to provide */
 }
 
 .logo-header {
@@ -234,7 +241,7 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 }
 
 .lightbox::backdrop {
-  backdrop-filter: blur(3px);
+  backdrop-filter: blur(var(--main-blur));
   /*background-color: var(--color-scrim);*/
   /*opacity: var(--opacity-scrim);*/
 }
@@ -270,13 +277,43 @@ body:has(.lightbox[open]) { overflow: hidden; }
 }
 
 .lightbox-close-btn:focus { opacity: 1; }
+ 
+.lightbox-prev-btn,
+.lightbox-next-btn {
+  position: fixed;
+  inset-block: 0;
+  margin-block: auto;
+  height: fit-content;
+  font-size: calc(var(--main-font-size)*1);
+  padding: var(--page-margin);
+  color: var(--color-on-surface);
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+ 
+.lightbox-prev-btn { inset-inline-start: 0; }
+.lightbox-next-btn { inset-inline-end:   0; }
+ 
+.lightbox-prev-btn:hover,
+.lightbox-next-btn:hover { color: var(--color-on-surface); }
+
 /* ── Site header ───────────────────────────────────────────── */
 .site-header {
-  max-width: 30rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+
+  /* bleed to left/right edges despite body padding */
+  margin-inline: calc(-1 * var(--page-margin));
+  padding: var(--page-margin);
+
+  max-width: none;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
+/* .blur-zone is injected and positioned by nav.js */
 
 /* ── Filter controls ───────────────────────────────────────── */
 .filter-bar {
@@ -326,7 +363,7 @@ col.col-label         { width: 10%; }
 col.col-index         { width: 10%; }
 col.col-location      { width: 10%; }
 col.col-date          { width: 10%; }
-col.col-collaborators { width: 10%; }
+col.col-initiators    { width: 10%; }
 col.col-type          { width: 10%; }
 
 
@@ -335,7 +372,7 @@ col.col-type          { width: 10%; }
   col.col-index         { width: 0; }
   col.col-location      { width: 0; }
   col.col-date          { width: 10%; }
-  col.col-collaborators { width: 0; }
+  col.col-initiators    { width: 0; }
   col.col-type          { width: 10%; }
 }
 
@@ -398,4 +435,3 @@ col.col-type          { width: 10%; }
 .vars-table tbody tr:hover a::after {
   opacity: 1;
 }
- 

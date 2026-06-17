@@ -70,10 +70,12 @@ const Gallery = (() => {
           url:       img.url,
           width:     img.width,
           height:    img.height,
-          date:      img.date  || '',
-          alt:       img.alt   || '',
+          date:      img.date    || '',
+          alt:       img.alt     || '',
+          caption:   img.caption || '',
           label:     key ? (vars[key]?.label || '') : (label || ''),
           filterKey: key || label || '',
+          grid:      img.grid === true,
         });
       }
     }
@@ -121,7 +123,10 @@ const Gallery = (() => {
   /* ── Filtering ────────────────────────────────────────── */
 
   function filteredPosts() {
-    if (!activeFilter) return allPosts;
+    if (!activeFilter) {
+      const gridPosts = allPosts.filter(p => p.grid);
+      return gridPosts.length ? gridPosts : allPosts;
+    }
     return allPosts.filter(p => p.filterKey === activeFilter);
   }
 
@@ -250,34 +255,60 @@ const Gallery = (() => {
   /* ── Lightbox ─────────────────────────────────────────── */
 
   function setupLightbox() {
-    const dialog = document.querySelector('.lightbox');
-    const imgElm = document.querySelector('.lightbox-img');
+    const dialog  = document.querySelector('.lightbox');
+    const imgElm  = document.querySelector('.lightbox-img');
+    const prevBtn = document.querySelector('.lightbox-prev-btn');
+    const nextBtn = document.querySelector('.lightbox-next-btn');
 
-    function open(img) {
-      imgElm.src    = img.src;
-      imgElm.width  = img.width;
-      imgElm.height = img.height;
-      imgElm.alt    = img.alt;
+    let currentIndex = 0;
+
+    function show(index) {
+      const posts = filteredPosts();
+      currentIndex = (index + posts.length) % posts.length;
+      const post = posts[currentIndex];
+      imgElm.src    = post.url;
+      imgElm.width  = post.width  || '';
+      imgElm.height = post.height || '';
+      imgElm.alt    = post.alt    || '';
+    }
+
+    function open(index) {
+      show(index);
       dialog.showModal();
     }
 
     function close() { dialog.close(); }
 
+    function prev() { show(currentIndex - 1); }
+    function next() { show(currentIndex + 1); }
+
+    // Open from grid — find index in filteredPosts by URL
     gridElm.addEventListener('click', (e) => {
       const img = e.target.closest('.card-img');
-      if (img) { open(img); return; }
-
+      if (img) {
+        const posts = filteredPosts();
+        const index = posts.findIndex(p => p.url === img.src);
+        open(index === -1 ? 0 : index);
+        return;
+      }
       const label = e.target.closest('.card-label');
       if (label?.dataset.filterKey) applyFilter(label.dataset.filterKey);
     });
 
+    // Backdrop click closes
     dialog.addEventListener('click', (e) => {
-      if (e.target === imgElm || e.target === dialog) close();
+      if (e.target === dialog) close();
     });
 
+    // Keyboard
     dialog.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') { e.preventDefault(); close(); }
+      if (e.key === 'Escape')     { e.preventDefault(); close(); }
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); prev();  }
+      if (e.key === 'ArrowRight') { e.preventDefault(); next();  }
     });
+
+    prevBtn.addEventListener('click', prev);
+    nextBtn.addEventListener('click', next);
   }
 
   /* ── Public API ───────────────────────────────────────── */
@@ -337,8 +368,9 @@ const Gallery = (() => {
       renderBatch(posts, 0);
       setupObserver(posts);
     } else {
-      renderBatch(allPosts, 0);
-      setupObserver(allPosts);
+      const posts = filteredPosts();
+      renderBatch(posts, 0);
+      setupObserver(posts);
     }
   }
 

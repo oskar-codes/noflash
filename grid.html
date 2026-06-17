@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Gallery — Template</title>
+  <title>Gallery — No Flash</title>
   <meta name="description" content="An ongoing index of visual references.">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -28,11 +28,14 @@
   <!-- ── Lightbox ────────────────────────────────────────── -->
   <dialog class="lightbox" closedby="closerequest">
     <img class="lightbox-img" src="" alt="">
+    <button class="lightbox-prev-btn" aria-label="Previous image">←</button>
+    <button class="lightbox-next-btn" aria-label="Next image">→</button>
     <button class="lightbox-close-btn" aria-label="Close lightbox">Close</button>
   </dialog>
 
   <!-- ── Scripts ─────────────────────────────────────────── -->
   <script src="nav.js"></script>
+  <script src="transition.js"></script>
   <script src="gallery.js"></script>
   <script>
     Gallery.init({ dataFile: 'data.json' });
