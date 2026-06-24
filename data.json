@@ -181,6 +181,20 @@
     ]
   },
   {
+    "key": "$30",
+    "label": "Norsk Sjøfartsmuseum",
+    "Index": "030",
+    "Client": "",
+    "Location": "Oslo, NO",
+    "Date": "",
+    "Initiators": "",
+    "Type": "",
+    "Status": "Ongoing",
+    "images": [
+      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/sjofartsmuseum/030_CI_2606_SJM-C-KH-01-01a.jpg", "grid": true}
+    ]
+  },
+  {
     "key": "$MFT",
     "label": "MFT",
     "Index": "803.01",
