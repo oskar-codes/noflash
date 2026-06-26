@@ -458,8 +458,8 @@
     "Status": "Completed",
     "images": [
       { "date": "803-09_CI_GS-S-232.jpg", "alt": "",   "url": "https://tmis.no/images/MFT_2410_CI_GS-Raw-Geometry-Nodes-Export-01.jpg", "grid": true},
-      { "date": "803-09_CI_GS-S-241", "alt": "",   "url": "https://tmis.no/images/MFT_2410_CI_GS-Raw-Geometry-Nodes-Export-05.JPG", "grid": true},
-      { "date": "803-09_CI_GS-S-247", "alt": "",   "url": "https://tmis.no/images/MFT_2410_CI_GS-Raw-Geometry-Nodes-Export-03.jpg", "grid": true}
+      { "date": "803-09_CI_GS-S-241.jpg", "alt": "",   "url": "https://tmis.no/images/MFT_2410_CI_GS-Raw-Geometry-Nodes-Export-05.JPG", "grid": true},
+      { "date": "803-09_CI_GS-S-247.jpg", "alt": "",   "url": "https://tmis.no/images/MFT_2410_CI_GS-Raw-Geometry-Nodes-Export-03.jpg", "grid": true}
     ]
   },
   {
