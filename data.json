@@ -205,8 +205,8 @@
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-01-01.jpg", "grid": true},
-      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-03-01.jpg", "grid": true}
+      { "date": "033_CI_C-S-01-01.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-01-01.jpg", "grid": true},
+      { "date": "033_CI_C-S-03-01.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-03-01.jpg", "grid": true}
     ]
   },
   {
