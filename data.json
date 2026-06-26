@@ -196,13 +196,13 @@
   },
     {
     "key": "$33",
-    "label": "Private Residencce",
+    "label": "Private Residence",
     "Index": "033",
     "Client": "",
     "Location": "Zurich, CH",
     "Date": "",
     "Initiators": "",
-    "Type": "",
+    "Type": "Architecture",
     "Status": "Ongoing",
     "images": [
       { "date": "033_CI_C-S-01-01.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-01-01.jpg", "grid": true},
