@@ -242,6 +242,8 @@ body:has(.lightbox[open]) .card-date  { display: block !important; }
 
 .lightbox::backdrop {
   backdrop-filter: blur(var(--main-blur));
+  -webkit-backdrop-filter: blur(var(--main-blur));
+  background: rgba(0, 0, 0, 0.01);
   /*background-color: var(--color-scrim);*/
   /*opacity: var(--opacity-scrim);*/
 }
