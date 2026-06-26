@@ -67,7 +67,7 @@
     "Type": "Architecture",
     "Status": "Unrealised",
     "images": [
-      { "date": "004_CI_L-E1-C-08.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg", "grid": true}
+      { "date": "004_CI_L-E1-C-08.jpg", "alt": "004",   "url": "https://noflash.xyz/images/1/LONDON-180/L-180-08.jpg", "grid": true}
     ]
   },
   {
@@ -81,7 +81,7 @@
     "Type": "Architecture",
     "Status": "Unrealised",
     "images": [
-      { "date": "005_CI_P-E1-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg"}
+      { "date": "005_CI_P-E1-C-01.jpg", "alt": "005",   "url": "https://noflash.xyz/images/1/PARIS-180/P-180-EXT-01-PED.jpg"}
     ]
   },
   {
@@ -95,7 +95,7 @@
     "Type": "Architecture",
     "Status": "Unrealised",
     "images": [
-      { "date": "006_CI_T-E1-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/PH/PH-TP-INT-Day-E1-20-C-01.jpg", "grid": true}
+      { "date": "006_CI_T-E1-C-01.jpg", "alt": "006",   "url": "https://noflash.xyz/images/1/006/PH-TP-INT-Day-E1-20-C-01.jpg", "grid": true}
     ]
   },
   {
@@ -109,8 +109,8 @@
     "Type": "Architecture",
     "Status": "Unrealised",
     "images": [
-      { "date": "007_CI_S-E1-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg", "grid": true},
-      { "date": "007_CI_GR-E2-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg", "grid": true}
+      { "date": "007_CI_S-E1-C-02.jpg", "alt": "007",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-S-02.jpg", "grid": true},
+      { "date": "007_CI_GR-E2-C-02.jpg", "alt": "007",   "url": "https://noflash.xyz/images/1/imaged%20house/TH-02-GR.jpg", "grid": true}
     ]
   },
   {
@@ -124,9 +124,9 @@
     "Type": "Scenography",
     "Status": "Unrealised",
     "images": [
-      { "date": "017_CI_S-E0-C-01.jpg", "alt": "Antigone",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg", "grid": true},
-      { "date": "017_CI_S-E0-C-03.jpg", "alt": "Antigone",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg", "grid": true},
-      { "date": "017_CI_S-E0-C-02.jpg", "alt": "Antigone",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-02-003.jpg", "grid": true}
+      { "date": "017_CI_S-E0-C-01.jpg", "alt": "017",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-01-2-001.jpg", "grid": true},
+      { "date": "017_CI_S-E0-C-03.jpg", "alt": "017",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-03-002.jpg", "grid": true},
+      { "date": "017_CI_S-E0-C-02.jpg", "alt": "017",   "url": "https://noflash.xyz/images/1/antigone/017_CI_2402_ZM-02-003.jpg", "grid": true}
     ]
   },
   {
@@ -140,9 +140,9 @@
     "Type": "Architecture",
     "Status": "Unrealised",
     "images": [
-      { "date": "018_CI_M-E4-C-03.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Midday-UPPER-03-part-1.jpg"},
-      { "date": "018_CI_M-E4-C-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-BLUR.jpg"},
-      { "date": "018_CI_M-E4-C-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Morning-EXT-04.jpg"}
+      { "date": "018_CI_M-E4-C-03.jpg", "alt": "018",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Midday-UPPER-03-part-1.jpg"},
+      { "date": "018_CI_M-E4-C-01.jpg", "alt": "018",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-BLUR.jpg"},
+      { "date": "018_CI_M-E4-C-04.jpg", "alt": "018",   "url": "https://noflash.xyz/images/1/impression/Z-Seegarten-Morning-EXT-04.jpg"}
     ]
   },
   {
@@ -156,10 +156,10 @@
     "Type": "Architecture",
     "Status": "Completed",
     "images": [
-      { "date": "019_CP_P-GL-C-02.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-02-PED.jpg"},
-      { "date": "019_CP_P-G3-C-03.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-03-PED.jpg"},
-      { "date": "019_CP_P-G4-C-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-04-PED.jpg"},
-      { "date": "019_CP_P-G3-E-04.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-EXT-01-PED.jpg"}
+      { "date": "019_CP_P-GL-C-02.jpg", "alt": "019",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-02-PED.jpg"},
+      { "date": "019_CP_P-G3-C-03.jpg", "alt": "019",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-03-PED.jpg"},
+      { "date": "019_CP_P-G4-C-04.jpg", "alt": "019",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-C-04-PED.jpg"},
+      { "date": "019_CP_P-G3-E-04.jpg", "alt": "019",   "url": "https://noflash.xyz/images/1/les%20invalides/P-GL-3-EXT-01-PED.jpg"}
       
     ]
   },
@@ -174,10 +174,10 @@
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "029_CI_C-BR-02-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-BR-02-01.jpg", "grid": true},
-      { "date": "029_CI_C-BR-02-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-PS-2-02-02.jpg", "grid":true},
-      { "date": "029_CI_C-BR-02-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-PS-3-02-03.jpg", "grid": true},
-      { "date": "029_CI_C-BR-02-01.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-BR-01-03.jpg", "grid": true}
+      { "date": "029_CI_C-BR-02-01.jpg", "alt": "029",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-BR-02-01.jpg", "grid": true},
+      { "date": "029_CI_C-BR-02-01.jpg", "alt": "029",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-PS-2-02-02.jpg", "grid":true},
+      { "date": "029_CI_C-BR-02-01.jpg", "alt": "029",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-PS-3-02-03.jpg", "grid": true},
+      { "date": "029_CI_C-BR-02-01.jpg", "alt": "029",   "url": "https://noflash.xyz/images/1/029/029_CI_2606_HO-C-BR-01-03.jpg", "grid": true}
     ]
   },
   {
@@ -191,7 +191,7 @@
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/030/030_CI_2606_SJM-C-KH-01-01a.jpg", "grid": true}
+      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "030",   "url": "https://noflash.xyz/images/1/030/030_CI_2606_SJM-C-KH-01-01a.jpg", "grid": true}
     ]
   },
     {
@@ -205,8 +205,8 @@
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-01-01.jpg", "grid": true},
-      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-03-01.jpg", "grid": true}
+      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-01-01.jpg", "grid": true},
+      { "date": "030_CI_C-KH-01-01a.jpg", "alt": "033",   "url": "https://noflash.xyz/images/1/033/033_CI_C-S-03-01.jpg", "grid": true}
     ]
   },
   {
@@ -242,11 +242,11 @@
     "Type": "Architecture",
     "Status": "In progress",
     "images": [
-      { "date": "803-027_CI_V-C-06.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-2-V-06.jpg", "grid": true},
-      { "date": "803-027_CI_H-C-04.png", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-4-07-04.png", "grid": true},
-      { "date": "803-027_CI_I-C-01.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-INT-02-1-V-01.jpg", "grid": true},
-      { "date": "803-027_CI_I-C-03.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/495407274_18001616660772987_1984892888359387740_n.jpg"},
-      { "date": "803-027_CI_I-C-05.jpg", "alt": "EBA27",   "url": "https://noflash.xyz/images/5/495356769_18001616651772987_3030083462477671748_n.jpg"}
+      { "date": "803-027_CI_V-C-06.jpg", "alt": "E27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-2-V-06.jpg", "grid": true},
+      { "date": "803-027_CI_H-C-04.png", "alt": "E27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-H-01-4-07-04.png", "grid": true},
+      { "date": "803-027_CI_I-C-01.jpg", "alt": "E27",   "url": "https://noflash.xyz/images/5/2452_027-SML-C-INT-02-1-V-01.jpg", "grid": true},
+      { "date": "803-027_CI_I-C-03.jpg", "alt": "E27",   "url": "https://noflash.xyz/images/5/495407274_18001616660772987_1984892888359387740_n.jpg"},
+      { "date": "803-027_CI_I-C-05.jpg", "alt": "E27",   "url": "https://noflash.xyz/images/5/495356769_18001616651772987_3030083462477671748_n.jpg"}
     ]
   },
   {
@@ -260,7 +260,7 @@
     "Type": "Architecture",
     "Status": "In progress",
     "images": [
-      { "date": "803-034_CI_S-C-07.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/5/2453_0-SML-C-E-01-3-V-07.jpg", "grid": true}
+      { "date": "803-034_CI_S-C-07.jpg", "alt": "E34",   "url": "https://noflash.xyz/images/5/2453_0-SML-C-E-01-3-V-07.jpg", "grid": true}
     ]
   },
   {
@@ -274,7 +274,7 @@
     "Type": "Architecture",
     "Status": "Completed",
     "images": [
-      { "date": "803-037_CP_S-C-07.jpg", "alt": "Sample image one",   "url": "https://noflash.xyz/images/5/656211735_18010369859849883_4553523132688544307_n.jpg", "grid": true}
+      { "date": "803-037_CP_S-C-07.jpg", "alt": "E37",   "url": "https://noflash.xyz/images/5/656211735_18010369859849883_4553523132688544307_n.jpg", "grid": true}
     ]
   },
   {
@@ -288,7 +288,7 @@
     "Type": "Editorial",
     "Status": "Completed",
     "images": [
-      { "date": "810-02_CP_S-C-01.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/download.jpg"}
+      { "date": "810-02_CP_S-C-01.jpg", "alt": "K1",   "url": "https://noflash.xyz/images/5/download.jpg"}
     ]
   },
   {
@@ -302,7 +302,7 @@
     "Type": "Editorial",
     "Status": "Completed",
     "images": [
-      { "date": "810-03_CP_S-C-01.jpg", "alt": "",   "url": "https://noflash.xyz/images/5/392810954_2108987752807324_7353352107473843956_n.jpg", "grid": true}
+      { "date": "810-03_CP_S-C-01.jpg", "alt": "ZM1",   "url": "https://noflash.xyz/images/5/392810954_2108987752807324_7353352107473843956_n.jpg", "grid": true}
     ]
   },
   {
@@ -316,7 +316,7 @@
     "Type": "Editorial",
     "Status": "Completed",
     "images": [
-      { "date": "810-04_CP_S-C-01.jpg", "alt": "",   "url": "https://shop.shadowplay.online/cdn/shop/files/IMG-3715.heic?v=1725025592&width=823", "grid": true}
+      { "date": "810-04_CP_S-C-01.jpg", "alt": "ZM2",   "url": "https://shop.shadowplay.online/cdn/shop/files/IMG-3715.heic?v=1725025592&width=823", "grid": true}
     ]
   },
   {
@@ -330,7 +330,7 @@
     "Type": "Contribution",
     "Status": "Completed",
     "images": [
-      { "date": "810-05_CP_S-C-03.jpg", "alt": "",   "url": "https://cdn.shopify.com/s/files/1/0585/4887/9499/files/capsule_MDW24_0229.jpg?v=1713019170"}
+      { "date": "810-05_CP_S-C-03.jpg", "alt": "C3",   "url": "https://cdn.shopify.com/s/files/1/0585/4887/9499/files/capsule_MDW24_0229.jpg?v=1713019170"}
     ]
   },
   {
