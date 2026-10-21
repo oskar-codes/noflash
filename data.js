@@ -17,8 +17,8 @@ window.DATA = {
     "city": "Zurich",
     "coords": { "lat": 47.37, "lon": 8.54, "timezone": "Europe/Zurich" },
     "bio": [
-      "NO FLASH is a practice in the process of defining itself.",
-      "Our work spans architecture, hospitality, and creative production."
+      "NO FLASH is a practice taking shape through its work.",
+      "Each project calls for different means, spanning architecture, hospitality, and creative direction."
     ],
     "clients": ["Herzog & de Meuron", "Ehrl Bielicky", "TMIS", "Brandlhuber+", "gta exhibitions", "Liste Art Fair Basel", "Zeitung Magazine", "Kunsthalle Zurich"],
     "contact": {
