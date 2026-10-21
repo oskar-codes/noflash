@@ -151,12 +151,12 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-03-2.jpg"},
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-06.jpg"},
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-01-3.jpg"},
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-04-2.jpg"},
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-02-2.jpg"},
-      { "date": "", "alt": "key",   "url": "images/029_CI_C-N-07.jpg."}
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-03-2.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-06.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-01-3.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-04-2.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-02-2.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-07.jpg."}
     ]
   },
   {
@@ -181,8 +181,8 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/031_CI_C-N-02.jpg"},
-      { "date": "", "alt": "key",   "url": "images/031_CI_2606_C-MS-02-03-N-2.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/031_CI_C-N-02.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/031_CI_2606_C-MS-02-03-N-2.jpg"}
     ]
   },
   {
@@ -196,8 +196,8 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/033_CI_C-S-03-01-N-9.jpg"},
-      { "date": "", "alt": "key",   "url": "images/033_CI_C-S-03-01-N-8.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/033_CI_C-S-03-01-N-9.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/033_CI_C-S-03-01-N-8.jpg"}
     ]
   },{
     "key": "$34",
@@ -210,12 +210,12 @@ window.DATA = {
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/034_CI_S-R-09.jpg"},
-      { "date": "", "alt": "key",   "url": "images/034_CI_S-R-06.jpg"},
-      { "date": "", "alt": "key",   "url": "images/034_CI_S-R-07-1.jpg"},
-      { "date": "", "alt": "key",   "url": "images/034_CI_S-R-20.jpg"},
-    /*{ "date": "", "alt": "key",   "url": "images/034_CI_S-R-16.jpg"},*/
-      { "date": "", "alt": "key",   "url": "images/034_CI_S-R-12-1.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-09.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-06.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-07-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-20.jpg"},
+    /*{ "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-16.jpg"},*/
+      { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-12-1.jpg"}
     ]
   },
   {
@@ -240,13 +240,13 @@ window.DATA = {
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-11-B.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-01.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-06.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-08.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-03.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-05.jpg"},
-      { "date": "", "alt": "key",   "url": "images/036_CI_S-R-04.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-11-B.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-01.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-06.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-08.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-03.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-05.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-04.jpg"}
     ]
   },
   {
@@ -260,13 +260,13 @@ window.DATA = {
     "Type": "",
     "Status": "Ongoing",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-17.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-20.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-21a.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-06.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-23a.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-02.jpg"},
-      { "date": "", "alt": "key",   "url": "images/038_CI_T-03.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-17.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-20.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-21a.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-06.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-23a.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-02.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/038_CI_T-03.jpg"}
     ]
   },
   {
@@ -280,10 +280,10 @@ window.DATA = {
     "Type": "Creative Direction",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/039_CI_FS-6.jpg"},
-      { "date": "", "alt": "key",   "url": "images/039_CI_FS-13.jpg"},
-  /*  { "date": "", "alt": "key",   "url": "images/039_CI_FS-10.jpg"},*/
-      { "date": "", "alt": "key",   "url": "images/039_CI_FS-5.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/039_CI_FS-6.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/039_CI_FS-13.jpg"},
+  /*  { "date": "", "alt": "key",   "url": "images/6/039_CI_FS-10.jpg"},*/
+      { "date": "", "alt": "key",   "url": "images/6/039_CI_FS-5.jpg"}
     ]
   },
   {
@@ -297,12 +297,12 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/040_CI_F-S-09a.jpg"},
-      { "date": "", "alt": "key",   "url": "images/040_CI_F-S-02g.jpg"},
-      { "date": "", "alt": "key",   "url": "images/040_CI_F-S-09e.jpg"},
-      { "date": "", "alt": "key",   "url": "images/040_CI_F-S-06-2a.jpg"},
-    /*{ "date": "", "alt": "key",   "url": "images/040_CI_F-S-01f.jpg"},
-      { "date": "", "alt": "key",   "url": "images/040_CI_F-S-02b.jpg"}*/
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09a.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-02g.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09e.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-06-2a.jpg"},
+    /*{ "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-01f.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-02b.jpg"}*/
     ]
   },
   {
@@ -316,9 +316,9 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/041_CP_S-01-01.jpg"},
-      { "date": "", "alt": "key",   "url": "images/041_CP_C-01-02.jpg"},
-      { "date": "", "alt": "key",   "url": "images/041_CP_S-02-02.jpg"}
+      { "date": "", "alt": "key",   "url": "images/6/041_CP_S-01-01.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/041_CP_C-01-02.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/041_CP_S-02-02.jpg"}
     ]
   },
   {
@@ -423,8 +423,8 @@ window.DATA = {
     "Type": "Editorial",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "ZM1",   "url": "images/810-03_ZM_CP-2-02a.jpg"},
-      { "date": "", "alt": "ZM1",   "url": "images/810-03_ZM_CP-2-01.jpg"}
+      { "date": "", "alt": "ZM1",   "url": "images/6/810-03_ZM_CP-2-02a.jpg"},
+      { "date": "", "alt": "ZM1",   "url": "images/6/810-03_ZM_CP-2-01.jpg"}
     ]
   },
   {
@@ -438,8 +438,8 @@ window.DATA = {
     "Type": "Editorial",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "ZM1",   "url": "images/810-04_ZM_CP-01.jpg"},
-      { "date": "", "alt": "ZM1",   "url": "images/810-04_ZM_CP-02.jpg"}
+      { "date": "", "alt": "ZM1",   "url": "images/6/810-04_ZM_CP-01.jpg"},
+      { "date": "", "alt": "ZM1",   "url": "images/6/810-04_ZM_CP-02.jpg"}
     ]
   },
   {
@@ -480,7 +480,7 @@ window.DATA = {
     "Status": "Completed",
     "paragraph": "Works by Wade Guyton. Left page photograph taken at Galerie Francesca Pia, Zürich.",
     "images": [
-      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "images/810-07_CP-01.jpg"}
+      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "images/6/810-07_CP-01.jpg"}
     ]
   },
   {
@@ -494,7 +494,7 @@ window.DATA = {
     "Type": "Essay",
     "Status": "Completed",
     "images": [
-      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "images/810-08_CP-01-1.jpg"}
+      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "images/6/810-08_CP-01-1.jpg"}
     ]
   },
   {
