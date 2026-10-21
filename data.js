@@ -172,7 +172,7 @@ window.DATA = {
   },
   {
     "key": "$31",
-    "label": "Private Foundation",
+    "label": "Pedersen Foundation",
     "Index": "031",
     "Client": "",
     "Location": "Oslo, Norway",
@@ -242,7 +242,6 @@ window.DATA = {
     "images": [
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-11-B.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-01.jpg"},
-      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-06.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-08.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-03.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-05.jpg"},
