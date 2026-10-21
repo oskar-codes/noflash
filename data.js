@@ -27,7 +27,7 @@ window.DATA = {
       "addressUrl": "https://maps.app.goo.gl/gj37XQMtXCTEVcuA6",
       "jobs": "jobs@noflash.com"
     },
-    "policies": { "label": "2026 NO FLASH"}
+    "policies": { "label": "..."}
   },
     "projects": [
   {
