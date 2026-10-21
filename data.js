@@ -207,7 +207,7 @@ window.DATA = {
     "Location": "Oslo, Norway",
     "Date": "2026",
     "Initiators": "",
-    "Type": "",
+    "Type": "Hospitality",
     "Status": "Ongoing",
     "images": [
       { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-09.jpg"},
