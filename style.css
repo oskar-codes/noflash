@@ -133,6 +133,18 @@ body.info-open #description-container,body.info-open #counter,body.info-open #pr
   .outer-swiper.blura,.inner-swiper.blura .media-container{filter:none}
 }
 
+/* Swipe-up arrow (touch screens only) */
+#swipe-arrow{display:none}
+@media (hover:none){
+  #swipe-arrow{display:block;position:fixed;left:50%;bottom:calc(var(--bottom) + 36px);z-index:95;margin-left:-8px;width:16px;height:9px;opacity:0;filter:blur(8px);pointer-events:none;transition:opacity .6s var(--ease),filter .6s var(--ease)}
+  #swipe-arrow.on{opacity:1;filter:blur(0)}
+  #swipe-arrow svg{display:block;width:16px;height:9px;fill:#fff;transform:rotate(90deg);animation:hintbob 1.6s ease-in-out infinite;filter:drop-shadow(0 0 4px rgba(0,0,0,.5))}
+  body.info-open #swipe-arrow,body.desc-open #swipe-arrow{opacity:0}
+  /* buttons must not swallow swipes; taps are handled in script.js. Arrows stay as visual hints */
+  .swiper-button-prev,.swiper-button-next{pointer-events:none!important}
+  .swiper-button-prev span,.swiper-button-next span{display:none!important}
+}
+
 /* Scroll hint: same pill as Prev / Next, centred, arrow underneath */
 #scroll-hint{position:fixed;left:50%;top:calc(var(--h, 100%) / 2);transform:translate(-50%,-50%);z-index:95;display:flex;justify-content:center;opacity:0;filter:blur(10px);pointer-events:none;cursor:pointer;transition:opacity .5s var(--ease),filter .5s var(--ease)}   /* the pill itself is centred at 50% height, exactly like Prev / Next */
 #scroll-hint.on{opacity:1;filter:blur(0);pointer-events:auto}
