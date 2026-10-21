@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>NOFLASH</title>
+  <meta name="description" content="Short description of your studio.">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div id="nmr">NOFLASH</div>
+    <div id="contacts"></div>
+  </header>
+
+  <div id="project-info">
+    <span id="project-title"></span>
+    <span id="project-counter-container">[PRJ <span id="project-counter"></span>]</span>
+  </div>
+
+  <div id="top-right">
+    <div id="list-trigger"><span>List</span><span style="display:none">Close</span></div>
+    <div id="info-trigger"><span>Info</span><span style="display:none">Close</span></div>
+  </div>
+
+  <!-- PROJECTS (slides are generated from data.js) -->
+  <div class="swiper outer-swiper blura">
+    <div class="swiper-wrapper" id="slides"></div>
+  </div>
+
+  <!-- DESCRIPTION + COUNTER -->
+  <div id="description-back"></div>
+  <div id="project-paragraph"></div>
+  <div id="description-mobile-grid">
+    <div id="description-container">
+      <div id="description-content" class="hideopanew"></div>
+      <div id="description-rest"><div id="description-rest-inner"></div></div>
+      <div id="close-desc" class="hideopanew"><span>[more]</span><span style="display:none">[X]</span></div>
+    </div>
+    <div id="counter"></div>
+  </div>
+
+  <!-- INFORMATION OVERLAY -->
+  <div class="information-slide">
+    <div id="information-grid">
+      <div id="information-bio"></div>
+      <div id="information-clients-wrap">
+        <p id="description-label">Clients + Collaborators</p>
+        <div id="information-clients"></div>
+      </div>
+      <div id="information-contact-wrap">
+        <p id="description-label">Contact</p>
+        <div id="information-contact"></div>
+      </div>
+      <div id="information-policies"></div>
+    </div>
+  </div>
+
+  <!-- LIST OVERLAY (same mechanism as information) -->
+  <div class="information-slide list-slide">
+    <div id="list-grid">
+      <table class="vars-table" id="vars-table"><thead></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <!-- hint shown if the visitor hasn't scrolled -->
+  <div id="scroll-hint" aria-hidden="true">
+    <span class="button-label" id="scroll-hint-text">Scroll down for more</span>
+    <svg viewBox="0 0 12 7"><path d="M0 3h10L7.6.6 8.2 0 12 3.5 8.2 7l-.6-.6L10 4H0z"/></svg>
+  </div>
+
+  <!-- hover thumbnail for the list -->
+  <div id="list-thumb" aria-hidden="true"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js"></script>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
