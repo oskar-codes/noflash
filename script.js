@@ -134,6 +134,7 @@ function adapt(data) {
     `<span>${pol.copy || ''}</span>`;
 
   /* ── Swipers ─────────────────────────────────────────────── */
+  const IS_TOUCH = matchMedia('(hover: none)').matches;
   const outerEl = $('.outer-swiper');
   const innerEls = $$('.inner-swiper');
   const pauseAll = () => $$('video').forEach(v => v.pause());
@@ -144,8 +145,8 @@ function adapt(data) {
     mousewheel: { forceToAxis: true, sensitivity: 5, thresholdDelta: 25, thresholdTime: 25 },
     keyboard: { enabled: true, onlyInViewport: true },
     effect: 'fade', fadeEffect: { crossFade: false },
-    allowTouchMove: true,
-    breakpoints: { 820: { allowTouchMove: false, speed: 650 } },
+    allowTouchMove: IS_TOUCH,                       // swipe on touch devices only
+    breakpoints: { 820: { speed: 650 } },
   });
 
   const inners = innerEls.map(el => new Swiper(el, {
@@ -153,9 +154,16 @@ function adapt(data) {
     mousewheel: { forceToAxis: true, sensitivity: 5, thresholdDelta: 25, thresholdTime: 25 },
     slidesPerView: 1, freeMode: { enabled: false },
     navigation: { nextEl: $('.swiper-button-next', el), prevEl: $('.swiper-button-prev', el) },
-    allowTouchMove: true,
-    breakpoints: { 820: { allowTouchMove: false, speed: 400 } },
+    allowTouchMove: IS_TOUCH,
+    breakpoints: { 820: { speed: 400 } },
     on: {
+      // On touch screens the Prev/Next buttons don't catch touches (they would block swiping),
+      // so a tap on the left / right half steps back / forward instead.
+      tap(sw, e) {
+        if (!IS_TOUCH) return;
+        const x = e.clientX ?? (e.changedTouches && e.changedTouches[0].clientX) ?? e.pageX;
+        x < innerWidth / 2 ? sw.slidePrev() : sw.slideNext();
+      },
       slideChangeTransitionStart(sw) { sw.el.classList.add('blura'); pauseAll(); },
       slideChangeTransitionEnd(sw)   { sw.el.classList.remove('blura'); updateCounter(); playActive(); },
     },
@@ -356,6 +364,7 @@ function adapt(data) {
       $('#close-desc').classList.remove('hideopanew');
       playActive();
       scheduleHint();
+      showSwipeArrow();
     }, 250);
   }));
 
@@ -375,6 +384,11 @@ function adapt(data) {
     }, understood ? HINT_DELAY_AFTER : HINT_DELAY_FIRST);
   }
   function scheduleHint() { armHint(); }
+  /* Touch screens: a down arrow from the start, until another project has been seen */
+  const swipeArrow = $('#swipe-arrow');
+  function showSwipeArrow() { if (IS_TOUCH && P.length > 1 && outer.activeIndex < P.length - 1 && swipeArrow) swipeArrow.classList.add('on'); }
+  outer.on('slideChange', () => { if (swipeArrow) { swipeArrow.classList.remove('on'); setTimeout(() => swipeArrow.remove(), 600); } });
+
   outer.on('slideChange', () => {
     clearTimeout(hintTimer); hint.classList.remove('on');
     if (hintSeen) understood = true;                  // it was shown and they scrolled → they get it
