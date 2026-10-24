@@ -12,13 +12,13 @@ window.DATA = {
   },
   "site": {
     "fit": "center",
-    "order": ["$39", "$37", "$810-03", "$31", "$40"], 
+    "order": ["$39", "$42", "$43", "$37", "$810-03", "$31", "$40"], 
     "listColumns": ["Label", "Index", "Location", "Date", "Initiators", "Type"],
     "city": "Zurich",
     "coords": { "lat": 47.37, "lon": 8.54, "timezone": "Europe/Zurich" },
     "bio": [
-      "NO FLASH is a practice taking shape through its work.",
-      "Each project calls for different means, spanning architecture, hospitality, and creative direction."
+      "NO FLASH is a practice in the process of defining itself.",
+      "Our work spans architecture, hospitality, and creative production."
     ],
     "clients": ["Herzog & de Meuron", "Ehrl Bielicky", "TMIS", "Brandlhuber+", "gta exhibitions", "Liste Art Fair Basel", "Zeitung Magazine", "Kunsthalle Zurich"],
     "contact": {
@@ -27,7 +27,7 @@ window.DATA = {
       "addressUrl": "https://maps.app.goo.gl/gj37XQMtXCTEVcuA6",
       "jobs": "jobs@noflash.com"
     },
-    "policies": { "label": "..."}
+    "policies": { "label": "2026 NO FLASH"}
   },
     "projects": [
   {
@@ -172,7 +172,7 @@ window.DATA = {
   },
   {
     "key": "$31",
-    "label": "Pedersen Foundation",
+    "label": "Private Foundation",
     "Index": "031",
     "Client": "",
     "Location": "Oslo, Norway",
@@ -207,7 +207,7 @@ window.DATA = {
     "Location": "Oslo, Norway",
     "Date": "2026",
     "Initiators": "",
-    "Type": "Hospitality",
+    "Type": "",
     "Status": "Ongoing",
     "images": [
       { "date": "", "alt": "key",   "url": "images/6/034_CI_S-R-09.jpg"},
@@ -242,15 +242,16 @@ window.DATA = {
     "images": [
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-11-B.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-01.jpg"},
+    /*{ "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-06.jpg"},*/
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-08.jpg"},
-      { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-03.jpg"},
+    /*{ "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-03.jpg"},*/
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-05.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/036_CI_S-R-04.jpg"}
     ]
   },
   {
     "key": "$37",
-    "label": "Nyvoll x Bar 0.0026",
+    "label": "0.0026 by Nyvoll",
     "Index": "037",
     "Client": "",
     "Location": "Oslo, Norway",
@@ -270,7 +271,7 @@ window.DATA = {
   },
   {
     "key": "$39",
-    "label": "Nyvoll Autumn Collection",
+    "label": "Nyvoll AW26",
     "Index": "039",
     "Client": "",
     "Location": "Global",
@@ -296,9 +297,9 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Completed",
     "images": [
-      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09a.jpg"},
+    /*{ "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09a.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-02g.jpg"},
-      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09e.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-09e.jpg"},*/
       { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-06-2a.jpg"},
     /*{ "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-01f.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-02b.jpg"}*/
@@ -318,6 +319,41 @@ window.DATA = {
       { "date": "", "alt": "key",   "url": "images/6/041_CP_S-01-01.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/041_CP_C-01-02.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/041_CP_S-02-02.jpg"}
+    ]
+  },
+  {
+    "key": "$42",
+    "label": "Apartments in a Park",
+    "Index": "042",
+    "Client": "",
+    "Location": "Oslo, Norway",
+    "Date": "2026",
+    "Initiators": "",
+    "Type": "Architecture",
+    "Status": "Ongoing",
+    "images": [
+      { "date": "", "alt": "key",   "url": "images/6/042_CI_C-01-N-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/042_CI_C-02-N-1b.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/042_CI_C-03-N-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/042_CI_C-06-N-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/042_CI_C-05-N-1.jpg"}
+    ]
+  },
+  {
+    "key": "$43",
+    "label": "0.0026",
+    "Index": "043",
+    "Client": "",
+    "Location": "Oslo, Norway",
+    "Date": "2026",
+    "Initiators": "",
+    "Type": "Architecture",
+    "Status": "Completed",
+    "images": [
+      { "date": "", "alt": "key",   "url": "images/6/043_CI_C-02-N-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/043_CI_C-04-N-1b.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/043_CI_C-03-N-1.jpg"},
+      { "date": "", "alt": "key",   "url": "images/6/043_CI_C-01-N-1.jpg"}
     ]
   },
   {
@@ -390,7 +426,7 @@ window.DATA = {
   },
   {
     "key": "$810-01",
-    "label": "The Tempest, Directed by Moved by the Motion",
+    "label": "The Tempest",
     "Index": "810.01",
     "Client": "",
     "Location": "",
@@ -478,9 +514,6 @@ window.DATA = {
     "Type": "Essay",
     "Status": "Completed",
     "paragraph": "Works by Wade Guyton. Left page photograph taken at Galerie Francesca Pia, Zürich.",
-    "images": [
-      { "date": "810-06_CP_S-C-01.jpg", "alt": "",   "url": "images/6/810-07_CP-01.jpg"}
-    ]
   },
   {
     "key": "$810-08",

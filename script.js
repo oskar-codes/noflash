@@ -34,6 +34,12 @@ function buildSlides(e, S) {
 /* "paragraph": a string (blank line = new paragraph) or an array of strings */
 const paraHTML = p => !p ? '' : (Array.isArray(p) ? p : String(p).split(/\n\s*\n/)).map(t => `<p>${t}</p>`).join('');
 
+/* URL slug: "slug" if given, else the Index ("810.03" → "810-03"), else the key without "$" */
+const slugify = e => {
+  const raw = String(e.slug || e.Index || e.key.replace('$', '')).trim().toLowerCase();
+  return raw.replace(/\./g, '-').replace(/[^a-z0-9_-]+/g, '-').replace(/^-+|-+$/g, '') || e.key.replace(/[^a-z0-9]/gi, '').toLowerCase();
+};
+
 function adapt(data) {
   const nav = data.nav || {}, site = data.site || {};
   const S = {
@@ -49,6 +55,7 @@ function adapt(data) {
     return {
       key: e.key,
       _rank: rank(e.key, n),
+      slug: slugify(e),
       paragraph: paraHTML(e.paragraph),
       title: e.label || e.key.replace('$', ''),
       desc: SHORT_FIELDS.map(k => e[k]).filter(Boolean).join(', '),
@@ -56,6 +63,8 @@ function adapt(data) {
       media: buildSlides(e, S),
     };
   }).sort((a, b) => a._rank - b._rank);
+  const seen = new Set();                             // make every slug unique
+  P.forEach(p => { let s = p.slug, k = 2; while (seen.has(s)) s = p.slug + '-' + k++; p.slug = s; seen.add(s); });
   return { S, P };
 }
 
@@ -124,9 +133,9 @@ function adapt(data) {
   $('#information-clients').innerHTML = S.clients.join('<br>');
   const c = S.contact;
   $('#information-contact').innerHTML =
-    `<p><a href="mailto:${c.email}">${c.email}</a></p>` +
-    `<p><a href="${c.addressUrl}" target="_blank" rel="noopener">${c.address}</a></p>` /*+
-    `<p>For portfolios and work applications<br>please refer to<br><a href="mailto:${c.jobs}">${c.jobs}</a></p>`*/;
+    `<p>Contact:</p><p><a href="mailto:${c.email}">${c.email}</a></p>` +
+    `<p><a href="${c.addressUrl}" target="_blank" rel="noopener">${c.address}</a></p>` +
+    `<p>For portfolios and work applications<br>please refer to<br><a href="mailto:${c.jobs}">${c.jobs}</a></p>`;
   const pol = S.policies || {};
   const hasLink = pol.href && pol.href !== '#';
   $('#information-policies').innerHTML =
@@ -188,9 +197,29 @@ function adapt(data) {
   updateText();
 
   /* deep link from the list page: index.html?project=$key */
-  const want = new URLSearchParams(location.search).get('project');
+  /* ── One URL per project: /018 (path mode) or /#018 (hash mode, works anywhere) ── */
+  const BASE = (() => { const sc = $('script[src$="script.js"]'); return new URL(sc ? sc.src : location.href).pathname.replace(/[^/]*$/, ''); })();
+  const PATH_MODE = /^https?:$/.test(location.protocol) && S.urlMode !== 'hash';
+  const slugFromURL = () => {
+    let rest = '';
+    if (PATH_MODE && location.pathname.startsWith(BASE)) rest = decodeURIComponent(location.pathname.slice(BASE.length)).replace(/\/+$/, '').replace(/^index\.html$/i, '');
+    return (rest || decodeURIComponent(location.hash.slice(1))).toLowerCase();
+  };
+  const setURL = i => {
+    const url = PATH_MODE ? BASE + encodeURIComponent(P[i].slug) : '#' + P[i].slug;
+    try { history.replaceState(null, '', url); } catch (_) {}
+    document.title = `${P[i].title} — ${S.name}`;
+  };
+  const goToURL = instant => {
+    const slug = slugFromURL(), i = P.findIndex(p => p.slug === slug);
+    if (i >= 0) { instant ? outer.slideTo(i, 0) : outer.slideTo(i); if (instant) { updateText(); setURL(i); } }
+    else if (slug && PATH_MODE) history.replaceState(null, '', BASE);   // unknown address → back to the root
+  };
+  const want = new URLSearchParams(location.search).get('project');            // legacy ?project=$key links
   const wantIdx = want ? P.findIndex(p => p.key === want) : -1;
-  if (wantIdx > 0) { outer.slideTo(wantIdx, 0); updateText(); }
+  if (wantIdx > 0) { outer.slideTo(wantIdx, 0); updateText(); setURL(wantIdx); } else goToURL(true);
+  addEventListener('popstate', () => goToURL(false));
+  addEventListener('hashchange', () => goToURL(false));
 
   /* project → project: heavy blur + contrast, text hides, then returns */
   outer.on('slideChangeTransitionStart', () => {
@@ -202,6 +231,7 @@ function adapt(data) {
   outer.on('slideChangeTransitionEnd', () => {
     setTimeout(() => { outerEl.classList.remove('blura', 'infoed'); }, 200);
     updateText();
+    setURL(outer.activeIndex);
     $('#description-content').classList.remove('hideopanew');
     $('#close-desc').classList.remove('hideopanew');
     playActive();
