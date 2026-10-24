@@ -11,6 +11,7 @@ window.DATA = {
     ]                                                                   */
   },
   "site": {
+    "urlMode": "hash",
     "fit": "center",
     "order": ["$39", "$42", "$43", "$37", "$810-03", "$31", "$40"], 
     "listColumns": ["Label", "Index", "Location", "Date", "Initiators", "Type"],
