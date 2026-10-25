@@ -133,9 +133,9 @@ function adapt(data) {
   $('#information-clients').innerHTML = S.clients.join('<br>');
   const c = S.contact;
   $('#information-contact').innerHTML =
-    `<p>Contact:</p><p><a href="mailto:${c.email}">${c.email}</a></p>` +
-    `<p><a href="${c.addressUrl}" target="_blank" rel="noopener">${c.address}</a></p>` +
-    `<p>For portfolios and work applications<br>please refer to<br><a href="mailto:${c.jobs}">${c.jobs}</a></p>`;
+    `<p><a href="mailto:${c.email}">${c.email}</a></p>` +
+    `<p><a href="${c.addressUrl}" target="_blank" rel="noopener">${c.address}</a></p>` /*+
+    `<p>For portfolios and work applications<br>please refer to<br><a href="mailto:${c.jobs}">${c.jobs}</a></p>`*/;
   const pol = S.policies || {};
   const hasLink = pol.href && pol.href !== '#';
   $('#information-policies').innerHTML =
