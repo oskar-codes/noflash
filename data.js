@@ -157,7 +157,7 @@ window.DATA = {
       { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-01-3.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-04-2.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-02-2.jpg"},
-      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-07.jpg."}
+      { "date": "", "alt": "key",   "url": "images/6/029_CI_C-N-07.jpg"}
     ]
   },
   {
