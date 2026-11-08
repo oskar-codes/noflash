@@ -305,7 +305,7 @@ window.DATA = {
     /*{ "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-01f.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/040_CI_F-S-02b.jpg"}*/
     ]
-  },
+  },/*
   {
     "key": "$41",
     "label": "Private Apartment",
@@ -321,7 +321,7 @@ window.DATA = {
       { "date": "", "alt": "key",   "url": "images/6/041_CP_C-01-02.jpg"},
       { "date": "", "alt": "key",   "url": "images/6/041_CP_S-02-02.jpg"}
     ]
-  },
+  },*/
   {
     "key": "$42",
     "label": "Apartments in a Park",
