@@ -458,8 +458,8 @@ window.DATA = {
     "Initiators": "Zeitung Magazine",
     "Type": "Editorial",
     "Status": "Completed",
-      "paragraph": "ZEITUNG 29.FEB.2024"
-      "Published by SHADOWPLAY"
+      "paragraph": "ZEITUNG 29.FEB.2024",
+      "Published by SHADOWPLAY",
       "Featuring Thomas Hirschhorn, Karolin Braegger, Dozi Kanu, Julia Hegi, Freitage, Fredi Fischli & Niels Olsen, ANY NEW YORK, Angelina Sisca, Severin Weber, CHristelle Oyiri, Armand Zanota, Alejandro Jodorowsky, Sophia Roxane Rohwetter, Natasha Stagg and BLESS SERVICE.",
     "images": [
       { "date": "", "alt": "ZM1",   "url": "images/6/810-03_ZM_CP-2-02a.jpg"},
@@ -476,8 +476,8 @@ window.DATA = {
     "Initiators": "Zeitung Magazine",
     "Type": "Editorial",
     "Status": "Completed",
-    "paragraph": "ZEITUNG 27.APR.2024"
-      "Published by SHADOWPLAY"
+    "paragraph": "ZEITUNG 27.APR.2024",
+      "Published by SHADOWPLAY",
       "Featuring SAM CHERMAYEFF, JURI ROEMMEL, KUO DUO, STEFAN MARX, DINO SIMONETT, TOM DUCAROUGE, RENATA PETERSEN, IMAGES OF ARCHITECTS, MACIVER-EK CHEVROULET, JEROME WUETSCHERT, ARMAND ZANOTA, KEITH JARRETT, VANILLA SKY, PHILIPP HINDAHL, FERDINAND HODLER, ANOUCK MORLON and HIPGNOSIS.",
     "images": [
       { "date": "", "alt": "ZM1",   "url": "images/6/810-04_ZM_CP-01.jpg"},
