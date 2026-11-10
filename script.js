@@ -81,7 +81,7 @@ function adapt(data) {
     ({ S, P } = adapt(raw));
   } catch (err) {
     document.body.style.opacity = 1;
-    document.body.textContent = 'Could not load NOFLASH.XYZ — check that your connection and try again.';
+    document.body.textContent = 'Could not load NOFLASH.XYZ — check your connection and try again.';
     console.error(err); return;
   }
   const $  = (s, c = document) => c.querySelector(s);
