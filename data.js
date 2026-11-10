@@ -13,7 +13,7 @@ window.DATA = {
   "site": {
     "urlMode": "hash",
     "fit": "center",
-    "order": ["$39", "$42", "$43", "$37", "$810-03", "$31", "$40"], 
+    "order": ["$39", "$42", "$43", "$810-04", "$37", "$810-03", "$31", "$40"], 
     "listColumns": ["Label", "Index", "Location", "Date", "Initiators", "Type"],
     "city": "Zurich",
     "coords": { "lat": 47.37, "lon": 8.54, "timezone": "Europe/Zurich" },
