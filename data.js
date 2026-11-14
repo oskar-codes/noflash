@@ -500,6 +500,12 @@ window.DATA = {
     "Initiators": "Ehrl Bielicky",
     "Type": "Contribution",
     "Status": "Completed",
+    "paragraph": ["Capsule is an annual publication that merges the qualities of a magazine and a book, drawing inspiration from Italian radical design publications and embracing a luxurious physical form. Released during Milan Design Week, the third issue explores the expansive world of design through a diverse lineup of designers, architects, and creators.",
+                  "This edition features articles on Tiffany Icons, Officeland, the Olympics, Nike Alphafly 3, Takuro Kuwata, Cini Boeri, Apple Vision Pro, Herzog & de Meuron, Max Lamb, Katherine Bernhardt, AlUla, Saratoga 60, David Zilber, and Luna Rossa."]
+    "images": [
+      { "date": "", "alt": "810-05",   "url": "images/6/810-05_CI-01.jpg"},
+      { "date": "", "alt": "810-05",   "url": "images/6/810-05_CI-02.jpg"}
+    ]
   },
   {
     "key": "$810-06",
