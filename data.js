@@ -19,7 +19,9 @@ window.DATA = {
     "coords": { "lat": 47.37, "lon": 8.54, "timezone": "Europe/Zurich" },
     "bio": [
       "NO FLASH is a practice in the process of defining itself.",
-      "Our work spans architecture, hospitality, and creative production."
+      "Our work spans architecture, hospitality, and creative direction.",
+      "Conceived as an evolving platform, it operates between disciplines, bringing together different perspectives, references, and ways of working. Neither bound to a singular medium nor a fixed methodology, NO FLASH approaches each project as an opportunity to explore new territories and establish unexpected connections. The practice is interested in the cultural life of spaces, the narratives embedded in objects, and the ways environments shape human experience. Moving between concept, research, and production, its work takes form through spaces, places, identities, and experiences. Each project contributes to an expanding body of work, where disciplines overlap, boundaries remain porous, and new ideas find their expression."
+      
     ],
     "clients": ["Herzog & de Meuron", "Ehrl Bielicky", "TMIS", "Brandlhuber+", "gta exhibitions", "Liste Art Fair Basel", "Zeitung Magazine", "Kunsthalle Zurich"],
     "contact": {
