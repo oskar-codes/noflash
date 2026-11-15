@@ -425,7 +425,7 @@ window.DATA = {
     "Type": "Architecture",
     "Status": "Completed",
     "paragraph": ["76 Bowery, New York, NY 10013, United States.",
-                  "Project by Ehrl Bielicky and ANY New York, at the invitation by VOWELS."
+                  "Project by Ehrl Bielicky and ANY New York, at the invitation of VOWELS."
                   ],
     "images": [
       { "date": "803-037_CP_S-C-07.jpg", "alt": "E37",   "url": "https://noflash.xyz/images/5/656211735_18010369859849883_4553523132688544307_n.jpg", "grid": true}
